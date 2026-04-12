@@ -10,6 +10,8 @@
 <meta property="og:description" content="Sites profissionais que vendem, convertem e aparecem no Google. Especialista em Curitiba.">
 <meta property="og:type" content="website">
 <title>Gustavo Digital | Sites Profissionais que Geram Clientes em Curitiba</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -58,7 +60,17 @@
     text-decoration: none;
     letter-spacing: -0.02em;
   }
-  .nav-logo span { color: var(--accent); }
+  .nav-logo img {
+    height: 42px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(212,175,55,0.25));
+    transition: filter .3s, transform .3s;
+  }
+  .nav-logo:hover img {
+    filter: drop-shadow(0 0 14px rgba(212,175,55,0.5));
+    transform: scale(1.04);
+  }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     color: var(--muted); text-decoration: none;
@@ -601,7 +613,8 @@
     display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; align-items: start;
     max-width: 1200px; margin: 0 auto;
   }
-  .footer-brand .nav-logo { display: block; margin-bottom: .8rem; }
+  .footer-brand .nav-logo { display: block; margin-bottom: 1rem; }
+  .footer-brand .nav-logo img { height: 52px; width: auto; filter: drop-shadow(0 0 10px rgba(212,175,55,0.3)); }
   .footer-brand p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
   .footer-links h5 {
     font-family: var(--font-head); font-weight: 700; font-size: .85rem;
@@ -688,7 +701,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Gustavo<span>.</span>Digital</a>
+  <a href="#" class="nav-logo"><img src="logo.png" alt="Gustavo Digital"></a>
   <ul class="nav-links">
     <li><a href="#servicos">Serviços</a></li>
     <li><a href="#processo">Como Funciona</a></li>
@@ -702,6 +715,7 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="toggleMenu()" style="border-bottom:none; padding-bottom:0"><img src="logo.png" alt="Gustavo Digital" style="height:48px; width:auto; filter:drop-shadow(0 0 10px rgba(212,175,55,0.4))"></a>
   <a href="#servicos" onclick="toggleMenu()">Serviços</a>
   <a href="#processo" onclick="toggleMenu()">Como Funciona</a>
   <a href="#nichos" onclick="toggleMenu()">Quem Atendo</a>
@@ -1217,6 +1231,8 @@
 <!-- CTA FINAL -->
 <section class="cta-final">
   <div class="container reveal">
+    <img src="logo.png" alt="Gustavo Digital" style="height:64px; width:auto; margin-bottom:1.5rem; filter:drop-shadow(0 0 20px rgba(212,175,55,0.4))">
+    <br>
     <span class="section-tag">Pronto para crescer?</span>
     <h2 class="section-title">Seu próximo cliente<br>está no Google agora.</h2>
     <p class="section-sub">Enquanto você lê isso, alguém em Curitiba está pesquisando o serviço que você oferece. O site vai determinar se esse cliente vai para você ou para o concorrente.</p>
@@ -1232,7 +1248,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
-    <a href="#" class="nav-logo">Gustavo<span>.</span>Digital</a>
+    <a href="#" class="nav-logo"><img src="logo.png" alt="Gustavo Digital"></a>
     <p>Especialista em criação de sites profissionais para negócios em Curitiba que querem mais clientes.</p>
     <a href="https://instagram.com/_gustavodigital" target="_blank" style="color:var(--muted); text-decoration:none; font-size:.85rem; display:inline-block; margin-top:.8rem">📸 @_gustavodigital</a>
   </div>
@@ -1247,7 +1263,7 @@
     <h5>Contato</h5>
     <a href="https://api.whatsapp.com/send/?phone=5541995374510&type=phone_number&app_absent=0" target="_blank">WhatsApp</a>
     <a href="https://instagram.com/_gustavodigital" target="_blank">Instagram</a>
-    <a href="mailto:contato@gustavodigital.online">E-mail</a>
+    <a href="/cdn-cgi/l/email-protection#a8cbc7c6dcc9dcc7e8cfdddbdcc9dec7ccc1cfc1dcc9c486c7c6c4c1c6cd">E-mail</a>
     <a href="#faq">Perguntas Frequentes</a>
   </div>
 </footer>
@@ -1255,7 +1271,7 @@
   © 2025 Gustavo Digital — Curitiba, PR • Feito com ❤️ para <span>negócios que querem crescer</span>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function toggleMenu(){
     document.getElementById('mobileMenu').classList.toggle('open');
   }
@@ -1276,12 +1292,3 @@
   // Stagger children
   document.querySelectorAll('.services-grid, .problems-grid, .nichos-grid, .test-grid').forEach(grid => {
     Array.from(grid.children).forEach((child, i) => {
-      child.style.transitionDelay = (i * 0.08) + 's';
-      child.classList.add('reveal');
-      observer.observe(child);
-    });
-  });
-</script>
-
-</body>
-</html>
