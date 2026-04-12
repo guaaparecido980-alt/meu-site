@@ -1,1 +1,1280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gustavo Digital — Criação de sites profissionais em Curitiba que geram clientes de verdade. Sites que vendem, convertem e posicionam seu negócio no Google.">
+<meta name="keywords" content="criação de sites Curitiba, site profissional Curitiba, desenvolvimento web Curitiba, site que gera clientes, landing page Curitiba">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Gustavo Digital — Sites que Geram Clientes em Curitiba">
+<meta property="og:description" content="Sites profissionais que vendem, convertem e aparecem no Google. Especialista em Curitiba.">
+<meta property="og:type" content="website">
+<title>Gustavo Digital | Sites Profissionais que Geram Clientes em Curitiba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
+<style>
+  :root {
+    --black: #0A0A0B;
+    --white: #FAFAFA;
+    --accent: #FF4D1C;
+    --accent2: #FF8C00;
+    --gray: #1A1A1C;
+    --gray2: #2A2A2D;
+    --gray3: #3D3D42;
+    --muted: #888;
+    --light: #F4F4F0;
+    --border: rgba(255,255,255,0.08);
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 999;
+    padding: 1.2rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(10,10,11,0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--font-head);
+    font-weight: 800; font-size: 1.3rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.9rem; font-weight: 500;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--accent);
+    color: var(--white);
+    padding: .55rem 1.4rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600; font-size: .9rem;
+    transition: transform .2s, box-shadow .2s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { transform: scale(1.04); box-shadow: 0 0 24px rgba(255,77,28,.4); }
+  .nav-mobile-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(255,77,28,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(255,140,0,0.06) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+  }
+  .hero-content {
+    max-width: 1200px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    position: relative; z-index: 2;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(255,77,28,0.12);
+    border: 1px solid rgba(255,77,28,.3);
+    color: var(--accent);
+    padding: .35rem 1rem;
+    border-radius: 50px;
+    font-size: .8rem; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)} }
+
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(250,250,250,0.65);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: .6rem;
+    background: var(--accent);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700; font-size: 1rem;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,77,28,.4); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: .5rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500; font-size: 1rem;
+    transition: border-color .2s, background .2s;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.05); }
+
+  .hero-stats {
+    display: flex; gap: 2rem; margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: var(--font-head);
+    font-size: 2rem; font-weight: 800;
+    background: linear-gradient(135deg, var(--white), rgba(255,255,255,.6));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .stat-num span { color: var(--accent); -webkit-text-fill-color: var(--accent); }
+  .stat-label { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+
+  .hero-visual {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .mockup-wrap {
+    position: relative;
+    width: 100%; max-width: 480px;
+  }
+  .browser-mock {
+    background: var(--gray);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+  .browser-bar {
+    display: flex; align-items: center; gap: .5rem;
+    padding: .8rem 1rem;
+    background: var(--gray2);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .browser-url {
+    flex: 1; background: rgba(0,0,0,.3); border-radius: 6px;
+    padding: .3rem .8rem; font-size: .75rem; color: var(--muted);
+    margin: 0 .5rem;
+  }
+  .browser-body { padding: 1.5rem; }
+  .mock-hero-bar { height: 12px; background: rgba(255,77,28,.3); border-radius: 4px; margin-bottom: 1rem; width: 70%; }
+  .mock-line { height: 8px; background: rgba(255,255,255,.08); border-radius: 4px; margin-bottom: .6rem; }
+  .mock-line.short { width: 55%; }
+  .mock-line.med { width: 80%; }
+  .mock-btn { height: 32px; width: 120px; background: var(--accent); border-radius: 50px; margin-top: 1rem; opacity: .8; }
+  .mock-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .5rem; margin-top: 1.2rem; }
+  .mock-card { height: 60px; background: rgba(255,255,255,.05); border-radius: 8px; border: 1px solid rgba(255,255,255,.08); }
+
+  .badge-float {
+    position: absolute;
+    background: var(--gray2);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: .7rem 1rem;
+    display: flex; align-items: center; gap: .6rem;
+    font-size: .8rem; font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0,0,0,.4);
+    white-space: nowrap;
+  }
+  .badge-float.left { bottom: -1rem; left: -2rem; }
+  .badge-float.right { top: -1rem; right: -2rem; }
+  .badge-icon { font-size: 1.2rem; }
+  .badge-text small { display: block; font-size: .7rem; color: var(--muted); font-weight: 400; }
+
+  /* ── SEÇÕES GERAIS ── */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    font-size: .75rem; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: var(--font-head);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.2rem;
+    color: var(--white);
+  }
+  .section-sub {
+    font-size: 1.05rem;
+    color: rgba(250,250,250,0.55);
+    max-width: 600px;
+    line-height: 1.7;
+  }
+
+  /* ── LOGOS STRIP ── */
+  .logos-strip {
+    padding: 2.5rem 2rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+  .logos-strip p { font-size: .8rem; color: var(--muted); margin-bottom: 1.5rem; letter-spacing: .08em; text-transform: uppercase; }
+  .logos-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem 3rem; align-items: center; }
+  .logo-item {
+    font-family: var(--font-head);
+    font-weight: 700; font-size: 1rem;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: .02em;
+    transition: color .2s;
+  }
+  .logo-item:hover { color: rgba(255,255,255,.55); }
+
+  /* ── DORES / PROBLEMA ── */
+  .problems { background: var(--gray); }
+  .problems-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+  .problem-card {
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 1.8rem;
+    background: rgba(0,0,0,.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .problem-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: rgba(255,77,28,.3);
+  }
+  .problem-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .problem-card h3 {
+    font-family: var(--font-head); font-weight: 700; font-size: 1.05rem;
+    margin-bottom: .6rem; color: var(--white);
+  }
+  .problem-card p { font-size: .9rem; color: rgba(255,255,255,.5); line-height: 1.65; }
+  .vs-arrow {
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head); font-size: 1.5rem; color: var(--accent);
+    padding: 1rem; text-align: center;
+  }
+
+  /* ── SERVIÇOS ── */
+  .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+  .service-card {
+    background: var(--gray);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: transform .3s, border-color .3s, box-shadow .3s;
+    position: relative; overflow: hidden;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255,77,28,.4);
+    box-shadow: 0 20px 40px rgba(255,77,28,.08);
+  }
+  .service-card.featured {
+    border-color: rgba(255,77,28,.4);
+    background: linear-gradient(135deg, rgba(255,77,28,.08), rgba(255,140,0,.04));
+  }
+  .service-card.featured::after {
+    content: 'MAIS VENDIDO';
+    position: absolute; top: 1.2rem; right: 1.2rem;
+    background: var(--accent); color: #fff;
+    font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+    padding: .25rem .7rem; border-radius: 50px;
+  }
+  .service-icon {
+    width: 50px; height: 50px; border-radius: 12px;
+    background: rgba(255,77,28,.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; margin-bottom: 1.2rem;
+    border: 1px solid rgba(255,77,28,.2);
+  }
+  .service-card h3 {
+    font-family: var(--font-head); font-weight: 700; font-size: 1.1rem;
+    margin-bottom: .7rem; color: var(--white);
+  }
+  .service-card p { font-size: .9rem; color: rgba(255,255,255,.5); line-height: 1.65; margin-bottom: 1.2rem; }
+  .service-price {
+    font-family: var(--font-head); font-size: 1.5rem; font-weight: 800;
+    color: var(--accent);
+  }
+  .service-price span { font-size: .8rem; color: var(--muted); font-weight: 400; font-family: var(--font-body); }
+  .service-features { list-style: none; margin: 1rem 0 1.5rem; }
+  .service-features li {
+    font-size: .85rem; color: rgba(255,255,255,.55);
+    padding: .35rem 0; border-bottom: 1px solid rgba(255,255,255,.05);
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .service-features li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+  /* ── PROCESSO ── */
+  .process { background: var(--gray); }
+  .process-steps { margin-top: 3rem; position: relative; }
+  .process-steps::before {
+    content: '';
+    position: absolute; left: 28px; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+  .step {
+    display: flex; gap: 2rem; align-items: flex-start;
+    padding: 0 0 3rem 0; position: relative;
+  }
+  .step:last-child { padding-bottom: 0; }
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--gray2);
+    border: 2px solid var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head); font-weight: 800; font-size: 1.1rem;
+    color: var(--accent); flex-shrink: 0; position: relative; z-index: 2;
+    box-shadow: 0 0 20px rgba(255,77,28,.2);
+  }
+  .step-content h3 {
+    font-family: var(--font-head); font-weight: 700; font-size: 1.15rem;
+    margin-bottom: .5rem; color: var(--white);
+    padding-top: .8rem;
+  }
+  .step-content p { font-size: .9rem; color: rgba(255,255,255,.5); line-height: 1.65; max-width: 500px; }
+  .step-time {
+    display: inline-block; margin-top: .5rem;
+    font-size: .75rem; font-weight: 600; color: var(--accent);
+    background: rgba(255,77,28,.1); padding: .2rem .7rem; border-radius: 50px;
+  }
+
+  /* ── POR QUE EU ── */
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+  .why-list { list-style: none; }
+  .why-item {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    padding: 1.5rem 0; border-bottom: 1px solid var(--border);
+  }
+  .why-item:last-child { border-bottom: none; }
+  .why-check {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,77,28,.12);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent); font-weight: 700; font-size: .9rem; flex-shrink: 0;
+    border: 1px solid rgba(255,77,28,.25);
+  }
+  .why-item h4 {
+    font-family: var(--font-head); font-weight: 700; font-size: .95rem;
+    margin-bottom: .3rem; color: var(--white);
+  }
+  .why-item p { font-size: .85rem; color: rgba(255,255,255,.5); line-height: 1.6; }
+  .why-visual {
+    background: var(--gray);
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    padding: 2rem;
+  }
+  .metric-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 0; border-bottom: 1px solid var(--border);
+  }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-label { font-size: .85rem; color: rgba(255,255,255,.5); }
+  .metric-val {
+    font-family: var(--font-head); font-weight: 800; font-size: 1.4rem;
+    background: linear-gradient(135deg, var(--white), rgba(255,255,255,.7));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .metric-bar { height: 4px; background: rgba(255,255,255,.06); border-radius: 4px; margin-top: .4rem; }
+  .metric-fill { height: 100%; border-radius: 4px; background: linear-gradient(to right, var(--accent), var(--accent2)); }
+
+  /* ── NICHOS ── */
+  .nichos-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 3rem; }
+  .nicho-card {
+    background: var(--gray);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform .3s, border-color .3s;
+  }
+  .nicho-card:hover { transform: translateY(-4px); border-color: rgba(255,77,28,.35); }
+  .nicho-icon { font-size: 2rem; margin-bottom: .8rem; }
+  .nicho-card h4 {
+    font-family: var(--font-head); font-weight: 700; font-size: .9rem;
+    color: var(--white); margin-bottom: .4rem;
+  }
+  .nicho-card p { font-size: .8rem; color: rgba(255,255,255,.45); line-height: 1.5; }
+
+  /* ── DEPOIMENTOS ── */
+  .testimonials { background: var(--gray); }
+  .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+  .test-card {
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+  }
+  .test-quote {
+    font-size: 3rem; font-family: serif; color: var(--accent);
+    opacity: .3; line-height: 1; margin-bottom: 1rem;
+  }
+  .test-text { font-size: .9rem; color: rgba(255,255,255,.65); line-height: 1.7; margin-bottom: 1.5rem; }
+  .test-author { display: flex; align-items: center; gap: .8rem; }
+  .test-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .85rem; color: #fff;
+  }
+  .test-name { font-weight: 600; font-size: .9rem; color: var(--white); }
+  .test-role { font-size: .75rem; color: var(--muted); }
+  .test-stars { color: #FFB800; font-size: .85rem; margin-bottom: .3rem; }
+
+  /* ── FAQ ── */
+  .faq-list { max-width: 800px; margin: 3rem auto 0; }
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: .8rem;
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%; background: var(--gray);
+    color: var(--white); text-align: left;
+    padding: 1.3rem 1.5rem;
+    font-size: .95rem; font-weight: 600;
+    border: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font-body);
+    transition: background .2s;
+  }
+  .faq-q:hover { background: var(--gray2); }
+  .faq-q .arrow { transition: transform .3s; color: var(--accent); font-size: 1.2rem; }
+  .faq-q.open .arrow { transform: rotate(45deg); }
+  .faq-a {
+    background: var(--gray);
+    padding: 0 1.5rem;
+    max-height: 0; overflow: hidden;
+    transition: max-height .4s ease, padding .3s;
+    font-size: .9rem; color: rgba(255,255,255,.55); line-height: 1.7;
+  }
+  .faq-a.open { max-height: 300px; padding: 0 1.5rem 1.3rem; }
+
+  /* ── SOBRE ── */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-img-wrap { position: relative; }
+  .about-img {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--gray2), var(--gray));
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6rem;
+    position: relative; overflow: hidden;
+  }
+  .about-img::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
+    background: linear-gradient(to top, rgba(255,77,28,.15), transparent);
+  }
+  .about-float {
+    position: absolute; bottom: -1.5rem; right: -1.5rem;
+    background: var(--gray2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 12px 32px rgba(0,0,0,.5);
+  }
+  .about-float-num {
+    font-family: var(--font-head); font-size: 2rem; font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .about-float-label { font-size: .75rem; color: var(--muted); }
+  .about-content .section-title { margin-bottom: 1rem; }
+  .about-content p { color: rgba(255,255,255,.6); line-height: 1.75; margin-bottom: 1rem; }
+  .about-skills { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem; }
+  .skill-tag {
+    background: rgba(255,77,28,.08);
+    border: 1px solid rgba(255,77,28,.2);
+    color: var(--accent);
+    padding: .3rem .9rem; border-radius: 50px;
+    font-size: .8rem; font-weight: 600;
+  }
+  .insta-link {
+    display: inline-flex; align-items: center; gap: .5rem;
+    color: var(--white); text-decoration: none;
+    font-weight: 600; font-size: .9rem;
+    margin-top: 1.5rem;
+    background: linear-gradient(135deg, #833AB4, #E1306C, #FD1D1D, #F77737);
+    padding: .7rem 1.4rem; border-radius: 50px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .insta-link:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(225,48,108,.3); }
+
+  /* ── CTA FINAL ── */
+  .cta-final {
+    background: linear-gradient(135deg, #1A0A04, #0A0A0B);
+    position: relative; overflow: hidden;
+    text-align: center;
+  }
+  .cta-final::before {
+    content: '';
+    position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,77,28,.12), transparent);
+  }
+  .cta-final .container { position: relative; z-index: 2; }
+  .cta-final .section-title { font-size: clamp(2rem, 4vw, 3.5rem); }
+  .cta-final .section-sub { margin: 1.2rem auto 2.5rem; text-align: center; }
+  .cta-whats {
+    display: inline-flex; align-items: center; gap: .8rem;
+    background: #25D366;
+    color: #fff; text-decoration: none;
+    padding: 1.1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700; font-size: 1.1rem;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 4px 24px rgba(37,211,102,.25);
+  }
+  .cta-whats:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(37,211,102,.35); }
+  .cta-whats-icon { font-size: 1.4rem; }
+  .urgency {
+    display: inline-block; margin-top: 1.2rem;
+    font-size: .82rem; color: rgba(255,255,255,.4);
+  }
+  .urgency strong { color: var(--accent); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; align-items: start;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .footer-brand .nav-logo { display: block; margin-bottom: .8rem; }
+  .footer-brand p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+  .footer-links h5 {
+    font-family: var(--font-head); font-weight: 700; font-size: .85rem;
+    color: rgba(255,255,255,.7); margin-bottom: 1rem; letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+  .footer-links a {
+    display: block; color: var(--muted); text-decoration: none;
+    font-size: .85rem; margin-bottom: .5rem; transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom {
+    text-align: center; padding: 1.5rem 2rem;
+    font-size: .8rem; color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+  .footer-bottom span { color: var(--accent); }
+
+  /* ── SEO SCHEMA ── */
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-mobile-btn { display: block; }
+    .hero-content { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-visual { order: -1; }
+    .mockup-wrap { max-width: 100%; }
+    .badge-float.left { left: 0; }
+    .badge-float.right { right: 0; }
+    .problems-grid, .why-grid, .about-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .nichos-grid { grid-template-columns: repeat(2,1fr); }
+    .test-grid { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+  }
+  @media (max-width: 600px) {
+    .nichos-grid { grid-template-columns: repeat(2,1fr); }
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-secondary { justify-content: center; }
+  }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 998;
+    background: var(--black); padding: 6rem 2rem 2rem;
+    flex-direction: column; gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: var(--font-head); font-size: 1.8rem; font-weight: 800;
+    color: var(--white); text-decoration: none;
+    border-bottom: 1px solid var(--border); padding-bottom: 1rem;
+  }
+  .mobile-menu a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- SCHEMA JSON-LD SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Gustavo Digital",
+  "description": "Criação de sites profissionais em Curitiba que geram clientes de verdade.",
+  "url": "https://gustavodigital.com.br",
+  "telephone": "+55-41-99999-9999",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Curitiba",
+    "addressRegion": "PR",
+    "addressCountry": "BR"
+  },
+  "areaServed": "Curitiba",
+  "serviceType": "Criação de Sites",
+  "priceRange": "$$",
+  "sameAs": ["https://instagram.com/_gustavodigital"]
+}
+</script>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Gustavo<span>.</span>Digital</a>
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#processo">Como Funciona</a></li>
+    <li><a href="#nichos">Quem Atendo</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="https://wa.me/5541999999999?text=Olá+Gustavo!+Quero+um+site+profissional." class="nav-cta" target="_blank">Quero meu site →</a>
+  <button class="nav-mobile-btn" onclick="toggleMenu()">☰</button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#servicos" onclick="toggleMenu()">Serviços</a>
+  <a href="#processo" onclick="toggleMenu()">Como Funciona</a>
+  <a href="#nichos" onclick="toggleMenu()">Quem Atendo</a>
+  <a href="#sobre" onclick="toggleMenu()">Sobre</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="https://wa.me/5541999999999?text=Olá+Gustavo!+Quero+um+site+profissional." target="_blank" style="color:var(--accent)">Quero meu site →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-tag">📍 Curitiba, PR — Especialista em Sites que Vendem</div>
+      <h1>Seu site precisa <em>gerar clientes,</em> não só existir.</h1>
+      <p class="hero-sub">Crio sites profissionais para negócios em Curitiba que aparecem no Google, convencem na primeira visita e transformam visitante em cliente — sem você precisar entender de tecnologia.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5541999999999?text=Olá+Gustavo!+Quero+um+site+profissional." class="btn-primary" target="_blank">
+          💬 Quero meu site agora
+        </a>
+        <a href="#servicos" class="btn-secondary">Ver serviços e preços ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">15<span>+</span></div>
+          <div class="stat-label">Sites entregues</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100<span>%</span></div>
+          <div class="stat-label">Clientes satisfeitos</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">72<span>h</span></div>
+          <div class="stat-label">Entrega express</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="mockup-wrap">
+        <div class="badge-float right">
+          <div class="badge-icon">🚀</div>
+          <div class="badge-text">Site no ar em 72h<small>entrega rápida garantida</small></div>
+        </div>
+        <div class="browser-mock">
+          <div class="browser-bar">
+            <div class="browser-dot" style="background:#FF5F57"></div>
+            <div class="browser-dot" style="background:#FFBD2E"></div>
+            <div class="browser-dot" style="background:#28C840"></div>
+            <div class="browser-url">seusite.com.br</div>
+          </div>
+          <div class="browser-body">
+            <div class="mock-hero-bar"></div>
+            <div class="mock-line" style="width:90%"></div>
+            <div class="mock-line med"></div>
+            <div class="mock-line short"></div>
+            <div class="mock-btn"></div>
+            <div class="mock-cards">
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+              <div class="mock-card"></div>
+            </div>
+          </div>
+        </div>
+        <div class="badge-float left">
+          <div class="badge-icon">📈</div>
+          <div class="badge-text">+3x mais clientes<small>resultado real dos clientes</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<div class="logos-strip">
+  <p>Tipos de negócios que já atendi em Curitiba</p>
+  <div class="logos-grid">
+    <span class="logo-item">Clínicas</span>
+    <span class="logo-item">Advogados</span>
+    <span class="logo-item">Restaurantes</span>
+    <span class="logo-item">Academias</span>
+    <span class="logo-item">Imobiliárias</span>
+    <span class="logo-item">E-commerce</span>
+    <span class="logo-item">Consultores</span>
+    <span class="logo-item">Lojas Físicas</span>
+  </div>
+</div>
+
+<!-- PROBLEMA -->
+<section class="problems">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">O problema</span>
+      <h2 class="section-title">A maioria dos sites<br>não gera nada.</h2>
+      <p class="section-sub">Ter um site bonito não é suficiente. Você precisa de um site estratégico — construído para aparecer no Google e converter visitante em cliente.</p>
+    </div>
+    <div class="problems-grid reveal">
+      <div class="problem-card">
+        <div class="problem-icon">😤</div>
+        <h3>Site invisível no Google</h3>
+        <p>Seu concorrente aparece na primeira página e você não. Resultado: ele recebe os clientes que deveriam ser seus.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">💸</div>
+        <h3>Investe em tráfego, mas não converte</h3>
+        <p>Você paga por anúncio, o visitante chega no site e vai embora. O problema não é o anúncio — é o site que não convence.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🤷</div>
+        <h3>Site que não passa credibilidade</h3>
+        <p>Em 5 segundos o visitante decide se fica ou vai. Um site amador espanta os clientes bons antes mesmo de você falar com eles.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">⏰</div>
+        <h3>Dependência total de indicação</h3>
+        <p>Sem site que funciona, seu negócio depende só de indicação. Isso limita seu crescimento e deixa você refém de outros.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">Serviços</span>
+      <h2 class="section-title">O site certo<br>para o seu negócio.</h2>
+      <p class="section-sub">Cada projeto é criado do zero, sob medida para o seu nicho e objetivo. Sem template genérico, sem copy-paste.</p>
+    </div>
+    <div class="services-grid reveal">
+
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Landing Page Vendedora</h3>
+        <p>Uma página focada em um único objetivo: converter visitante em lead ou cliente. Perfeita para tráfego pago.</p>
+        <ul class="service-features">
+          <li>Design profissional e exclusivo</li>
+          <li>Copywriting de conversão incluso</li>
+          <li>Integração WhatsApp / formulário</li>
+          <li>Responsivo (mobile perfeito)</li>
+          <li>SEO básico configurado</li>
+        </ul>
+        <div class="service-price">R$ 997 <span>/ único</span></div>
+        <br><br>
+        <a href="https://wa.me/5541999999999?text=Quero+uma+Landing+Page!" class="btn-primary" target="_blank" style="font-size:.85rem; padding:.7rem 1.4rem">Quero esse →</a>
+      </div>
+
+      <div class="service-card featured">
+        <div class="service-icon">🏆</div>
+        <h3>Site Institucional Completo</h3>
+        <p>Seu negócio com presença digital profissional. Apresenta sua empresa, serviços e converte clientes 24h por dia.</p>
+        <ul class="service-features">
+          <li>Até 6 páginas completas</li>
+          <li>SEO avançado para Curitiba</li>
+          <li>Blog para posicionamento Google</li>
+          <li>Formulário + WhatsApp integrado</li>
+          <li>Google Analytics instalado</li>
+          <li>Treinamento para você editar</li>
+        </ul>
+        <div class="service-price">R$ 2.497 <span>/ único</span></div>
+        <br><br>
+        <a href="https://wa.me/5541999999999?text=Quero+o+Site+Institucional+Completo!" class="btn-primary" target="_blank" style="font-size:.85rem; padding:.7rem 1.4rem">Quero esse →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🛒</div>
+        <h3>Loja Virtual / E-commerce</h3>
+        <p>Venda seus produtos online com uma loja profissional, segura e otimizada para converter.</p>
+        <ul class="service-features">
+          <li>Catálogo ilimitado de produtos</li>
+          <li>Pagamento Pix, cartão e boleto</li>
+          <li>Integração com frete automático</li>
+          <li>Painel admin fácil de usar</li>
+          <li>SEO para cada produto</li>
+        </ul>
+        <div class="service-price">R$ 3.497 <span>/ único</span></div>
+        <br><br>
+        <a href="https://wa.me/5541999999999?text=Quero+uma+Loja+Virtual!" class="btn-primary" target="_blank" style="font-size:.85rem; padding:.7rem 1.4rem">Quero esse →</a>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:2rem; padding: 1.5rem; background: var(--gray); border-radius: 12px; border: 1px solid var(--border);" class="reveal">
+      <p style="color: rgba(255,255,255,.6); font-size: .9rem;">
+        ✅ <strong style="color:var(--white)">Todos os projetos incluem:</strong> Hospedagem do 1º ano, domínio .com.br, certificado SSL (cadeado), suporte por 30 dias e 2 revisões ilimitadas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="process" id="processo">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">Processo</span>
+      <h2 class="section-title">Do zero ao ar<br>em poucos dias.</h2>
+      <p class="section-sub">Processo simples, claro e sem complicação. Você não precisa entender de tecnologia — só me contar o que precisa.</p>
+    </div>
+    <div class="process-steps reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Conversa estratégica</h3>
+          <p>Você me conta sobre seu negócio, público, concorrentes e objetivos. Entendo tudo antes de criar qualquer coisa.</p>
+          <span class="step-time">⏱ Dia 1</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Design + Copy exclusivos</h3>
+          <p>Crio o design completo do seu site com textos persuasivos escritos estrategicamente para seu público e nicho.</p>
+          <span class="step-time">⏱ Dia 2-3</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Você aprova e revisa</h3>
+          <p>Você vê o site antes de ir ao ar. Pede ajustes sem limite — só vamos pro ar quando você estiver 100% satisfeito.</p>
+          <span class="step-time">⏱ Dia 3-4</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3>Site no ar + configurado</h3>
+          <p>Coloco seu site no ar com domínio, hospedagem, analytics e tudo funcionando. Pronto para receber clientes.</p>
+          <span class="step-time">⏱ Dia 5-7</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUE EU -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">Diferencial</span>
+      <h2 class="section-title">Por que contratar<br>Gustavo Digital?</h2>
+      <p class="section-sub">Não sou uma agência com dezenas de intermediários. Sou um especialista focado em um resultado: seu site gerar clientes.</p>
+    </div>
+    <div class="why-grid reveal">
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Foco em conversão, não em prêmio de design</h4>
+            <p>Sites bonitos que não vendem são desperdício. Cada decisão de design é baseada em dados e psicologia de conversão.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>SEO local para Curitiba desde o dia 1</h4>
+            <p>Seu site é otimizado para aparecer quando alguém pesquisa seu serviço + Curitiba no Google. Orgânico que chega de graça.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Copy estratégica inclusa em todos os projetos</h4>
+            <p>Não entrego um site vazio para você preencher. Os textos persuasivos já vêm prontos, escritos para o seu público.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Atendimento direto, sem intermediário</h4>
+            <p>Você fala direto comigo no WhatsApp. Sem gerentes, sem tickets, sem esperar 3 dias para uma resposta simples.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Entrega dentro do prazo combinado — sempre</h4>
+            <p>Cumpro o que prometo. Se combinamos 7 dias, entrego em 7 dias. Sem surpresas, sem desculpas.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="why-visual">
+        <p style="font-size:.75rem; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-bottom:1.5rem;">Comparativo com o mercado</p>
+        <div class="metric-row">
+          <div>
+            <div class="metric-label">Velocidade de entrega</div>
+            <div class="metric-bar"><div class="metric-fill" style="width:95%"></div></div>
+          </div>
+          <div class="metric-val">5-7d</div>
+        </div>
+        <div class="metric-row">
+          <div>
+            <div class="metric-label">SEO on-page incluso</div>
+            <div class="metric-bar"><div class="metric-fill" style="width:100%"></div></div>
+          </div>
+          <div class="metric-val">100%</div>
+        </div>
+        <div class="metric-row">
+          <div>
+            <div class="metric-label">Copy incluída no projeto</div>
+            <div class="metric-bar"><div class="metric-fill" style="width:100%"></div></div>
+          </div>
+          <div class="metric-val">Sim</div>
+        </div>
+        <div class="metric-row">
+          <div>
+            <div class="metric-label">Custo vs agência tradicional</div>
+            <div class="metric-bar"><div class="metric-fill" style="width:30%"></div></div>
+          </div>
+          <div class="metric-val">-70%</div>
+        </div>
+        <div class="metric-row">
+          <div>
+            <div class="metric-label">Satisfação dos clientes</div>
+            <div class="metric-bar"><div class="metric-fill" style="width:100%"></div></div>
+          </div>
+          <div class="metric-val">5★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NICHOS -->
+<section id="nichos" style="background: var(--gray);">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">Quem Atendo</span>
+      <h2 class="section-title">Qualquer negócio que precisa<br>de mais clientes.</h2>
+      <p class="section-sub">Se você tem um negócio em Curitiba e quer crescer, eu consigo criar o site certo para o seu segmento.</p>
+    </div>
+    <div class="nichos-grid reveal">
+      <div class="nicho-card"><div class="nicho-icon">🏥</div><h4>Saúde & Bem-estar</h4><p>Clínicas, psicólogos, dentistas, nutricionistas, fisioterapeutas</p></div>
+      <div class="nicho-card"><div class="nicho-icon">⚖️</div><h4>Jurídico & Financeiro</h4><p>Advogados, contadores, consultores, corretores de seguros</p></div>
+      <div class="nicho-card"><div class="nicho-icon">🏠</div><h4>Imóveis & Construção</h4><p>Imobiliárias, construtoras, arquitetos, engenheiros, reformas</p></div>
+      <div class="nicho-card"><div class="nicho-icon">🍕</div><h4>Alimentação</h4><p>Restaurantes, hamburguerias, pizzarias, cafés, delivery</p></div>
+      <div class="nicho-card"><div class="nicho-icon">💪</div><h4>Fitness & Esportes</h4><p>Academias, personal trainers, studios de pilates e yoga</p></div>
+      <div class="nicho-card"><div class="nicho-icon">✂️</div><h4>Beleza & Estética</h4><p>Salões, barbearias, estúdios de tatuagem, clínicas estéticas</p></div>
+      <div class="nicho-card"><div class="nicho-icon">🎓</div><h4>Educação</h4><p>Cursos, escolas, coaches, mentores, professores particulares</p></div>
+      <div class="nicho-card"><div class="nicho-icon">🛒</div><h4>Comércio & E-commerce</h4><p>Lojas físicas e virtuais de qualquer segmento</p></div>
+    </div>
+    <div style="text-align:center; margin-top:2rem" class="reveal">
+      <p style="color:rgba(255,255,255,.45); font-size:.9rem">Não encontrou seu segmento? <a href="https://wa.me/5541999999999" target="_blank" style="color:var(--accent); font-weight:600">Me chama no WhatsApp</a> — atendo qualquer nicho.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="testimonials" id="depoimentos">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">Depoimentos</span>
+      <h2 class="section-title">O que meus clientes<br>falam de mim.</h2>
+    </div>
+    <div class="test-grid reveal">
+      <div class="test-card">
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">O Gustavo entregou tudo que prometeu e antes do prazo. O site ficou incrível e já na primeira semana recebi 3 novos clientes pelo Google. Recomendo de olhos fechados.</p>
+        <div class="test-author">
+          <div class="test-avatar">MR</div>
+          <div>
+            <div class="test-name">Marcos Ribeiro</div>
+            <div class="test-role">Dono de Clínica Odontológica — Curitiba</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">Eu tinha um site velho que não aparecia no Google. O Gustavo refez tudo, com texto incrível e design profissional. Agora apareço na primeira página para clientes de Curitiba.</p>
+        <div class="test-author">
+          <div class="test-avatar">AC</div>
+          <div>
+            <div class="test-name">Ana Carvalho</div>
+            <div class="test-role">Advogada — Curitiba</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">Minha loja física agora tem uma presença digital que não me envergonha. O site é rápido, bonito e os clientes chegam pelo WhatsApp pelo site. Vale muito cada centavo.</p>
+        <div class="test-author">
+          <div class="test-avatar">FP</div>
+          <div>
+            <div class="test-name">Felipe Pessoa</div>
+            <div class="test-role">Proprietário de Academia — Curitiba</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <div class="about-grid reveal">
+      <div class="about-img-wrap">
+        <div class="about-img">👨‍💻</div>
+        <div class="about-float">
+          <div class="about-float-num">15+</div>
+          <div class="about-float-label">Sites entregues em Curitiba</div>
+        </div>
+      </div>
+      <div class="about-content">
+        <span class="section-tag">Sobre mim</span>
+        <h2 class="section-title">Oi, sou o Gustavo.<br>Faço sites que vendem.</h2>
+        <p>Sou desenvolvedor web focado em criar sites que realmente geram resultado para negócios em Curitiba. Não sou uma agência — sou um especialista que trabalha diretamente com você, do briefing à entrega.</p>
+        <p>Cada projeto é tratado como único. Antes de criar qualquer coisa, entendo profundamente o seu negócio, seus clientes e o que os seus concorrentes estão fazendo. Só assim consigo criar algo que realmente se destaca.</p>
+        <p>Meu objetivo é ser o parceiro digital de longo prazo dos negócios de Curitiba — acompanhar o crescimento de cada cliente e continuar gerando resultado.</p>
+        <div class="about-skills">
+          <span class="skill-tag">HTML / CSS / JS</span>
+          <span class="skill-tag">WordPress</span>
+          <span class="skill-tag">SEO Local</span>
+          <span class="skill-tag">Copywriting</span>
+          <span class="skill-tag">Google Analytics</span>
+          <span class="skill-tag">Meta Ads</span>
+          <span class="skill-tag">Google Ads</span>
+          <span class="skill-tag">UX / Conversão</span>
+        </div>
+        <a href="https://instagram.com/_gustavodigital" target="_blank" class="insta-link">
+          📸 @_gustavodigital — Siga no Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background: var(--gray);">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-title">Perguntas frequentes.</h2>
+      <p class="section-sub" style="margin: 0 auto">Tudo que você precisa saber antes de contratar.</p>
+    </div>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quanto tempo demora para ficar pronto? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a">Landing pages ficam prontas em 3-5 dias. Sites institucionais em 5-7 dias úteis. Lojas virtuais de 7 a 14 dias. Sempre cumpro o prazo combinado — sem surpresas.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Já tenho um site. Posso contratar só para melhorar? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a">Sim! Analiso seu site atual e identifico o que está bloqueando conversões. Posso fazer melhorias pontuais ou um redesign completo, dependendo do que faz mais sentido para você.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Preciso ter texto pronto para me enviar? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a">Não! O copywriting está incluído em todos os projetos. Me conto sobre seu negócio numa conversa de 30 minutos e eu escrevo todos os textos persuasivos do site para você.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O site vai aparecer no Google? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a">Todos os sites que entrego incluem SEO on-page configurado desde o dia 1 — meta tags, velocidade, estrutura de headings, sitemap e foco em palavras-chave locais de Curitiba. Os resultados orgânicos crescem com o tempo, mas você começa no caminho certo.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Como funciona o pagamento? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a">50% de entrada para começar o projeto e 50% na entrega. Aceito Pix, transferência e cartão de crédito. Para projetos maiores, posso parcelar em até 3x sem juros no cartão.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          E se eu não gostar do resultado? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a">Você tem 2 rodadas de revisão incluídas — pode pedir alterações em qualquer elemento do site. Só entrego o projeto quando você estiver 100% satisfeito. Trabalho assim porque minha reputação depende do seu resultado.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quanto custa manter o site depois de pronto? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a">O primeiro ano de hospedagem já está incluso. A partir do segundo ano, o custo de hospedagem gira entre R$30-60/mês dependendo do plano. Ofereço também plano de manutenção mensal para quem quer suporte contínuo.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Vale a pena investir num site sendo iniciante? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a">Principalmente para quem está começando! Um site profissional te coloca num nível diferente desde o início — passa credibilidade para os primeiros clientes, aparece no Google e trabalha por você 24h. É o investimento com melhor retorno para quem está montando um negócio.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="container reveal">
+    <span class="section-tag">Pronto para crescer?</span>
+    <h2 class="section-title">Seu próximo cliente<br>está no Google agora.</h2>
+    <p class="section-sub">Enquanto você lê isso, alguém em Curitiba está pesquisando o serviço que você oferece. O site vai determinar se esse cliente vai para você ou para o concorrente.</p>
+    <a href="https://wa.me/5541999999999?text=Olá+Gustavo!+Vi+seu+site+e+quero+um+orçamento+para+meu+projeto." class="cta-whats" target="_blank">
+      <span class="cta-whats-icon">💬</span>
+      Falar com Gustavo no WhatsApp
+    </a>
+    <br>
+    <span class="urgency">Resposta em até <strong>2 horas</strong> • Orçamento <strong>gratuito</strong> e sem compromisso</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="#" class="nav-logo">Gustavo<span>.</span>Digital</a>
+    <p>Especialista em criação de sites profissionais para negócios em Curitiba que querem mais clientes.</p>
+    <a href="https://instagram.com/_gustavodigital" target="_blank" style="color:var(--muted); text-decoration:none; font-size:.85rem; display:inline-block; margin-top:.8rem">📸 @_gustavodigital</a>
+  </div>
+  <div class="footer-links">
+    <h5>Serviços</h5>
+    <a href="#servicos">Landing Page</a>
+    <a href="#servicos">Site Institucional</a>
+    <a href="#servicos">Loja Virtual</a>
+    <a href="#servicos">Redesign de Site</a>
+  </div>
+  <div class="footer-links">
+    <h5>Contato</h5>
+    <a href="https://wa.me/5541999999999" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com/_gustavodigital" target="_blank">Instagram</a>
+    <a href="mailto:contato@gustavodigital.com.br">E-mail</a>
+    <a href="#faq">Perguntas Frequentes</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  © 2025 Gustavo Digital — Curitiba, PR • Feito com ❤️ para <span>negócios que querem crescer</span>
+</div>
+
+<script>
+  function toggleMenu(){
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  function toggleFaq(btn){
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-a.open').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q.open').forEach(q => q.classList.remove('open'));
+    if(!isOpen){ answer.classList.add('open'); btn.classList.add('open'); }
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Stagger children
+  document.querySelectorAll('.services-grid, .problems-grid, .nichos-grid, .test-grid').forEach(grid => {
+    Array.from(grid.children).forEach((child, i) => {
+      child.style.transitionDelay = (i * 0.08) + 's';
+      child.classList.add('reveal');
+      observer.observe(child);
+    });
+  });
+</script>
+
+</body>
+</html>
