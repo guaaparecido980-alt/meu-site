@@ -509,17 +509,22 @@
   .about-img {
     width: 100%;
     aspect-ratio: 1;
-    background: linear-gradient(135deg, var(--gray2), var(--gray));
     border-radius: 24px;
     border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 6rem;
     position: relative; overflow: hidden;
+    background: var(--gray2);
+  }
+  .about-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block;
+    border-radius: 24px;
   }
   .about-img::after {
     content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
-    background: linear-gradient(to top, rgba(255,77,28,.15), transparent);
+    position: absolute; bottom: 0; left: 0; right: 0; height: 35%;
+    background: linear-gradient(to top, rgba(255,77,28,.18), transparent);
+    pointer-events: none;
   }
   .about-float {
     position: absolute; bottom: -1.5rem; right: -1.5rem;
@@ -666,7 +671,7 @@
   "@type": "LocalBusiness",
   "name": "Gustavo Digital",
   "description": "Criação de sites profissionais em Curitiba que geram clientes de verdade.",
-  "url": "https://gustavodigital.com.br",
+  "url": "https://gustavodigital.online",
   "telephone": "+55-41-99999-9999",
   "address": {
     "@type": "PostalAddress",
@@ -691,7 +696,7 @@
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
-  <a href="https://wa.me/5541999999999?text=Olá+Gustavo!+Quero+um+site+profissional." class="nav-cta" target="_blank">Quero meu site →</a>
+  <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Quero+um+site+profissional.&type=phone_number&app_absent=0" class="nav-cta" target="_blank">Quero meu site →</a>
   <button class="nav-mobile-btn" onclick="toggleMenu()">☰</button>
 </nav>
 
@@ -702,7 +707,7 @@
   <a href="#nichos" onclick="toggleMenu()">Quem Atendo</a>
   <a href="#sobre" onclick="toggleMenu()">Sobre</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
-  <a href="https://wa.me/5541999999999?text=Olá+Gustavo!+Quero+um+site+profissional." target="_blank" style="color:var(--accent)">Quero meu site →</a>
+  <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Quero+um+site+profissional.&type=phone_number&app_absent=0" target="_blank" style="color:var(--accent)">Quero meu site →</a>
 </div>
 
 <!-- HERO -->
@@ -715,7 +720,7 @@
       <h1>Seu site precisa <em>gerar clientes,</em> não só existir.</h1>
       <p class="hero-sub">Crio sites profissionais para negócios em Curitiba que aparecem no Google, convencem na primeira visita e transformam visitante em cliente — sem você precisar entender de tecnologia.</p>
       <div class="hero-btns">
-        <a href="https://wa.me/5541999999999?text=Olá+Gustavo!+Quero+um+site+profissional." class="btn-primary" target="_blank">
+        <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Quero+um+site+profissional.&type=phone_number&app_absent=0" class="btn-primary" target="_blank">
           💬 Quero meu site agora
         </a>
         <a href="#servicos" class="btn-secondary">Ver serviços e preços ↓</a>
@@ -842,7 +847,7 @@
         </ul>
         <div class="service-price">R$ 997 <span>/ único</span></div>
         <br><br>
-        <a href="https://wa.me/5541999999999?text=Quero+uma+Landing+Page!" class="btn-primary" target="_blank" style="font-size:.85rem; padding:.7rem 1.4rem">Quero esse →</a>
+        <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Quero+uma+Landing+Page!&type=phone_number&app_absent=0" class="btn-primary" target="_blank" style="font-size:.85rem; padding:.7rem 1.4rem">Quero esse →</a>
       </div>
 
       <div class="service-card featured">
@@ -859,7 +864,7 @@
         </ul>
         <div class="service-price">R$ 2.497 <span>/ único</span></div>
         <br><br>
-        <a href="https://wa.me/5541999999999?text=Quero+o+Site+Institucional+Completo!" class="btn-primary" target="_blank" style="font-size:.85rem; padding:.7rem 1.4rem">Quero esse →</a>
+        <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Quero+o+Site+Institucional+Completo!&type=phone_number&app_absent=0" class="btn-primary" target="_blank" style="font-size:.85rem; padding:.7rem 1.4rem">Quero esse →</a>
       </div>
 
       <div class="service-card">
@@ -875,7 +880,7 @@
         </ul>
         <div class="service-price">R$ 3.497 <span>/ único</span></div>
         <br><br>
-        <a href="https://wa.me/5541999999999?text=Quero+uma+Loja+Virtual!" class="btn-primary" target="_blank" style="font-size:.85rem; padding:.7rem 1.4rem">Quero esse →</a>
+        <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Quero+uma+Loja+Virtual!&type=phone_number&app_absent=0" class="btn-primary" target="_blank" style="font-size:.85rem; padding:.7rem 1.4rem">Quero esse →</a>
       </div>
 
     </div>
@@ -1041,7 +1046,7 @@
       <div class="nicho-card"><div class="nicho-icon">🛒</div><h4>Comércio & E-commerce</h4><p>Lojas físicas e virtuais de qualquer segmento</p></div>
     </div>
     <div style="text-align:center; margin-top:2rem" class="reveal">
-      <p style="color:rgba(255,255,255,.45); font-size:.9rem">Não encontrou seu segmento? <a href="https://wa.me/5541999999999" target="_blank" style="color:var(--accent); font-weight:600">Me chama no WhatsApp</a> — atendo qualquer nicho.</p>
+      <p style="color:rgba(255,255,255,.45); font-size:.9rem">Não encontrou seu segmento? <a href="https://api.whatsapp.com/send/?phone=5541995374510&type=phone_number&app_absent=0" target="_blank" style="color:var(--accent); font-weight:600">Me chama no WhatsApp</a> — atendo qualquer nicho.</p>
     </div>
   </div>
 </section>
@@ -1099,7 +1104,9 @@
   <div class="container">
     <div class="about-grid reveal">
       <div class="about-img-wrap">
-        <div class="about-img">👨‍💻</div>
+        <div class="about-img">
+          <img src="gustavo.png" alt="Gustavo — Especialista em Sites Profissionais em Curitiba">
+        </div>
         <div class="about-float">
           <div class="about-float-num">15+</div>
           <div class="about-float-label">Sites entregues em Curitiba</div>
@@ -1213,7 +1220,7 @@
     <span class="section-tag">Pronto para crescer?</span>
     <h2 class="section-title">Seu próximo cliente<br>está no Google agora.</h2>
     <p class="section-sub">Enquanto você lê isso, alguém em Curitiba está pesquisando o serviço que você oferece. O site vai determinar se esse cliente vai para você ou para o concorrente.</p>
-    <a href="https://wa.me/5541999999999?text=Olá+Gustavo!+Vi+seu+site+e+quero+um+orçamento+para+meu+projeto." class="cta-whats" target="_blank">
+    <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Vi+seu+site+e+quero+um+orçamento+para+meu+projeto.&type=phone_number&app_absent=0" class="cta-whats" target="_blank">
       <span class="cta-whats-icon">💬</span>
       Falar com Gustavo no WhatsApp
     </a>
@@ -1238,9 +1245,9 @@
   </div>
   <div class="footer-links">
     <h5>Contato</h5>
-    <a href="https://wa.me/5541999999999" target="_blank">WhatsApp</a>
+    <a href="https://api.whatsapp.com/send/?phone=5541995374510&type=phone_number&app_absent=0" target="_blank">WhatsApp</a>
     <a href="https://instagram.com/_gustavodigital" target="_blank">Instagram</a>
-    <a href="mailto:contato@gustavodigital.com.br">E-mail</a>
+    <a href="mailto:contato@gustavodigital.online">E-mail</a>
     <a href="#faq">Perguntas Frequentes</a>
   </div>
 </footer>
