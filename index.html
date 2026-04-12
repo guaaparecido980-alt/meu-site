@@ -13,7 +13,7 @@
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -27,8 +27,8 @@
     --muted: #888;
     --light: #F4F4F0;
     --border: rgba(255,255,255,0.08);
-    --font-head: 'Syne', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-head: 'Syne', 'Arial Black', system-ui, sans-serif;
+    --font-body: 'DM Sans', 'Helvetica Neue', system-ui, sans-serif;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -636,7 +636,7 @@
   /* ── SEO SCHEMA ── */
   /* ── SCROLL REVEAL ── */
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.visible { opacity: 1; transform: none; }
+  .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }
 
   /* ── MOBILE ── */
   @media (max-width: 900px) {
@@ -1271,7 +1271,7 @@
   © 2025 Gustavo Digital — Curitiba, PR • Feito com ❤️ para <span>negócios que querem crescer</span>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function toggleMenu(){
     document.getElementById('mobileMenu').classList.toggle('open');
   }
@@ -1284,11 +1284,45 @@
     if(!isOpen){ answer.classList.add('open'); btn.classList.add('open'); }
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  function showAll() {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
 
-  // Stagger children
-  document.querySelectorAll('.services-grid, .problems-grid, .nichos-grid, .test-grid').forEach(grid => {
-    Array.from(grid.children).forEach((child, i) => {
+  function initReveal() {
+    document.querySelectorAll('.services-grid, .problems-grid, .nichos-grid, .test-grid').forEach(function(grid) {
+      Array.from(grid.children).forEach(function(child, i) {
+        child.style.transitionDelay = (i * 0.08) + 's';
+        child.classList.add('reveal');
+      });
+    });
+
+    var allReveals = document.querySelectorAll('.reveal');
+
+    if (!('IntersectionObserver' in window)) {
+      showAll();
+      return;
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+    allReveals.forEach(function(el) { observer.observe(el); });
+
+    setTimeout(showAll, 1200);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReveal);
+  } else {
+    initReveal();
+  }
+</script>
+
+</body>
+</html>
