@@ -749,4 +749,366 @@
     .process-panel-card {
       border-radius: 22px;
       padding: 1.3rem;
-      min
+      min-height: 100%;
+    }
+
+    .process-panel-card + .process-panel-card {
+      margin-top: 1rem;
+    }
+
+    .plan-note {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .5rem .85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(230,177,93,0.18);
+      background: rgba(230,177,93,0.06);
+      color: var(--gold-2);
+      font-size: .78rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .plans-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .plan-card {
+      border-radius: 28px;
+      padding: 1.6rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .plan-card.featured {
+      border-color: rgba(230,177,93,0.28);
+      transform: translateY(-6px);
+      background: linear-gradient(180deg, rgba(230,177,93,0.08), rgba(255,255,255,0.03));
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: .45rem .75rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      color: #141414;
+      font-size: .72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .plan-price {
+      display: flex;
+      align-items: baseline;
+      gap: .35rem;
+      margin: .9rem 0 .2rem;
+    }
+
+    .plan-price strong {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 3rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--gold-2);
+    }
+
+    .plan-price span {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .plan-list {
+      list-style: none;
+      display: grid;
+      gap: .8rem;
+      margin: 1.4rem 0 1.6rem;
+      flex: 1;
+    }
+
+    .plan-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    .plan-list li::before {
+      content: "✓";
+      flex: 0 0 auto;
+      color: var(--gold);
+      font-weight: 900;
+      margin-top: .02rem;
+    }
+
+    .audit-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .faq-wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .faq-button {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: 0;
+      color: var(--text);
+      padding: 1.25rem 1.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+    }
+
+    .faq-button span {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .faq-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      font-size: 1.2rem;
+      flex: 0 0 auto;
+      transition: transform .22s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .28s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 1.35rem 1.25rem;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .cta-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -80px -80px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(230,177,93,0.22), transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-copy h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin: .9rem 0 1rem;
+    }
+
+    .cta-bullets {
+      list-style: none;
+      display: grid;
+      gap: .85rem;
+      margin-top: 1.5rem;
+    }
+
+    .cta-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: .8rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .cta-bullets li::before {
+      content: "●";
+      color: var(--gold);
+      line-height: 1.1;
+    }
+
+    .form-box {
+      border-radius: 24px;
+      padding: 1.25rem;
+      display: grid;
+      gap: .9rem;
+    }
+
+    .field {
+      display: grid;
+      gap: .45rem;
+    }
+
+    .field label {
+      font-size: .85rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      border-radius: 16px;
+      padding: .95rem 1rem;
+      outline: none;
+      transition: border-color .2s ease, background .2s ease;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: rgba(230,177,93,0.35);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .footer {
+      padding: 2.2rem 0 2.6rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted-2);
+    }
+
+    .footer-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .floating-wa {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1100;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #fff;
+      box-shadow: 0 16px 40px rgba(22,163,74,0.28);
+      font-size: 1.35rem;
+      font-weight: 900;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .about-grid,
+      .process-grid,
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .proof-grid,
+      .plans-grid,
+      .audit-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-photo,
+      .about-photo {
+        min-height: 520px;
+      }
+
+      .floating-badge.bottom {
+        left: 0;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav-links,
+      .nav-right .btn-secondary,
+      .nav-right .btn-primary {
+        display: none;
+      }
+
+      .nav-mobile-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        inset: var(--nav-h) 0 auto 0;
+        z-index: 950;
+        padding: 1rem;
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform .22s ease, opacity .22s ease;
+      }
+
+      .mobile-menu.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .mobile-menu-inner {
+        border-radius: 24px;
+        padding: 1rem;
+      }
+
+      .mobile-menu a {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid var
