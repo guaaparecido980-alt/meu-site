@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Gustavo Digital — Criação de sites profissionais em Curitiba que geram clientes reais. Design premium, SEO e conversão desde o dia 1.">
+<meta name="description" content="Criação de sites profissionais em Curitiba desde R$997. Design premium, SEO local e copywriting incluso. Site no ar em 7 dias. Fale agora pelo WhatsApp!">
 <meta name="keywords" content="criação de sites Curitiba, site profissional Curitiba, desenvolvimento web Curitiba, landing page Curitiba, site que vende">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Gustavo Digital — Sites que Geram Clientes em Curitiba">
@@ -11,9 +11,12 @@
 <meta property="og:image" content="https://gustavodigital.online/gustavo.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gustavodigital.online">
-<title>Gustavo Digital | Sites Profissionais que Geram Clientes — Curitiba</title>
+<title>Criação de Sites em Curitiba | Gustavo Digital</title>
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
+<link rel="canonical" href="https://gustavodigital.online/">
+<link rel="preload" href="gustavo.png" as="image">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" as="style">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -33,7 +36,22 @@
   },
   "areaServed": "Curitiba",
   "priceRange": "$$",
-  "sameAs": ["https://instagram.com/_gustavodigital"]
+  "sameAs": ["https://instagram.com/_gustavodigital"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Criação de Sites",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Landing Page Vendedora"}, "price": "997", "priceCurrency": "BRL"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Site Institucional Completo"}, "price": "2497", "priceCurrency": "BRL"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Loja Virtual Completa"}, "price": "3497", "priceCurrency": "BRL"}
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "15",
+    "bestRating": "5"
+  }
 }
 </script>
 
@@ -58,7 +76,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; overflow-x: hidden; font-size: 16px; }
+html { scroll-behavior: smooth; overflow-x: hidden; font-size: 16px; font-display: swap; }
 body {
   background: var(--ink);
   color: var(--white);
@@ -621,6 +639,24 @@ footer {
 .footer-legal a { font-size: .78rem; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
 .footer-legal a:hover { color: var(--white); }
 
+/* ─── WHATSAPP FLOAT ─── */
+.whats-float {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 800;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: #22c55e; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(34,197,94,.4), 0 0 0 0 rgba(34,197,94,.4);
+  animation: whats-pulse 2.5s ease-in-out infinite;
+  transition: transform .2s;
+  text-decoration: none;
+}
+.whats-float:hover { transform: scale(1.1); }
+@keyframes whats-pulse {
+  0% { box-shadow: 0 4px 20px rgba(34,197,94,.4), 0 0 0 0 rgba(34,197,94,.4); }
+  70% { box-shadow: 0 4px 20px rgba(34,197,94,.4), 0 0 0 14px rgba(34,197,94,0); }
+  100% { box-shadow: 0 4px 20px rgba(34,197,94,.4), 0 0 0 0 rgba(34,197,94,0); }
+}
+
 /* ─── REVEAL ANIMATION ─── */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
 .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }
@@ -645,15 +681,20 @@ footer {
   .container { padding: 0 1.2rem; }
   .container-sm { padding: 0 1.2rem; }
 
-  .hero { padding: 90px 0 60px; }
-  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .hero-photo-frame { aspect-ratio: 4/3; max-height: 320px; }
-  .float-badge-top { top: -.8rem; right: -.5rem; }
-  .float-badge-bot { bottom: 1rem; left: -.5rem; }
-  .hero h1 { font-size: clamp(2.4rem, 8vw, 3.5rem); }
-  .hero-trust { gap: 1rem; }
+  .hero { padding: 72px 0 60px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 0; }
+  .hero-photo-frame { aspect-ratio: 16/9; max-height: 260px; border-radius: 0; border-left: none; border-right: none; }
+  .hero-photo-frame img { object-position: center 20%; }
+  .hero-card-wrap { order: -1; margin: 0 -1.2rem; }
+  .float-badge-top { top: .5rem; right: .5rem; }
+  .float-badge-bot { display: none; }
+  .hero h1 { font-size: clamp(1.9rem, 7vw, 3rem); }
+  .hero-trust { gap: 1.2rem; padding-top: 1.5rem; margin-top: 1.5rem; }
   .trust-sep { display: none; }
-  .trust-num { font-size: 1.3rem; }
+  .trust-num { font-size: 1.4rem; }
+  .trust-label { font-size: .72rem; }
+  .hero-eyebrow { font-size: .7rem; }
+  .hero-desc { font-size: .95rem; }
 
   .about-wrap { grid-template-columns: 1fr; gap: 3rem; }
   .about-img-main { aspect-ratio: 1; max-width: 360px; margin: 0 auto; }
@@ -740,15 +781,15 @@ footer {
       <div class="hero-text reveal">
         <div class="hero-eyebrow">
           <div class="hero-dot"></div>
-          Especialista em Curitiba · @_gustavodigital
+          ✦ Curitiba, PR · Criação de Sites Profissionais
         </div>
-        <h1>Seu negócio merece um site que
-          <span>realmente vende.</span>
+        <h1>Sites profissionais em Curitiba que
+          <span>geram clientes reais.</span>
         </h1>
-        <p class="hero-desc">Crio sites profissionais para negócios em Curitiba que aparecem no Google, convencem em segundos e transformam visitantes em clientes — sem você entender de tecnologia.</p>
+        <p class="hero-desc">Especialista em criação de sites para negócios em Curitiba. Design premium, SEO local e copywriting inclusos. Seu site no ar em até 7 dias — gerando clientes enquanto você trabalha.</p>
         <div class="hero-actions">
           <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Vim+pelo+site+e+quero+um+orçamento.&type=phone_number&app_absent=0" class="btn-gold" target="_blank">
-            💬 Quero meu site agora
+            💬 Quero meu orçamento grátis
           </a>
           <a href="#servicos" class="btn-ghost">
             Ver serviços e preços
@@ -839,7 +880,7 @@ footer {
     <div class="about-wrap">
       <div class="about-img-col reveal">
         <div class="about-img-main">
-          <img src="gustavo.png" alt="Gustavo Aparecido — Criação de Sites em Curitiba">
+          <img src="gustavo.png" alt="Gustavo Aparecido — Criação de Sites em Curitiba" loading="lazy">
         </div>
         <div class="about-card-float">
           <strong>15+</strong>
@@ -849,8 +890,8 @@ footer {
       <div class="about-text reveal" style="transition-delay:.15s">
         <div class="label">Quem sou eu</div>
         <h2 class="title">Oi, sou o Gustavo.<br>Faço sites que <em>vendem.</em></h2>
-        <p>Sou especialista em criação de sites profissionais focados em resultado real para negócios de Curitiba. Não sou uma agência com dezenas de intermediários — sou um profissional que trabalha diretamente com você, do briefing à entrega.</p>
-        <p>Antes de criar qualquer pixel, entendo profundamente seu negócio, seu público e o que seus concorrentes estão fazendo. Só assim consigo criar algo que realmente se destaca e converte.</p>
+        <p>Sou especialista em criação de sites profissionais para negócios de Curitiba focados em um único resultado: <strong style="color:var(--white)">gerar clientes</strong>. Atendo você diretamente — sem intermediários, sem gerente de contas, sem aquela demora de agência.</p>
+        <p>Antes de criar qualquer coisa, entendo seu negócio, seu público-alvo e o que seus concorrentes fazem online. Cada site que entrego tem design exclusivo, textos escritos para converter e SEO configurado para ranquear em Curitiba desde o primeiro dia.</p>
         <div class="about-tags">
           <span class="tag">HTML / CSS / JS</span>
           <span class="tag">WordPress</span>
@@ -1223,8 +1264,8 @@ footer {
     <div class="cta-inner reveal">
       <img src="logo.png" alt="Gustavo Digital" class="cta-logo">
       <div class="label">Pronto para crescer?</div>
-      <h2 class="title">Seu próximo cliente<br>está no Google <em>agora.</em></h2>
-      <p class="subtitle">Enquanto você lê isso, alguém em Curitiba pesquisa o serviço que você oferece. O site vai decidir se esse cliente vai para você ou para o concorrente.</p>
+      <h2 class="title">Cada dia sem site<br>é dinheiro <em>perdido.</em></h2>
+      <p class="subtitle">Enquanto você lê isso, alguém em Curitiba está pesquisando exatamente o que você vende — e encontrando o seu concorrente. Um site profissional muda isso hoje.</p>
       <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Vi+seu+site+e+quero+um+orçamento+para+meu+projeto.&type=phone_number&app_absent=0" class="cta-whats" target="_blank">
         💬 Falar com Gustavo no WhatsApp
       </a>
@@ -1327,6 +1368,14 @@ footer {
     </div>
   </div>
 </footer>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Vim+pelo+site+e+quero+um+orçamento.&type=phone_number&app_absent=0"
+   class="whats-float" target="_blank" aria-label="Falar no WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
 
 <script>
 // ── COOKIE ──
