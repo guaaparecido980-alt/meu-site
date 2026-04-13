@@ -519,6 +519,85 @@ section { padding: 6rem 0; }
 .nicho-card h4 { font-size: .9rem; font-weight: 600; color: var(--white); margin-bottom: .3rem; }
 .nicho-card p { font-size: .78rem; color: var(--muted2); line-height: 1.5; }
 
+
+/* ─── PORTFÓLIO ─── */
+.portfolio-section { background: var(--ink); }
+.portfolio-intro { text-align: center; max-width: 680px; margin: 0 auto 4rem; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 2rem; }
+.porto-card {
+  border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid var(--border2);
+  background: var(--ink2);
+  transition: transform .35s, border-color .35s, box-shadow .35s;
+  position: relative; group: true;
+}
+.porto-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201,168,76,.4);
+  box-shadow: 0 24px 60px rgba(0,0,0,.5);
+}
+.porto-img {
+  width: 100%; aspect-ratio: 9/14;
+  overflow: hidden; position: relative;
+}
+.porto-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+  transition: transform .6s ease;
+  filter: brightness(.9);
+}
+.porto-card:hover .porto-img img { transform: scale(1.04); filter: brightness(1); }
+.porto-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,13,15,.95) 0%, rgba(13,13,15,.4) 40%, transparent 70%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 2rem 1.8rem;
+}
+.porto-tag {
+  display: inline-block;
+  background: var(--gold); color: var(--ink);
+  font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; padding: .25rem .8rem;
+  border-radius: 50px; margin-bottom: .8rem;
+  width: fit-content;
+}
+.porto-overlay h3 {
+  font-family: var(--serif); font-size: 1.4rem; font-weight: 700;
+  color: var(--white); line-height: 1.2; margin-bottom: .4rem;
+}
+.porto-overlay p { font-size: .82rem; color: rgba(255,255,255,.6); line-height: 1.5; margin-bottom: 1rem; }
+.porto-link {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .8rem; font-weight: 600; color: var(--gold);
+  text-decoration: none; transition: gap .2s;
+}
+.porto-link:hover { gap: .7rem; }
+.porto-results {
+  display: flex; gap: 1rem; margin-top: .8rem; flex-wrap: wrap;
+}
+.porto-result-item {
+  background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.2);
+  border-radius: 50px; padding: .2rem .7rem;
+  font-size: .72rem; font-weight: 600; color: var(--gold2);
+}
+.porto-cta {
+  text-align: center; margin-top: 3rem;
+  padding: 2.5rem; background: var(--ink2);
+  border-radius: var(--radius-lg); border: 1px solid var(--border2);
+}
+.porto-cta p { color: var(--muted2); font-size: .95rem; margin-bottom: 1.5rem; }
+.porto-cta p strong { color: var(--white); }
+@media (max-width: 768px) {
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .porto-img { aspect-ratio: 9/13; }
+}
+@media (max-width: 480px) {
+  .porto-img { aspect-ratio: 9/16; }
+  .porto-overlay { padding: 1.4rem; }
+  .porto-overlay h3 { font-size: 1.2rem; }
+}
+
 /* ─── DEPOIMENTOS ─── */
 .test-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; }
 .test-card {
@@ -748,6 +827,7 @@ footer {
   <a href="#"><img src="logo.png" alt="Gustavo Digital"></a>
   <ul class="nav-links">
     <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#portfolio">Portfólio</a></li>
     <li><a href="#servicos">Serviços</a></li>
     <li><a href="#processo">Processo</a></li>
     <li><a href="#nichos">Clientes</a></li>
@@ -764,6 +844,7 @@ footer {
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
   <a href="#sobre" onclick="toggleMobile()">Sobre</a>
+  <a href="#portfolio" onclick="toggleMobile()">Portfólio</a>
   <a href="#servicos" onclick="toggleMobile()">Serviços</a>
   <a href="#processo" onclick="toggleMobile()">Processo</a>
   <a href="#nichos" onclick="toggleMobile()">Clientes</a>
@@ -1164,6 +1245,68 @@ footer {
     <p style="text-align:center; margin-top:2rem; font-size:.875rem; color:var(--muted2);" class="reveal">
       Não encontrou seu segmento? <a href="https://api.whatsapp.com/send/?phone=5541995374510&type=phone_number&app_absent=0" target="_blank" style="color:var(--gold); font-weight:600">Me chama no WhatsApp</a> — atendo qualquer nicho.
     </p>
+  </div>
+</section>
+
+
+<!-- PORTFÓLIO -->
+<section class="portfolio-section" id="portfolio">
+  <div class="container">
+    <div class="portfolio-intro reveal">
+      <div class="label">Portfólio</div>
+      <h2 class="title">Projetos que já<br><em>transformaram negócios.</em></h2>
+      <p class="subtitle">Cada site é único. Veja como negócios reais de Curitiba passaram a ter uma presença digital que gera credibilidade e atrai clientes todos os dias.</p>
+    </div>
+    <div class="portfolio-grid">
+
+      <!-- PROJETO 1: Wagner Alves Visagista -->
+      <div class="porto-card reveal">
+        <div class="porto-img">
+          <img src="portfolio-wagner.png" alt="Site Wagner Alves Visagista Curitiba — criado por Gustavo Digital" loading="lazy">
+          <div class="porto-overlay">
+            <span class="porto-tag">Visagismo · Consultoria</span>
+            <h3>Wagner Alves<br>Visagista</h3>
+            <p>Site de alta conversão para o visagista executivo número 1 de Curitiba — posicionamento premium, depoimentos em vídeo e agendamento integrado.</p>
+            <div class="porto-results">
+              <span class="porto-result-item">+3x leads</span>
+              <span class="porto-result-item">Top Google</span>
+              <span class="porto-result-item">Design exclusivo</span>
+            </div>
+            <a href="https://owagneralvessvisagista.com" class="porto-link" target="_blank">
+              Ver site ao vivo →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJETO 2: Barbearia -->
+      <div class="porto-card reveal" style="transition-delay:.15s">
+        <div class="porto-img">
+          <img src="portfolio-barbearia.png" alt="Site Barbearia Clube Curitiba — criado por Gustavo Digital" loading="lazy">
+          <div class="porto-overlay">
+            <span class="porto-tag">Barbearia · Premium</span>
+            <h3>Barbearia<br>Clube Curitiba</h3>
+            <p>Site institucional completo para barbearia premium em Curitiba — apresentação da equipe, serviços com preços, agendamento online e SEO local.</p>
+            <div class="porto-results">
+              <span class="porto-result-item">Agendamento online</span>
+              <span class="porto-result-item">SEO local</span>
+              <span class="porto-result-item">Mobile perfeito</span>
+            </div>
+            <a href="#" class="porto-link" target="_blank">
+              Ver site ao vivo →
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="porto-cta reveal">
+      <p>Quer um site assim para o seu negócio? <strong>Seu projeto pode ser o próximo aqui.</strong></p>
+      <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Vi+seu+portfólio+e+quero+um+site+assim+para+o+meu+negócio.&type=phone_number&app_absent=0" class="btn-gold" target="_blank">
+        💬 Quero um site assim
+      </a>
+    </div>
   </div>
 </section>
 
