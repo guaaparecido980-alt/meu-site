@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Criação de sites profissionais em Curitiba desde R$997. Design premium, SEO local e copywriting incluso. Site no ar em 7 dias. Fale agora pelo WhatsApp!">
+<meta name="keywords" content="criação de sites Curitiba, site profissional Curitiba, desenvolvimento web Curitiba, landing page Curitiba, site que vende">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Gustavo Digital — Sites que Geram Clientes em Curitiba">
+<meta property="og:description" content="Sites profissionais que vendem, convertem e aparecem no Google. Especialista em Curitiba.">
+<meta property="og:image" content="https://gustavodigital.online/gustavo.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gustavodigital.online">
+<title>Criação de Sites em Curitiba | Gustavo Digital</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="canonical" href="https://gustavodigital.online/">
+<link rel="preload" href="gustavo.png" as="image">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" as="style">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Gustavo Digital",
+  "description": "Criação de sites profissionais em Curitiba que geram clientes de verdade.",
+  "url": "https://gustavodigital.online",
+  "telephone": "+55-41-99537-4510",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Curitiba",
+    "addressRegion": "PR",
+    "addressCountry": "BR"
+  },
+  "areaServed": "Curitiba",
+  "priceRange": "$$",
+  "sameAs": ["https://instagram.com/_gustavodigital"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Criação de Sites",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Landing Page Vendedora"}, "price": "997", "priceCurrency": "BRL"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Site Institucional Completo"}, "price": "2497", "priceCurrency": "BRL"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Loja Virtual Completa"}, "price": "3497", "priceCurrency": "BRL"}
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "15",
+    "bestRating": "5"
+  }
+}
+</script>
+
+<style>
+:root {
+  --ink: #0D0D0F;
+  --ink2: #18181C;
+  --ink3: #242428;
+  --gold: #C9A84C;
+  --gold2: #E8C96A;
+  --cream: #F5F0E8;
+  --white: #FAFAF8;
+  --muted: #6B6B72;
+  --muted2: #9B9BA2;
+  --border: rgba(201,168,76,0.15);
+  --border2: rgba(255,255,255,0.06);
+  --green: #22C55E;
+  --sans: 'Inter', system-ui, sans-serif;
+  --serif: 'Playfair Display', Georgia, serif;
+  --radius: 16px;
+  --radius-lg: 24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; font-size: 16px; font-display: swap; }
+body {
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── COOKIE BANNER ─── */
+#cookie-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+  background: var(--ink2);
+  border-top: 1px solid var(--border);
+  padding: 1.2rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.5rem; flex-wrap: wrap;
+  transform: translateY(0); transition: transform .4s ease;
+}
+#cookie-banner.hidden { transform: translateY(110%); }
+#cookie-banner p { font-size: .82rem; color: var(--muted2); max-width: 620px; line-height: 1.5; }
+#cookie-banner p a { color: var(--gold); text-decoration: underline; }
+.cookie-btns { display: flex; gap: .8rem; flex-shrink: 0; }
+.btn-cookie-accept {
+  background: var(--gold); color: var(--ink);
+  padding: .55rem 1.4rem; border-radius: 50px;
+  font-size: .82rem; font-weight: 600; border: none; cursor: pointer;
+  transition: opacity .2s;
+}
+.btn-cookie-accept:hover { opacity: .85; }
+.btn-cookie-decline {
+  background: transparent; color: var(--muted2);
+  padding: .55rem 1rem; border-radius: 50px;
+  font-size: .82rem; font-weight: 500; border: 1px solid var(--border2); cursor: pointer;
+  transition: color .2s;
+}
+.btn-cookie-decline:hover { color: var(--white); }
+
+/* ─── NAVBAR ─── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 900;
+  padding: 0 2.5rem;
+  height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(13,13,15,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border2);
+}
+.nav-logo img { height: 38px; width: auto; display: block; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: var(--muted2); text-decoration: none;
+  font-size: .875rem; font-weight: 500; letter-spacing: .01em;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  display: flex; align-items: center; gap: .5rem;
+  background: var(--gold); color: var(--ink);
+  padding: .6rem 1.5rem; border-radius: 50px;
+  font-size: .875rem; font-weight: 600; text-decoration: none;
+  transition: box-shadow .2s, transform .2s; white-space: nowrap;
+}
+.nav-cta:hover { box-shadow: 0 0 24px rgba(201,168,76,.35); transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all .3s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.mobile-nav {
+  display: none; position: fixed; inset: 0; z-index: 890;
+  background: var(--ink); padding: 100px 2rem 3rem;
+  flex-direction: column;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-family: var(--serif); font-size: 2.2rem; font-weight: 700;
+  color: var(--white); text-decoration: none; padding: .8rem 0;
+  border-bottom: 1px solid var(--border2); transition: color .2s;
+}
+.mobile-nav a:hover { color: var(--gold); }
+.mobile-nav .mob-cta {
+  margin-top: 2rem; background: var(--gold); color: var(--ink);
+  text-align: center; border-radius: 50px; padding: 1rem;
+  font-family: var(--sans); font-size: 1rem; font-weight: 700;
+}
+
+/* ─── UTILITIES ─── */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+.container-sm { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+.label {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .72rem; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1.2rem;
+}
+.label::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+.label::after { content: ''; width: 20px; height: 1px; background: var(--gold); }
+h2.title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700; line-height: 1.1;
+  color: var(--white); letter-spacing: -.02em;
+}
+h2.title em { font-style: italic; color: var(--gold); }
+.subtitle { font-size: 1.05rem; color: var(--muted2); line-height: 1.75; margin-top: 1rem; }
+section { padding: 6rem 0; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 120px 0 80px; position: relative; overflow: hidden;
+}
+.hero-noise {
+  position: absolute; inset: 0; opacity: .03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+.hero-glow {
+  position: absolute; top: -200px; right: -100px;
+  width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-glow2 {
+  position: absolute; bottom: -200px; left: -100px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner {
+  display: grid; grid-template-columns: 1fr 420px;
+  gap: 5rem; align-items: center;
+  position: relative; z-index: 2;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .78rem; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: blink 2s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 900; line-height: 1.05;
+  letter-spacing: -.03em; color: var(--white);
+  margin-bottom: 1.5rem;
+}
+.hero h1 span {
+  font-style: italic; color: var(--gold);
+  display: block;
+}
+.hero-desc { font-size: 1.05rem; color: var(--muted2); line-height: 1.75; max-width: 520px; margin-bottom: 2.5rem; }
+.hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.btn-gold {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: var(--gold); color: var(--ink);
+  padding: 1rem 2rem; border-radius: 50px;
+  font-weight: 700; font-size: .95rem; text-decoration: none;
+  transition: box-shadow .25s, transform .25s;
+}
+.btn-gold:hover { box-shadow: 0 8px 32px rgba(201,168,76,.4); transform: translateY(-2px); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: .5rem;
+  color: var(--muted2); font-size: .9rem; font-weight: 500;
+  text-decoration: none; transition: color .2s;
+}
+.btn-ghost:hover { color: var(--white); }
+.btn-ghost svg { transition: transform .2s; }
+.btn-ghost:hover svg { transform: translateX(3px); }
+
+.hero-trust { display: flex; align-items: center; gap: 1.5rem; margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border2); flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: .6rem; }
+.trust-num { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; color: var(--white); }
+.trust-label { font-size: .78rem; color: var(--muted2); line-height: 1.3; }
+.trust-sep { width: 1px; height: 36px; background: var(--border2); }
+
+/* Hero card */
+.hero-card-wrap { position: relative; }
+.hero-photo-frame {
+  border-radius: 20px; overflow: hidden;
+  aspect-ratio: 3/4;
+  border: 1px solid var(--border);
+  background: var(--ink2);
+  position: relative;
+}
+.hero-photo-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 10%;
+  display: block;
+}
+.hero-photo-frame::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,13,15,.7) 0%, transparent 50%);
+}
+.hero-card-name {
+  position: absolute; bottom: 1.5rem; left: 1.5rem; z-index: 2;
+}
+.hero-card-name h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--white); }
+.hero-card-name p { font-size: .8rem; color: var(--gold); font-weight: 500; }
+
+.float-badge {
+  position: absolute;
+  background: var(--ink2);
+  border: 1px solid var(--border);
+  border-radius: 14px; padding: .9rem 1.1rem;
+  display: flex; align-items: center; gap: .7rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,.5);
+  white-space: nowrap; z-index: 3;
+}
+.float-badge-top { top: -1.2rem; right: -1.5rem; }
+.float-badge-bot { bottom: 4rem; left: -1.5rem; }
+.fb-icon { font-size: 1.1rem; }
+.fb-text strong { display: block; font-size: .82rem; font-weight: 600; color: var(--white); }
+.fb-text span { font-size: .72rem; color: var(--muted2); }
+.fb-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px rgba(34,197,94,.5); flex-shrink: 0; }
+
+/* ─── STRIP ─── */
+.strip { padding: 2rem 0; border-top: 1px solid var(--border2); border-bottom: 1px solid var(--border2); }
+.strip-inner { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.strip p { font-size: .72rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+.strip-divider { width: 1px; height: 16px; background: var(--border2); }
+.strip-items { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; justify-content: center; }
+.strip-item { font-size: .82rem; color: rgba(255,255,255,.3); font-weight: 500; transition: color .2s; }
+.strip-item:hover { color: rgba(255,255,255,.6); }
+
+/* ─── SOBRE / ABOUT ─── */
+.about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.about-img-col { position: relative; }
+.about-img-main {
+  width: 100%; aspect-ratio: 4/5;
+  border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid var(--border);
+}
+.about-img-main img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 12%;
+  display: block;
+}
+.about-card-float {
+  position: absolute; bottom: -1.5rem; right: -1.5rem;
+  background: var(--gold);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.8rem;
+  text-align: center; z-index: 2;
+}
+.about-card-float strong { font-family: var(--serif); font-size: 2.2rem; font-weight: 900; color: var(--ink); display: block; line-height: 1; }
+.about-card-float span { font-size: .75rem; color: rgba(13,13,15,.7); font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+.about-text .label { margin-top: .5rem; }
+.about-text p { font-size: .95rem; color: var(--muted2); line-height: 1.8; margin: 1rem 0; }
+.about-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.5rem 0 2rem; }
+.tag {
+  background: var(--ink2); border: 1px solid var(--border2);
+  color: var(--muted2); font-size: .78rem; font-weight: 500;
+  padding: .35rem .9rem; border-radius: 50px;
+}
+.about-insta {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .9rem; font-weight: 600; color: var(--white);
+  text-decoration: none; padding: .7rem 1.4rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg,#833ab4,#fd1d1d,#f77737);
+  transition: opacity .2s, transform .2s;
+}
+.about-insta:hover { opacity: .9; transform: translateY(-1px); }
+
+/* ─── PROBLEMA ─── */
+.problem-section { background: var(--ink2); }
+.problem-intro { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+.problem-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.5rem; }
+.prob-card {
+  border: 1px solid var(--border2);
+  border-radius: var(--radius); padding: 2rem;
+  background: var(--ink);
+  position: relative; overflow: hidden;
+  transition: border-color .3s;
+}
+.prob-card:hover { border-color: rgba(201,168,76,.3); }
+.prob-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent); }
+.prob-num { font-family: var(--serif); font-size: 3rem; font-weight: 900; color: rgba(201,168,76,.12); line-height: 1; margin-bottom: .5rem; }
+.prob-card h3 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: .5rem; }
+.prob-card p { font-size: .875rem; color: var(--muted2); line-height: 1.7; }
+.problem-vs {
+  text-align: center; padding: 3rem 0;
+  border-top: 1px solid var(--border2); margin-top: 3rem;
+}
+.problem-vs h3 { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--gold); margin-bottom: .5rem; }
+.problem-vs p { color: var(--muted2); font-size: .95rem; }
+
+/* ─── SERVIÇOS ─── */
+.services-intro { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+.services-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; }
+.srv-card {
+  background: var(--ink2); border: 1px solid var(--border2);
+  border-radius: var(--radius-lg); padding: 2.5rem 2rem;
+  display: flex; flex-direction: column;
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+  position: relative; overflow: hidden;
+}
+.srv-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,.25); box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+.srv-card.featured {
+  border-color: rgba(201,168,76,.4);
+  background: linear-gradient(160deg, rgba(201,168,76,.06) 0%, var(--ink2) 60%);
+}
+.srv-badge {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  background: var(--gold); color: var(--ink);
+  font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; padding: .25rem .7rem; border-radius: 50px;
+}
+.srv-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: rgba(201,168,76,.08); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 1.5rem;
+}
+.srv-card h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: .6rem; }
+.srv-card > p { font-size: .875rem; color: var(--muted2); line-height: 1.7; margin-bottom: 1.5rem; }
+.srv-price { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--gold); margin-bottom: .3rem; }
+.srv-price-note { font-size: .78rem; color: var(--muted); margin-bottom: 1.5rem; }
+.srv-features { list-style: none; margin-bottom: 2rem; flex: 1; }
+.srv-features li {
+  display: flex; gap: .7rem; align-items: flex-start;
+  font-size: .85rem; color: rgba(255,255,255,.6);
+  padding: .45rem 0; border-bottom: 1px solid var(--border2);
+}
+.srv-features li:last-child { border-bottom: none; }
+.srv-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; font-size: .8rem; margin-top: .1rem; }
+.srv-cta {
+  display: block; text-align: center; background: var(--gold);
+  color: var(--ink); padding: .9rem; border-radius: 50px;
+  font-weight: 700; font-size: .875rem; text-decoration: none;
+  transition: opacity .2s, transform .2s; margin-top: auto;
+}
+.srv-cta:hover { opacity: .88; transform: translateY(-1px); }
+.srv-cta.ghost {
+  background: transparent; color: var(--gold);
+  border: 1px solid rgba(201,168,76,.3);
+}
+.srv-cta.ghost:hover { background: rgba(201,168,76,.08); }
+.srv-guarantee {
+  text-align: center; margin-top: 2.5rem;
+  font-size: .85rem; color: var(--muted);
+  padding: 1.5rem; background: var(--ink2); border-radius: var(--radius);
+  border: 1px solid var(--border2);
+}
+.srv-guarantee strong { color: var(--gold); }
+
+/* ─── PROCESSO ─── */
+.process-section { background: var(--ink2); }
+.process-intro { max-width: 600px; margin-bottom: 4rem; }
+.steps-wrap { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 0; position: relative; }
+.steps-wrap::before {
+  content: ''; position: absolute;
+  top: 32px; left: calc(12.5% + 16px); right: calc(12.5% + 16px);
+  height: 1px; background: linear-gradient(90deg, var(--gold), rgba(201,168,76,.2), var(--gold));
+}
+.step-item { padding: 0 1rem; }
+.step-circle {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--ink); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 1.2rem; font-weight: 700;
+  color: var(--gold); margin-bottom: 1.5rem;
+  position: relative; z-index: 2;
+  transition: background .3s, border-color .3s;
+}
+.step-item:hover .step-circle { background: rgba(201,168,76,.1); border-color: var(--gold); }
+.step-item h4 { font-size: .95rem; font-weight: 600; color: var(--white); margin-bottom: .5rem; }
+.step-item p { font-size: .82rem; color: var(--muted2); line-height: 1.65; }
+.step-tag { display: inline-block; margin-top: .6rem; font-size: .72rem; font-weight: 600; color: var(--gold); background: rgba(201,168,76,.08); padding: .2rem .7rem; border-radius: 50px; }
+
+/* ─── DIFERENCIAIS ─── */
+.diff-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.diff-list { display: flex; flex-direction: column; gap: 0; }
+.diff-item {
+  display: flex; gap: 1.2rem; padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border2);
+  cursor: pointer; transition: padding .2s;
+}
+.diff-item:first-child { padding-top: 0; }
+.diff-item:last-child { border-bottom: none; }
+.diff-num {
+  font-family: var(--serif); font-size: 1rem; font-weight: 700;
+  color: rgba(201,168,76,.4); flex-shrink: 0; padding-top: .1rem;
+  min-width: 28px;
+}
+.diff-item.active .diff-num { color: var(--gold); }
+.diff-content h4 { font-size: .95rem; font-weight: 600; color: rgba(255,255,255,.5); margin-bottom: .3rem; transition: color .2s; }
+.diff-item.active .diff-content h4 { color: var(--white); }
+.diff-content p { font-size: .85rem; color: var(--muted2); line-height: 1.65; max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+.diff-item.active .diff-content p { max-height: 120px; }
+.diff-visual {
+  background: var(--ink2); border: 1px solid var(--border2);
+  border-radius: var(--radius-lg); padding: 2rem; position: sticky; top: 100px;
+}
+.diff-visual h4 { font-size: .75rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.5rem; }
+.metric-bar-item { margin-bottom: 1.2rem; }
+.metric-bar-item:last-child { margin-bottom: 0; }
+.metric-bar-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: .4rem; }
+.metric-bar-label { font-size: .82rem; color: rgba(255,255,255,.6); }
+.metric-bar-val { font-size: .82rem; font-weight: 700; color: var(--gold); }
+.metric-bar-track { height: 4px; background: var(--ink3); border-radius: 4px; }
+.metric-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--gold), var(--gold2)); transition: width 1s ease; }
+.diff-bottom {
+  margin-top: 1.5rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border2);
+  display: flex; align-items: center; gap: .8rem;
+}
+.diff-bottom-icon { font-size: 1.5rem; }
+.diff-bottom p { font-size: .82rem; color: var(--muted2); line-height: 1.5; }
+.diff-bottom strong { color: var(--gold); }
+
+/* ─── NICHOS ─── */
+.nichos-section { background: var(--ink2); }
+.nichos-intro { text-align: center; max-width: 600px; margin: 0 auto 3.5rem; }
+.nichos-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1rem; }
+.nicho-card {
+  background: var(--ink); border: 1px solid var(--border2);
+  border-radius: var(--radius); padding: 1.8rem 1.5rem;
+  text-align: center;
+  transition: border-color .3s, transform .3s, background .3s;
+}
+.nicho-card:hover {
+  border-color: rgba(201,168,76,.35);
+  background: rgba(201,168,76,.03);
+  transform: translateY(-4px);
+}
+.nicho-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: rgba(201,168,76,.08); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; margin: 0 auto 1rem;
+}
+.nicho-card h4 { font-size: .9rem; font-weight: 600; color: var(--white); margin-bottom: .3rem; }
+.nicho-card p { font-size: .78rem; color: var(--muted2); line-height: 1.5; }
+
+
+/* ─── PORTFÓLIO ─── */
+.portfolio-section { background: var(--ink); }
+.portfolio-intro { text-align: center; max-width: 680px; margin: 0 auto 4rem; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 2rem; }
+.porto-card {
+  border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid var(--border2);
+  background: var(--ink2);
+  transition: transform .35s, border-color .35s, box-shadow .35s;
+  position: relative; group: true;
+}
+.porto-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201,168,76,.4);
+  box-shadow: 0 24px 60px rgba(0,0,0,.5);
+}
+.porto-img {
+  width: 100%; aspect-ratio: 9/14;
+  overflow: hidden; position: relative;
+}
+.porto-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+  transition: transform .6s ease;
+  filter: brightness(.9);
+}
+.porto-card:hover .porto-img img { transform: scale(1.04); filter: brightness(1); }
+.porto-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,13,15,.95) 0%, rgba(13,13,15,.4) 40%, transparent 70%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 2rem 1.8rem;
+}
+.porto-tag {
+  display: inline-block;
+  background: var(--gold); color: var(--ink);
+  font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; padding: .25rem .8rem;
+  border-radius: 50px; margin-bottom: .8rem;
+  width: fit-content;
+}
+.porto-overlay h3 {
+  font-family: var(--serif); font-size: 1.4rem; font-weight: 700;
+  color: var(--white); line-height: 1.2; margin-bottom: .4rem;
+}
+.porto-overlay p { font-size: .82rem; color: rgba(255,255,255,.6); line-height: 1.5; margin-bottom: 1rem; }
+.porto-link {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .8rem; font-weight: 600; color: var(--gold);
+  text-decoration: none; transition: gap .2s;
+}
+.porto-link:hover { gap: .7rem; }
+.porto-results {
+  display: flex; gap: 1rem; margin-top: .8rem; flex-wrap: wrap;
+}
+.porto-result-item {
+  background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.2);
+  border-radius: 50px; padding: .2rem .7rem;
+  font-size: .72rem; font-weight: 600; color: var(--gold2);
+}
+.porto-cta {
+  text-align: center; margin-top: 3rem;
+  padding: 2.5rem; background: var(--ink2);
+  border-radius: var(--radius-lg); border: 1px solid var(--border2);
+}
+.porto-cta p { color: var(--muted2); font-size: .95rem; margin-bottom: 1.5rem; }
+.porto-cta p strong { color: var(--white); }
+@media (max-width: 768px) {
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .porto-img { aspect-ratio: 9/13; }
+}
+@media (max-width: 480px) {
+  .porto-img { aspect-ratio: 9/16; }
+  .porto-overlay { padding: 1.4rem; }
+  .porto-overlay h3 { font-size: 1.2rem; }
+}
+
+/* ─── DEPOIMENTOS ─── */
+.test-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; }
+.test-card {
+  background: var(--ink2); border: 1px solid var(--border2);
+  border-radius: var(--radius-lg); padding: 2rem;
+  display: flex; flex-direction: column;
+  transition: border-color .3s;
+}
+.test-card:hover { border-color: rgba(201,168,76,.2); }
+.test-stars { color: var(--gold); font-size: .82rem; letter-spacing: .05em; margin-bottom: 1rem; }
+.test-text { font-size: .9rem; color: rgba(255,255,255,.65); line-height: 1.75; flex: 1; margin-bottom: 1.5rem; font-style: italic; }
+.test-author { display: flex; align-items: center; gap: .9rem; }
+.test-av {
+  width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: .85rem; color: var(--ink);
+}
+.test-name { font-size: .88rem; font-weight: 600; color: var(--white); }
+.test-role { font-size: .75rem; color: var(--muted2); }
+.test-intro { text-align: center; max-width: 600px; margin: 0 auto 4rem; }
+
+/* ─── FAQ ─── */
+.faq-section { background: var(--ink2); }
+.faq-intro { text-align: center; max-width: 580px; margin: 0 auto 4rem; }
+.faq-wrap { max-width: 760px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border2); }
+.faq-q {
+  width: 100%; background: none; border: none; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.4rem 0; gap: 1rem; text-align: left;
+}
+.faq-q span { font-size: .95rem; font-weight: 500; color: var(--white); line-height: 1.4; }
+.faq-icon {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 1.1rem; transition: transform .3s, background .2s, border-color .2s;
+}
+.faq-q.open .faq-icon { transform: rotate(45deg); background: rgba(201,168,76,.1); border-color: rgba(201,168,76,.3); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height .4s ease, padding .3s;
+  font-size: .88rem; color: var(--muted2); line-height: 1.75;
+}
+.faq-a.open { max-height: 300px; padding-bottom: 1.4rem; }
+
+/* ─── CTA ─── */
+.cta-section {
+  background: var(--ink); padding: 6rem 0;
+  position: relative; overflow: hidden;
+}
+.cta-glow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cta-inner { text-align: center; position: relative; z-index: 2; }
+.cta-inner .title { font-size: clamp(2.2rem, 4vw, 3.5rem); margin: 1rem 0; }
+.cta-inner .subtitle { max-width: 560px; margin: 0 auto 2.5rem; }
+.cta-whats {
+  display: inline-flex; align-items: center; gap: .8rem;
+  background: #22c55e; color: #fff;
+  padding: 1.1rem 2.5rem; border-radius: 50px;
+  font-weight: 700; font-size: 1rem; text-decoration: none;
+  box-shadow: 0 4px 24px rgba(34,197,94,.25);
+  transition: box-shadow .2s, transform .2s;
+}
+.cta-whats:hover { box-shadow: 0 8px 36px rgba(34,197,94,.4); transform: translateY(-2px); }
+.cta-note { margin-top: 1rem; font-size: .8rem; color: var(--muted2); }
+.cta-note strong { color: var(--gold); }
+.cta-logo { height: 52px; margin-bottom: 1.5rem; filter: drop-shadow(0 0 16px rgba(201,168,76,.3)); }
+
+/* ─── POLÍTICA ─── */
+.privacidade-section { background: var(--ink2); padding: 4rem 0; }
+.privacidade-inner { max-width: 840px; margin: 0 auto; }
+.privacidade-inner h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; color: var(--white); margin-bottom: 1.5rem; }
+.privacidade-inner h3 { font-size: .95rem; font-weight: 600; color: var(--gold); margin: 1.5rem 0 .5rem; }
+.privacidade-inner p, .privacidade-inner li { font-size: .85rem; color: var(--muted2); line-height: 1.75; }
+.privacidade-inner ul { margin-left: 1.2rem; margin-top: .4rem; }
+.privacidade-inner li { margin-bottom: .3rem; }
+.priv-toggle {
+  background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; gap: .6rem;
+  font-size: .8rem; color: var(--muted2); padding: 0;
+  margin-bottom: 1.5rem; font-family: var(--sans);
+  transition: color .2s;
+}
+.priv-toggle:hover { color: var(--white); }
+.priv-toggle span { color: var(--gold); font-size: 1rem; transition: transform .3s; }
+.priv-toggle.open span { transform: rotate(180deg); }
+.priv-content { max-height: 0; overflow: hidden; transition: max-height .6s ease; }
+.priv-content.open { max-height: 2000px; }
+
+/* ─── FOOTER ─── */
+footer {
+  border-top: 1px solid var(--border2);
+  padding: 3.5rem 0 2rem;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
+}
+.foot-brand img { height: 36px; margin-bottom: 1rem; }
+.foot-brand p { font-size: .82rem; color: var(--muted2); line-height: 1.65; max-width: 260px; }
+.foot-col h5 { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+.foot-col a { display: block; font-size: .85rem; color: var(--muted2); text-decoration: none; margin-bottom: .55rem; transition: color .2s; }
+.foot-col a:hover { color: var(--white); }
+.footer-bottom {
+  border-top: 1px solid var(--border2); padding-top: 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-bottom p { font-size: .78rem; color: var(--muted); }
+.footer-bottom span { color: var(--gold); }
+.footer-legal { display: flex; gap: 1.5rem; }
+.footer-legal a { font-size: .78rem; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
+.footer-legal a:hover { color: var(--white); }
+
+/* ─── WHATSAPP FLOAT ─── */
+.whats-float {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 800;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: #22c55e; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(34,197,94,.4), 0 0 0 0 rgba(34,197,94,.4);
+  animation: whats-pulse 2.5s ease-in-out infinite;
+  transition: transform .2s;
+  text-decoration: none;
+}
+.whats-float:hover { transform: scale(1.1); }
+@keyframes whats-pulse {
+  0% { box-shadow: 0 4px 20px rgba(34,197,94,.4), 0 0 0 0 rgba(34,197,94,.4); }
+  70% { box-shadow: 0 4px 20px rgba(34,197,94,.4), 0 0 0 14px rgba(34,197,94,0); }
+  100% { box-shadow: 0 4px 20px rgba(34,197,94,.4), 0 0 0 0 rgba(34,197,94,0); }
+}
+
+/* ─── REVEAL ANIMATION ─── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }
+
+/* ─── TABLET ─── */
+@media (max-width: 1080px) {
+  .hero-inner { grid-template-columns: 1fr 360px; gap: 3rem; }
+  .services-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .nichos-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  .steps-wrap { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 2.5rem; }
+  .steps-wrap::before { display: none; }
+  .diff-wrap { grid-template-columns: 1fr; gap: 3rem; }
+  .diff-visual { position: static; }
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+  nav { padding: 0 1.2rem; }
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  section { padding: 4rem 0; }
+  .container { padding: 0 1.2rem; }
+  .container-sm { padding: 0 1.2rem; }
+
+  .hero { padding: 72px 0 60px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 0; }
+  .hero-photo-frame { aspect-ratio: 16/9; max-height: 260px; border-radius: 0; border-left: none; border-right: none; }
+  .hero-photo-frame img { object-position: center 20%; }
+  .hero-card-wrap { order: -1; margin: 0 -1.2rem; }
+  .float-badge-top { top: .5rem; right: .5rem; }
+  .float-badge-bot { display: none; }
+  .hero h1 { font-size: clamp(1.9rem, 7vw, 3rem); }
+  .hero-trust { gap: 1.2rem; padding-top: 1.5rem; margin-top: 1.5rem; }
+  .trust-sep { display: none; }
+  .trust-num { font-size: 1.4rem; }
+  .trust-label { font-size: .72rem; }
+  .hero-eyebrow { font-size: .7rem; }
+  .hero-desc { font-size: .95rem; }
+
+  .about-wrap { grid-template-columns: 1fr; gap: 3rem; }
+  .about-img-main { aspect-ratio: 1; max-width: 360px; margin: 0 auto; }
+  .about-img-col { display: flex; flex-direction: column; align-items: center; }
+  .about-card-float { position: static; margin-top: 1rem; display: inline-flex; gap: 1rem; align-items: center; border-radius: var(--radius); }
+  .about-card-float strong { font-size: 1.6rem; }
+
+  .problem-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .steps-wrap { grid-template-columns: 1fr; gap: 2rem; }
+  .step-circle { width: 52px; height: 52px; font-size: 1rem; }
+  .nichos-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .test-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: .8rem; }
+
+  #cookie-banner { padding: 1rem 1.2rem; }
+  .cookie-btns { width: 100%; }
+  .btn-cookie-accept { flex: 1; text-align: center; }
+
+  .hero-actions { flex-direction: column; align-items: flex-start; gap: .8rem; }
+  .btn-gold, .btn-ghost { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .hero-photo-frame { aspect-ratio: 3/2; max-height: 260px; }
+  .float-badge { display: none; }
+  .hero-eyebrow { font-size: .7rem; }
+  h2.title { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+  .nichos-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: .8rem; }
+  .nicho-card { padding: 1.2rem 1rem; }
+  .srv-card { padding: 2rem 1.5rem; }
+  .test-card { padding: 1.5rem; }
+  .strip-items { gap: .8rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner">
+  <p>Utilizamos cookies para melhorar sua experiência, analisar o tráfego e personalizar conteúdo, em conformidade com a <strong>LGPD</strong>. Ao continuar navegando, você concorda com nossa <a href="#privacidade">Política de Privacidade</a>.</p>
+  <div class="cookie-btns">
+    <button class="btn-cookie-decline" onclick="declineCookies()">Recusar</button>
+    <button class="btn-cookie-accept" onclick="acceptCookies()">Aceitar cookies</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#"><img src="logo.png" alt="Gustavo Digital"></a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#portfolio">Portfólio</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#processo">Processo</a></li>
+    <li><a href="#nichos">Clientes</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Vim+pelo+site+e+quero+um+orçamento.&type=phone_number&app_absent=0" class="nav-cta" target="_blank">
+    Falar agora →
+  </a>
+  <button class="hamburger" id="hamburger" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#sobre" onclick="toggleMobile()">Sobre</a>
+  <a href="#portfolio" onclick="toggleMobile()">Portfólio</a>
+  <a href="#servicos" onclick="toggleMobile()">Serviços</a>
+  <a href="#processo" onclick="toggleMobile()">Processo</a>
+  <a href="#nichos" onclick="toggleMobile()">Clientes</a>
+  <a href="#faq" onclick="toggleMobile()">FAQ</a>
+  <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Vim+pelo+site+e+quero+um+orçamento.&type=phone_number&app_absent=0" class="mob-cta" target="_blank" onclick="toggleMobile()">💬 Falar no WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-noise"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text reveal">
+        <div class="hero-eyebrow">
+          <div class="hero-dot"></div>
+          ✦ Curitiba, PR · Criação de Sites Profissionais
+        </div>
+        <h1>Sites profissionais em Curitiba que
+          <span>geram clientes reais.</span>
+        </h1>
+        <p class="hero-desc">Especialista em criação de sites para negócios em Curitiba. Design premium, SEO local e copywriting inclusos. Seu site no ar em até 7 dias — gerando clientes enquanto você trabalha.</p>
+        <div class="hero-actions">
+          <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Vim+pelo+site+e+quero+um+orçamento.&type=phone_number&app_absent=0" class="btn-gold" target="_blank">
+            💬 Quero meu orçamento grátis
+          </a>
+          <a href="#servicos" class="btn-ghost">
+            Ver serviços e preços
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <div>
+              <div class="trust-num">15+</div>
+              <div class="trust-label">Sites<br>entregues</div>
+            </div>
+          </div>
+          <div class="trust-sep"></div>
+          <div class="trust-item">
+            <div>
+              <div class="trust-num">100%</div>
+              <div class="trust-label">Clientes<br>satisfeitos</div>
+            </div>
+          </div>
+          <div class="trust-sep"></div>
+          <div class="trust-item">
+            <div>
+              <div class="trust-num">72h</div>
+              <div class="trust-label">Entrega<br>express</div>
+            </div>
+          </div>
+          <div class="trust-sep"></div>
+          <div class="trust-item">
+            <div>
+              <div class="trust-num">5★</div>
+              <div class="trust-label">Avaliação<br>média</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card-wrap reveal" style="transition-delay:.2s">
+        <div class="float-badge float-badge-top">
+          <div class="fb-dot"></div>
+          <div class="fb-text">
+            <strong>Disponível agora</strong>
+            <span>Resposta em até 2h</span>
+          </div>
+        </div>
+        <div class="hero-photo-frame">
+          <img src="gustavo.png" alt="Gustavo — Especialista em Sites Curitiba">
+          <div class="hero-card-name">
+            <h3>Gustavo Aparecido</h3>
+            <p>Especialista em Sites · Curitiba</p>
+          </div>
+        </div>
+        <div class="float-badge float-badge-bot">
+          <div class="fb-icon">📈</div>
+          <div class="fb-text">
+            <strong>+3x mais clientes</strong>
+            <span>resultado médio dos clientes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="container">
+    <div class="strip-inner">
+      <p>Negócios atendidos em Curitiba</p>
+      <div class="strip-divider"></div>
+      <div class="strip-items">
+        <span class="strip-item">Clínicas</span>
+        <span class="strip-item">Advogados</span>
+        <span class="strip-item">Restaurantes</span>
+        <span class="strip-item">Academias</span>
+        <span class="strip-item">Imobiliárias</span>
+        <span class="strip-item">Consultores</span>
+        <span class="strip-item">E-commerce</span>
+        <span class="strip-item">Estética</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-img-col reveal">
+        <div class="about-img-main">
+          <img src="gustavo.png" alt="Gustavo Aparecido — Criação de Sites em Curitiba" loading="lazy">
+        </div>
+        <div class="about-card-float">
+          <strong>15+</strong>
+          <span>Sites entregues<br>em Curitiba</span>
+        </div>
+      </div>
+      <div class="about-text reveal" style="transition-delay:.15s">
+        <div class="label">Quem sou eu</div>
+        <h2 class="title">Oi, sou o Gustavo.<br>Faço sites que <em>vendem.</em></h2>
+        <p>Sou especialista em criação de sites profissionais para negócios de Curitiba focados em um único resultado: <strong style="color:var(--white)">gerar clientes</strong>. Atendo você diretamente — sem intermediários, sem gerente de contas, sem aquela demora de agência.</p>
+        <p>Antes de criar qualquer coisa, entendo seu negócio, seu público-alvo e o que seus concorrentes fazem online. Cada site que entrego tem design exclusivo, textos escritos para converter e SEO configurado para ranquear em Curitiba desde o primeiro dia.</p>
+        <div class="about-tags">
+          <span class="tag">HTML / CSS / JS</span>
+          <span class="tag">WordPress</span>
+          <span class="tag">SEO Local</span>
+          <span class="tag">Copywriting</span>
+          <span class="tag">Google Analytics</span>
+          <span class="tag">Meta Ads</span>
+          <span class="tag">UX / Conversão</span>
+          <span class="tag">Google Ads</span>
+        </div>
+        <a href="https://instagram.com/_gustavodigital" target="_blank" class="about-insta">
+          📸 @_gustavodigital
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problem-section" id="problema">
+  <div class="container">
+    <div class="problem-intro reveal">
+      <div class="label">O problema</div>
+      <h2 class="title">A maioria dos sites<br>não gera <em>resultado algum.</em></h2>
+      <p class="subtitle">Ter um site bonito não basta. Você precisa de um site estratégico — construído para aparecer no Google e converter visitante em cliente.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="prob-card reveal">
+        <div class="prob-num">01</div>
+        <h3>Site invisível no Google</h3>
+        <p>Seu concorrente aparece na primeira página e você não. Resultado: ele recebe todos os clientes que deveriam ser seus — enquanto você espera indicações.</p>
+      </div>
+      <div class="prob-card reveal" style="transition-delay:.1s">
+        <div class="prob-num">02</div>
+        <h3>Investe em anúncio mas não converte</h3>
+        <p>Você paga por tráfego, o visitante chega e vai embora em segundos. O problema não é o anúncio — é o site que não convence nos primeiros 5 segundos.</p>
+      </div>
+      <div class="prob-card reveal" style="transition-delay:.2s">
+        <div class="prob-num">03</div>
+        <h3>Site amador afasta os melhores clientes</h3>
+        <p>Em 5 segundos o visitante decide se fica ou sai. Um site sem credibilidade espanta exatamente os clientes que mais pagariam pelo seu serviço.</p>
+      </div>
+      <div class="prob-card reveal" style="transition-delay:.3s">
+        <div class="prob-num">04</div>
+        <h3>Dependência total de indicação</h3>
+        <p>Sem site que funciona, você depende só de indicação para crescer. Isso limita seu potencial e deixa o negócio refém de outros para sobreviver.</p>
+      </div>
+    </div>
+    <div class="problem-vs reveal">
+      <h3>A solução é um site estratégico.</h3>
+      <p>Um site que aparece no Google, convence em segundos e trabalha por você 24 horas por dia, 7 dias por semana — gerando clientes no piloto automático.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="container">
+    <div class="services-intro reveal">
+      <div class="label">Serviços</div>
+      <h2 class="title">O site certo<br>para o seu <em>negócio.</em></h2>
+      <p class="subtitle">Cada projeto é criado do zero, sob medida para o seu nicho e objetivo. Sem template genérico, sem copy-paste de concorrente.</p>
+    </div>
+    <div class="services-grid">
+      <div class="srv-card reveal">
+        <div class="srv-icon">⚡</div>
+        <h3>Landing Page Vendedora</h3>
+        <p>Uma página focada em um único objetivo: transformar visitante em lead ou cliente. Perfeita para campanhas de tráfego pago.</p>
+        <div class="srv-price">R$ 997</div>
+        <div class="srv-price-note">pagamento único · entrega em 3-5 dias</div>
+        <ul class="srv-features">
+          <li>Design exclusivo e sob medida</li>
+          <li>Copywriting de conversão incluso</li>
+          <li>Integração WhatsApp + formulário</li>
+          <li>100% responsivo (mobile-first)</li>
+          <li>SEO básico configurado</li>
+          <li>Velocidade otimizada</li>
+        </ul>
+        <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Quero+uma+Landing+Page!&type=phone_number&app_absent=0" class="srv-cta ghost" target="_blank">Solicitar orçamento →</a>
+      </div>
+
+      <div class="srv-card featured reveal" style="transition-delay:.1s">
+        <div class="srv-badge">Mais vendido</div>
+        <div class="srv-icon">🏆</div>
+        <h3>Site Institucional Completo</h3>
+        <p>Presença digital profissional completa. Seu negócio apresentado com autoridade, gerando clientes 24h por dia.</p>
+        <div class="srv-price">R$ 2.497</div>
+        <div class="srv-price-note">pagamento único · entrega em 5-7 dias</div>
+        <ul class="srv-features">
+          <li>Até 6 páginas completas</li>
+          <li>SEO avançado para Curitiba</li>
+          <li>Blog para posicionamento Google</li>
+          <li>WhatsApp + formulário integrado</li>
+          <li>Google Analytics instalado</li>
+          <li>Hospedagem 1º ano inclusa</li>
+          <li>Treinamento para editar</li>
+        </ul>
+        <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Quero+o+Site+Institucional+Completo!&type=phone_number&app_absent=0" class="srv-cta" target="_blank">Quero esse →</a>
+      </div>
+
+      <div class="srv-card reveal" style="transition-delay:.2s">
+        <div class="srv-icon">🛒</div>
+        <h3>Loja Virtual Completa</h3>
+        <p>Venda seus produtos online com uma loja profissional, segura e otimizada para converter em qualquer dispositivo.</p>
+        <div class="srv-price">R$ 3.497</div>
+        <div class="srv-price-note">pagamento único · entrega em 10-14 dias</div>
+        <ul class="srv-features">
+          <li>Catálogo ilimitado de produtos</li>
+          <li>Pix, cartão e boleto integrados</li>
+          <li>Frete automático configurado</li>
+          <li>Painel admin simples de usar</li>
+          <li>SEO por produto</li>
+          <li>Recuperação de carrinho</li>
+        </ul>
+        <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Quero+uma+Loja+Virtual!&type=phone_number&app_absent=0" class="srv-cta ghost" target="_blank">Solicitar orçamento →</a>
+      </div>
+    </div>
+    <div class="srv-guarantee reveal">
+      ✅ <strong>Todos os projetos incluem:</strong> Hospedagem do 1º ano · Domínio .com.br · SSL (cadeado seguro) · Suporte por 30 dias · 2 rodadas de revisão
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section class="process-section" id="processo">
+  <div class="container">
+    <div class="process-intro reveal">
+      <div class="label">Como funciona</div>
+      <h2 class="title">Do zero ao ar<br>em <em>poucos dias.</em></h2>
+      <p class="subtitle">Processo simples, transparente e sem surpresas. Você não precisa entender de tecnologia — só me contar o que precisa.</p>
+    </div>
+    <div class="steps-wrap">
+      <div class="step-item reveal">
+        <div class="step-circle">01</div>
+        <h4>Conversa estratégica</h4>
+        <p>Entendo seu negócio, público, concorrentes e objetivos. Só assim consigo criar algo que realmente funciona para você.</p>
+        <span class="step-tag">⏱ Dia 1</span>
+      </div>
+      <div class="step-item reveal" style="transition-delay:.1s">
+        <div class="step-circle">02</div>
+        <h4>Design + Copy exclusivos</h4>
+        <p>Crio o design do site com textos persuasivos escritos especificamente para o seu público e nicho de mercado.</p>
+        <span class="step-tag">⏱ Dia 2–3</span>
+      </div>
+      <div class="step-item reveal" style="transition-delay:.2s">
+        <div class="step-circle">03</div>
+        <h4>Você aprova e revisa</h4>
+        <p>Você vê o site antes de publicar. Pede ajustes à vontade — só vamos ao ar quando você estiver 100% satisfeito.</p>
+        <span class="step-tag">⏱ Dia 4</span>
+      </div>
+      <div class="step-item reveal" style="transition-delay:.3s">
+        <div class="step-circle">04</div>
+        <h4>No ar e gerando clientes</h4>
+        <p>Site publicado com domínio, hospedagem, analytics e tudo configurado. Pronto para receber clientes desde o primeiro dia.</p>
+        <span class="step-tag">⏱ Dia 5–7</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:4rem">
+      <div class="label">Por que eu</div>
+      <h2 class="title">Não sou uma agência.<br>Sou seu <em>parceiro digital.</em></h2>
+    </div>
+    <div class="diff-wrap">
+      <div class="diff-list" id="diffList">
+        <div class="diff-item active" onclick="activeDiff(this)">
+          <div class="diff-num">01</div>
+          <div class="diff-content">
+            <h4>Foco em conversão, não em prêmio de design</h4>
+            <p>Sites bonitos que não vendem são desperdício. Cada decisão de design é baseada em dados e psicologia de conversão — o que realmente faz o visitante virar cliente.</p>
+          </div>
+        </div>
+        <div class="diff-item" onclick="activeDiff(this)">
+          <div class="diff-num">02</div>
+          <div class="diff-content">
+            <h4>SEO local para Curitiba desde o dia 1</h4>
+            <p>Seu site otimizado para aparecer quando alguém pesquisa seu serviço + Curitiba no Google. Tráfego orgânico gratuito todos os dias.</p>
+          </div>
+        </div>
+        <div class="diff-item" onclick="activeDiff(this)">
+          <div class="diff-num">03</div>
+          <div class="diff-content">
+            <h4>Copy estratégica inclusa em todos os projetos</h4>
+            <p>Não entrego um site vazio para você preencher. Os textos persuasivos já vêm prontos, escritos com técnicas de copywriting para o seu público específico.</p>
+          </div>
+        </div>
+        <div class="diff-item" onclick="activeDiff(this)">
+          <div class="diff-num">04</div>
+          <div class="diff-content">
+            <h4>Atendimento direto, sem intermediário</h4>
+            <p>Você fala direto comigo no WhatsApp. Sem gerentes, sem tickets de suporte, sem esperar 3 dias para uma resposta simples.</p>
+          </div>
+        </div>
+        <div class="diff-item" onclick="activeDiff(this)">
+          <div class="diff-num">05</div>
+          <div class="diff-content">
+            <h4>Entrega no prazo combinado — sempre</h4>
+            <p>Cumpro o que prometo. Se combinamos 7 dias, entrego em 7 dias. Sem surpresas, sem desculpas, sem retrabalho infinito.</p>
+          </div>
+        </div>
+      </div>
+      <div class="diff-visual reveal" style="transition-delay:.2s">
+        <h4>Comparativo com o mercado</h4>
+        <div class="metric-bar-item">
+          <div class="metric-bar-head">
+            <span class="metric-bar-label">Velocidade de entrega</span>
+            <span class="metric-bar-val">5–7 dias</span>
+          </div>
+          <div class="metric-bar-track"><div class="metric-bar-fill" style="width:95%"></div></div>
+        </div>
+        <div class="metric-bar-item">
+          <div class="metric-bar-head">
+            <span class="metric-bar-label">SEO on-page incluso</span>
+            <span class="metric-bar-val">100%</span>
+          </div>
+          <div class="metric-bar-track"><div class="metric-bar-fill" style="width:100%"></div></div>
+        </div>
+        <div class="metric-bar-item">
+          <div class="metric-bar-head">
+            <span class="metric-bar-label">Copywriting incluso</span>
+            <span class="metric-bar-val">Sim</span>
+          </div>
+          <div class="metric-bar-track"><div class="metric-bar-fill" style="width:100%"></div></div>
+        </div>
+        <div class="metric-bar-item">
+          <div class="metric-bar-head">
+            <span class="metric-bar-label">Custo vs agência tradicional</span>
+            <span class="metric-bar-val">-70%</span>
+          </div>
+          <div class="metric-bar-track"><div class="metric-bar-fill" style="width:30%"></div></div>
+        </div>
+        <div class="metric-bar-item">
+          <div class="metric-bar-head">
+            <span class="metric-bar-label">Satisfação dos clientes</span>
+            <span class="metric-bar-val">5 ★</span>
+          </div>
+          <div class="metric-bar-track"><div class="metric-bar-fill" style="width:100%"></div></div>
+        </div>
+        <div class="diff-bottom">
+          <div class="diff-bottom-icon">🏅</div>
+          <p>Qualidade de <strong>agência de anos</strong> com atendimento <strong>personalizado e direto</strong> — pelo preço que cabe no seu planejamento.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NICHOS -->
+<section class="nichos-section" id="nichos">
+  <div class="container">
+    <div class="nichos-intro reveal">
+      <div class="label">Quem atendo</div>
+      <h2 class="title">Para qualquer negócio<br>que quer <em>crescer.</em></h2>
+      <p class="subtitle">Se você tem um negócio em Curitiba e quer mais clientes, consigo criar o site certo para o seu segmento.</p>
+    </div>
+    <div class="nichos-grid">
+      <div class="nicho-card reveal"><div class="nicho-icon">🏥</div><h4>Saúde & Bem-estar</h4><p>Clínicas, psicólogos, dentistas, nutricionistas</p></div>
+      <div class="nicho-card reveal" style="transition-delay:.05s"><div class="nicho-icon">⚖️</div><h4>Jurídico & Financeiro</h4><p>Advogados, contadores, consultores</p></div>
+      <div class="nicho-card reveal" style="transition-delay:.1s"><div class="nicho-icon">🏠</div><h4>Imóveis & Construção</h4><p>Imobiliárias, construtoras, arquitetos</p></div>
+      <div class="nicho-card reveal" style="transition-delay:.15s"><div class="nicho-icon">🍕</div><h4>Alimentação</h4><p>Restaurantes, cafés, hamburguerias, delivery</p></div>
+      <div class="nicho-card reveal" style="transition-delay:.2s"><div class="nicho-icon">💪</div><h4>Fitness & Esportes</h4><p>Academias, personal trainers, studios</p></div>
+      <div class="nicho-card reveal" style="transition-delay:.25s"><div class="nicho-icon">✂️</div><h4>Beleza & Estética</h4><p>Salões, barbearias, clínicas estéticas</p></div>
+      <div class="nicho-card reveal" style="transition-delay:.3s"><div class="nicho-icon">🎓</div><h4>Educação</h4><p>Cursos, escolas, coaches, mentores</p></div>
+      <div class="nicho-card reveal" style="transition-delay:.35s"><div class="nicho-icon">🛒</div><h4>Comércio & E-commerce</h4><p>Lojas físicas e virtuais de qualquer nicho</p></div>
+    </div>
+    <p style="text-align:center; margin-top:2rem; font-size:.875rem; color:var(--muted2);" class="reveal">
+      Não encontrou seu segmento? <a href="https://api.whatsapp.com/send/?phone=5541995374510&type=phone_number&app_absent=0" target="_blank" style="color:var(--gold); font-weight:600">Me chama no WhatsApp</a> — atendo qualquer nicho.
+    </p>
+  </div>
+</section>
+
+
+<!-- PORTFÓLIO -->
+<section class="portfolio-section" id="portfolio">
+  <div class="container">
+    <div class="portfolio-intro reveal">
+      <div class="label">Portfólio</div>
+      <h2 class="title">Projetos que já<br><em>transformaram negócios.</em></h2>
+      <p class="subtitle">Cada site é único. Veja como negócios reais de Curitiba passaram a ter uma presença digital que gera credibilidade e atrai clientes todos os dias.</p>
+    </div>
+    <div class="portfolio-grid">
+
+      <!-- PROJETO 1: Wagner Alves Visagista -->
+      <div class="porto-card reveal">
+        <div class="porto-img">
+          <img src="portfolio-wagner.png" alt="Site Wagner Alves Visagista Curitiba — criado por Gustavo Digital" loading="lazy">
+          <div class="porto-overlay">
+            <span class="porto-tag">Visagismo · Consultoria</span>
+            <h3>Wagner Alves<br>Visagista</h3>
+            <p>Site de alta conversão para o visagista executivo número 1 de Curitiba — posicionamento premium, depoimentos em vídeo e agendamento integrado.</p>
+            <div class="porto-results">
+              <span class="porto-result-item">+3x leads</span>
+              <span class="porto-result-item">Top Google</span>
+              <span class="porto-result-item">Design exclusivo</span>
+            </div>
+            <a href="https://owagneralvessvisagista.com" class="porto-link" target="_blank">
+              Ver site ao vivo →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJETO 2: Barbearia -->
+      <div class="porto-card reveal" style="transition-delay:.15s">
+        <div class="porto-img">
+          <img src="portfolio-barbearia.png" alt="Site Barbearia Clube Curitiba — criado por Gustavo Digital" loading="lazy">
+          <div class="porto-overlay">
+            <span class="porto-tag">Barbearia · Premium</span>
+            <h3>Barbearia<br>Clube Curitiba</h3>
+            <p>Site institucional completo para barbearia premium em Curitiba — apresentação da equipe, serviços com preços, agendamento online e SEO local.</p>
+            <div class="porto-results">
+              <span class="porto-result-item">Agendamento online</span>
+              <span class="porto-result-item">SEO local</span>
+              <span class="porto-result-item">Mobile perfeito</span>
+            </div>
+            <a href="#" class="porto-link" target="_blank">
+              Ver site ao vivo →
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="porto-cta reveal">
+      <p>Quer um site assim para o seu negócio? <strong>Seu projeto pode ser o próximo aqui.</strong></p>
+      <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Vi+seu+portfólio+e+quero+um+site+assim+para+o+meu+negócio.&type=phone_number&app_absent=0" class="btn-gold" target="_blank">
+        💬 Quero um site assim
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="test-intro reveal">
+      <div class="label">Depoimentos</div>
+      <h2 class="title">O que meus clientes<br>falam sobre os <em>resultados.</em></h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"O Gustavo entregou antes do prazo e o site ficou incrível. Na primeira semana já recebi 3 novos pacientes pelo Google. Recomendo de olhos fechados para qualquer profissional de saúde."</p>
+        <div class="test-author">
+          <div class="test-av">MR</div>
+          <div>
+            <div class="test-name">Marcos Ribeiro</div>
+            <div class="test-role">Clínica Odontológica — Curitiba</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card reveal" style="transition-delay:.1s">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Tinha um site velho que não aparecia no Google. O Gustavo refez tudo, com textos incríveis e design profissional. Agora apareço na primeira página para clientes em Curitiba."</p>
+        <div class="test-author">
+          <div class="test-av">AC</div>
+          <div>
+            <div class="test-name">Ana Carvalho</div>
+            <div class="test-role">Advogada — Curitiba</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card reveal" style="transition-delay:.2s">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Minha academia agora tem uma presença digital que passa credibilidade de verdade. Os clientes chegam pelo site todos os dias. O investimento se pagou no primeiro mês."</p>
+        <div class="test-author">
+          <div class="test-av">FP</div>
+          <div>
+            <div class="test-name">Felipe Pessoa</div>
+            <div class="test-role">Academia FitLife — Curitiba</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="faq-intro reveal">
+      <div class="label">Dúvidas</div>
+      <h2 class="title">Perguntas<br><em>frequentes.</em></h2>
+      <p class="subtitle">Tudo que você precisa saber antes de contratar.</p>
+    </div>
+    <div class="faq-wrap reveal">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Quanto tempo demora para o site ficar pronto?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a">Landing pages ficam prontas em 3-5 dias úteis. Sites institucionais em 5-7 dias. Lojas virtuais de 10 a 14 dias. Cumpro sempre o prazo combinado — sem surpresas.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Preciso ter os textos prontos para me enviar?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a">Não! O copywriting está incluso em todos os projetos. Me conto sobre seu negócio em uma conversa de 30 minutos e eu escrevo todos os textos estratégicos do site — otimizados para converter.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>O site vai aparecer no Google?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a">Todos os projetos incluem SEO on-page configurado desde o dia 1 — meta tags, velocidade, headings, sitemap e foco em palavras-chave locais de Curitiba. Os resultados orgânicos crescem com o tempo, mas você já começa no caminho certo.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Como funciona o pagamento?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a">50% de entrada para iniciar o projeto e 50% na entrega. Aceito Pix, transferência e cartão. Para projetos maiores, posso parcelar em até 3x sem juros no cartão.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>E se eu não gostar do resultado?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a">Você tem 2 rodadas completas de revisão incluídas — pode pedir alterações em qualquer elemento do site. Só entrego o projeto quando você estiver 100% satisfeito. Trabalho assim porque minha reputação depende do seu resultado.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Quanto custa manter o site depois de pronto?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a">O primeiro ano de hospedagem já está incluso em todos os projetos. A partir do 2º ano, o custo de hospedagem gira entre R$30-60/mês. Ofereço também plano de manutenção mensal para suporte contínuo.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Já tenho um site. Posso contratar só para melhorar?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a">Sim! Analiso seu site atual e identifico o que está bloqueando conversões. Posso fazer melhorias pontuais ou um redesign completo, dependendo do que faz mais sentido para o seu caso.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Vale a pena investir em site sendo um negócio pequeno?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a">Principalmente para negócios menores! Um site profissional te coloca num nível diferente desde o início — passa credibilidade para os primeiros clientes, aparece no Google e trabalha por você 24h. É o investimento com melhor retorno para quem está crescendo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section" id="contato">
+  <div class="cta-glow"></div>
+  <div class="container">
+    <div class="cta-inner reveal">
+      <img src="logo.png" alt="Gustavo Digital" class="cta-logo">
+      <div class="label">Pronto para crescer?</div>
+      <h2 class="title">Cada dia sem site<br>é dinheiro <em>perdido.</em></h2>
+      <p class="subtitle">Enquanto você lê isso, alguém em Curitiba está pesquisando exatamente o que você vende — e encontrando o seu concorrente. Um site profissional muda isso hoje.</p>
+      <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Vi+seu+site+e+quero+um+orçamento+para+meu+projeto.&type=phone_number&app_absent=0" class="cta-whats" target="_blank">
+        💬 Falar com Gustavo no WhatsApp
+      </a>
+      <p class="cta-note">Resposta em até <strong>2 horas</strong> · Orçamento <strong>gratuito</strong> e sem compromisso</p>
+    </div>
+  </div>
+</section>
+
+<!-- POLÍTICA DE PRIVACIDADE -->
+<section class="privacidade-section" id="privacidade">
+  <div class="container">
+    <div class="privacidade-inner">
+      <button class="priv-toggle" id="privToggle" onclick="togglePriv()">
+        📋 Política de Privacidade e Cookies (LGPD) <span>▼</span>
+      </button>
+      <div class="priv-content" id="privContent">
+        <h2>Política de Privacidade</h2>
+        <p><strong>Última atualização: abril de 2025</strong></p>
+        <p>A Gustavo Digital, pessoa física prestadora de serviços, com sede em Curitiba/PR, respeita sua privacidade e está comprometida com a proteção dos seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).</p>
+
+        <h3>1. Dados que coletamos</h3>
+        <ul>
+          <li><strong>Dados de contato:</strong> nome, e-mail, telefone e WhatsApp fornecidos voluntariamente via formulário ou contato direto.</li>
+          <li><strong>Dados de navegação:</strong> endereço IP, tipo de dispositivo, páginas visitadas, tempo de permanência, via Google Analytics.</li>
+          <li><strong>Cookies:</strong> arquivos de texto armazenados no seu navegador para melhorar sua experiência.</li>
+        </ul>
+
+        <h3>2. Finalidade do tratamento</h3>
+        <ul>
+          <li>Responder solicitações de orçamento e atendimento ao cliente.</li>
+          <li>Analisar o desempenho do site e melhorar a experiência do usuário.</li>
+          <li>Cumprir obrigações legais e regulatórias.</li>
+        </ul>
+
+        <h3>3. Base legal (LGPD)</h3>
+        <p>O tratamento dos dados é fundamentado no consentimento do titular (Art. 7º, I), na execução de contrato (Art. 7º, V) e no legítimo interesse (Art. 7º, IX) para análise e melhoria dos serviços.</p>
+
+        <h3>4. Cookies</h3>
+        <p>Utilizamos cookies essenciais (necessários para o funcionamento do site) e analíticos (Google Analytics, para entender como o site é usado). Você pode recusar cookies analíticos através do banner de cookies ou das configurações do seu navegador.</p>
+
+        <h3>5. Compartilhamento de dados</h3>
+        <p>Seus dados não são vendidos. Podem ser compartilhados apenas com: Google Analytics (análise de tráfego) e ferramentas de comunicação necessárias para responder seu contato (WhatsApp, e-mail).</p>
+
+        <h3>6. Armazenamento e segurança</h3>
+        <p>Os dados são armazenados em servidores seguros com criptografia SSL. Mensagens de WhatsApp e e-mail seguem as políticas de segurança de cada plataforma. Os dados são mantidos pelo tempo necessário para a finalidade coletada ou conforme exigido por lei.</p>
+
+        <h3>7. Seus direitos (LGPD)</h3>
+        <ul>
+          <li><strong>Acesso:</strong> saber quais dados temos sobre você.</li>
+          <li><strong>Correção:</strong> corrigir dados incompletos ou incorretos.</li>
+          <li><strong>Exclusão:</strong> solicitar a eliminação dos seus dados.</li>
+          <li><strong>Portabilidade:</strong> receber seus dados em formato estruturado.</li>
+          <li><strong>Revogação:</strong> retirar seu consentimento a qualquer momento.</li>
+        </ul>
+        <p>Para exercer qualquer direito, entre em contato via WhatsApp: (41) 99537-4510 ou Instagram: @_gustavodigital.</p>
+
+        <h3>8. Menores de idade</h3>
+        <p>Este site não é destinado a menores de 18 anos. Não coletamos intencionalmente dados de menores.</p>
+
+        <h3>9. Alterações nesta política</h3>
+        <p>Esta política pode ser atualizada. Recomendamos verificar periodicamente. Alterações significativas serão comunicadas via banner no site.</p>
+
+        <h3>10. Contato</h3>
+        <p>Dúvidas sobre privacidade: WhatsApp (41) 99537-4510 | Instagram @_gustavodigital | Curitiba, PR.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="foot-brand">
+        <img src="logo.png" alt="Gustavo Digital">
+        <p>Especialista em criação de sites profissionais para negócios em Curitiba que querem crescer e gerar mais clientes.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Navegação</h5>
+        <a href="#sobre">Sobre mim</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#processo">Como funciona</a>
+        <a href="#nichos">Quem atendo</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contato</h5>
+        <a href="https://api.whatsapp.com/send/?phone=5541995374510&type=phone_number&app_absent=0" target="_blank">WhatsApp</a>
+        <a href="https://instagram.com/_gustavodigital" target="_blank">Instagram</a>
+        <a href="#privacidade">Política de Privacidade</a>
+        <a href="#privacidade">Cookies (LGPD)</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Gustavo Digital · Curitiba, PR · Todos os direitos reservados · CNPJ em processo</p>
+      <div class="footer-legal">
+        <a href="#privacidade">Privacidade</a>
+        <a href="#privacidade">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Vim+pelo+site+e+quero+um+orçamento.&type=phone_number&app_absent=0"
+   class="whats-float" target="_blank" aria-label="Falar no WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<script>
+// ── COOKIE ──
+(function(){
+  if(localStorage.getItem('gd_cookies')) {
+    document.getElementById('cookie-banner').classList.add('hidden');
+  }
+})();
+function acceptCookies(){
+  localStorage.setItem('gd_cookies','accepted');
+  document.getElementById('cookie-banner').classList.add('hidden');
+}
+function declineCookies(){
+  localStorage.setItem('gd_cookies','declined');
+  document.getElementById('cookie-banner').classList.add('hidden');
+}
+
+// ── MOBILE MENU ──
+function toggleMobile(){
+  var m = document.getElementById('mobileNav');
+  var h = document.getElementById('hamburger');
+  m.classList.toggle('open');
+  h.classList.toggle('open');
+}
+
+// ── FAQ ──
+function toggleFaq(btn){
+  var ans = btn.nextElementSibling;
+  var icon = btn.querySelector('.faq-icon');
+  var isOpen = ans.classList.contains('open');
+  document.querySelectorAll('.faq-a.open').forEach(function(a){ a.classList.remove('open'); });
+  document.querySelectorAll('.faq-q.open').forEach(function(q){ q.classList.remove('open'); });
+  if(!isOpen){ ans.classList.add('open'); btn.classList.add('open'); }
+}
+
+// ── DIFERENCIAIS ──
+function activeDiff(el){
+  document.querySelectorAll('.diff-item').forEach(function(i){ i.classList.remove('active'); });
+  el.classList.add('active');
+}
+
+// ── POLÍTICA ──
+function togglePriv(){
+  var btn = document.getElementById('privToggle');
+  var content = document.getElementById('privContent');
+  btn.classList.toggle('open');
+  content.classList.toggle('open');
+}
+
+// ── REVEAL ──
+function showAll(){
+  document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+}
+function initReveal(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){ showAll(); return; }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(function(el){ obs.observe(el); });
+  setTimeout(showAll, 1000);
+}
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', initReveal);
+} else { initReveal(); }
+
+// ── NAV SCROLL ──
+window.addEventListener('scroll', function(){
+  var nav = document.querySelector('nav');
+  if(window.scrollY > 60){ nav.style.borderBottomColor = 'rgba(201,168,76,0.1)'; }
+  else { nav.style.borderBottomColor = 'rgba(255,255,255,0.06)'; }
+}, { passive: true });
+</script>
+</body>
+</html>
