@@ -33,7 +33,7 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
 
   body {
     background: var(--black);
@@ -115,7 +115,7 @@
   }
   .hero-content {
     max-width: 1200px; margin: 0 auto; width: 100%;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 4rem; align-items: center;
     position: relative; z-index: 2;
   }
   .hero-tag {
@@ -290,7 +290,7 @@
 
   /* ── DORES / PROBLEMA ── */
   .problems { background: var(--gray); }
-  .problems-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+  .problems-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 2rem; margin-top: 3rem; }
   .problem-card {
     border: 1px solid rgba(255,255,255,0.07);
     border-radius: 16px;
@@ -317,7 +317,7 @@
   }
 
   /* ── SERVIÇOS ── */
-  .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; margin-top: 3rem; }
   .service-card {
     background: var(--gray);
     border: 1px solid var(--border);
@@ -402,7 +402,7 @@
   }
 
   /* ── POR QUE EU ── */
-  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+  .why-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 3rem; align-items: center; margin-top: 3rem; }
   .why-list { list-style: none; }
   .why-item {
     display: flex; gap: 1.2rem; align-items: flex-start;
@@ -442,7 +442,7 @@
   .metric-fill { height: 100%; border-radius: 4px; background: linear-gradient(to right, var(--accent), var(--accent2)); }
 
   /* ── NICHOS ── */
-  .nichos-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 3rem; }
+  .nichos-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1rem; margin-top: 3rem; }
   .nicho-card {
     background: var(--gray);
     border: 1px solid var(--border);
@@ -461,7 +461,7 @@
 
   /* ── DEPOIMENTOS ── */
   .testimonials { background: var(--gray); }
-  .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+  .test-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; margin-top: 3rem; }
   .test-card {
     background: var(--black);
     border: 1px solid var(--border);
@@ -516,11 +516,11 @@
   .faq-a.open { max-height: 300px; padding: 0 1.5rem 1.3rem; }
 
   /* ── SOBRE ── */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 4rem; align-items: center; }
   .about-img-wrap { position: relative; }
   .about-img {
     width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 4/5;
     border-radius: 24px;
     border: 1px solid var(--border);
     position: relative; overflow: hidden;
@@ -528,13 +528,13 @@
   }
   .about-img img {
     width: 100%; height: 100%;
-    object-fit: cover; object-position: center top;
+    object-fit: cover; object-position: center 15%;
     display: block;
     border-radius: 24px;
   }
   .about-img::after {
     content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 35%;
+    position: absolute; bottom: 0; left: 0; right: 0; height: 30%;
     background: linear-gradient(to top, rgba(255,77,28,.18), transparent);
     pointer-events: none;
   }
@@ -610,7 +610,7 @@
   footer {
     padding: 3rem 2rem;
     border-top: 1px solid var(--border);
-    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; align-items: start;
+    display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 2rem; align-items: start;
     max-width: 1200px; margin: 0 auto;
   }
   .footer-brand .nav-logo { display: block; margin-bottom: 1rem; }
@@ -639,25 +639,76 @@
   .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }
 
   /* ── MOBILE ── */
+  /* ── TABLET ── */
+  @media (max-width: 1100px) {
+    .services-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .nichos-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  }
+
+  /* ── MOBILE ── */
   @media (max-width: 900px) {
     .nav-links, .nav-cta { display: none; }
     .nav-mobile-btn { display: block; }
-    .hero-content { grid-template-columns: 1fr; gap: 3rem; }
+
+    /* Hero */
+    .hero { padding: 7rem 1.2rem 3rem; }
+    .hero-content { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero-visual { order: -1; }
     .mockup-wrap { max-width: 100%; }
-    .badge-float.left { left: 0; }
-    .badge-float.right { right: 0; }
-    .problems-grid, .why-grid, .about-grid { grid-template-columns: 1fr; }
+    .badge-float { position: static; margin: .5rem 0; width: 100%; }
+    .badge-float.left, .badge-float.right { display: none; }
+    .hero-stats { gap: 1.2rem; flex-wrap: wrap; }
+    .stat-num { font-size: 1.6rem; }
+
+    /* Sections */
+    section { padding: 4rem 1.2rem; }
+
+    /* Grids → 1 coluna */
+    .problems-grid { grid-template-columns: 1fr; gap: 1rem; }
     .services-grid { grid-template-columns: 1fr; }
-    .nichos-grid { grid-template-columns: repeat(2,1fr); }
+    .why-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .test-grid { grid-template-columns: 1fr; }
-    footer { grid-template-columns: 1fr; }
-    .hero-stats { gap: 1.5rem; }
+    .nichos-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: .8rem; }
+    footer { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.2rem; }
+
+    /* About */
+    .about-img { aspect-ratio: 1; max-width: 340px; margin: 0 auto; }
+    .about-float { right: 0; bottom: -1rem; }
+    .about-img-wrap { display: flex; flex-direction: column; align-items: center; }
+
+    /* Process */
+    .process-steps::before { left: 24px; }
+    .step-num { width: 48px; height: 48px; font-size: 1rem; }
+
+    /* Why visual */
+    .why-visual { padding: 1.2rem; }
+
+    /* Sections titles */
+    .section-title { font-size: clamp(1.7rem, 5vw, 2.5rem); }
+    .hero h1 { font-size: clamp(2rem, 7vw, 3.5rem); }
   }
-  @media (max-width: 600px) {
-    .nichos-grid { grid-template-columns: repeat(2,1fr); }
-    .hero-btns { flex-direction: column; }
-    .btn-primary, .btn-secondary { justify-content: center; }
+
+  /* ── SMALL MOBILE ── */
+  @media (max-width: 480px) {
+    nav { padding: 1rem 1.2rem; }
+    .nav-logo img { height: 34px; }
+    .hero { padding: 6rem 1rem 2.5rem; }
+    .hero-btns { flex-direction: column; gap: .8rem; }
+    .btn-primary, .btn-secondary { justify-content: center; width: 100%; text-align: center; }
+    .hero-stats { justify-content: space-between; }
+    .stat-num { font-size: 1.4rem; }
+    .nichos-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .service-card.featured::after { font-size: .6rem; padding: .2rem .5rem; }
+    .test-card { padding: 1.4rem; }
+    .cta-whats { padding: .9rem 1.5rem; font-size: .95rem; }
+    .faq-q { padding: 1rem 1.2rem; font-size: .9rem; }
+    .faq-a { padding: 0 1.2rem; }
+    .faq-a.open { padding: 0 1.2rem 1rem; }
+    section { padding: 3rem 1rem; }
+    .logos-strip { padding: 2rem 1rem; }
+    .logos-grid { gap: 1rem 1.5rem; }
+    footer { padding: 2rem 1rem; }
   }
 
   /* ── MOBILE MENU ── */
