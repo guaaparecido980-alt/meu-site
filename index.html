@@ -905,14 +905,23 @@ nav { z-index: 900; }
 
   .hero { padding: 72px 0 60px; }
   .hero-inner { grid-template-columns: 1fr; gap: 0; }
-  .hero-photo-frame { aspect-ratio: 4/3; max-height: 300px; border-radius: 12px; border: 1px solid rgba(245,166,35,.2); }
-  .hero-photo-frame img { object-position: center 15%; }
-  .hero-card-wrap { order: -1; }
+  .hero-text { padding: 2rem 1.2rem 0; }
+  .hero-photo-frame {
+    aspect-ratio: 4/5;
+    max-height: 400px;
+    width: calc(100% - 2.4rem);
+    max-width: 300px;
+    border-radius: 16px;
+    border: 1px solid rgba(245,166,35,.2);
+  }
+  .hero-photo-frame img { object-position: center 12%; object-fit: cover; }
+  .hero-card-wrap { order: -1; display: flex; justify-content: center; width: 100%; padding: 0 1.2rem; }
   .float-badge { display: none; }
   .hero-card-name { padding: 1rem; }
   .hero-card-name h3 { font-size: 1rem; }
   .hero-card-name p { font-size: .75rem; }
   .hero h1 { font-size: clamp(1.9rem, 7vw, 3rem); }
+  .scroll-hint { display: none; }
   .hero-trust { gap: 1.2rem; padding-top: 1.5rem; margin-top: 1.5rem; }
   .trust-sep { display: none; }
   .trust-num { font-size: 1.4rem; }
@@ -940,7 +949,7 @@ nav { z-index: 900; }
   .cookie-btns { width: 100%; }
   .btn-cookie-accept { flex: 1; text-align: center; }
 
-  .hero-actions { flex-direction: column; align-items: flex-start; gap: .8rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: .8rem; width: 100%; }
   .btn-gold, .btn-ghost { width: 100%; justify-content: center; }
 }
 
