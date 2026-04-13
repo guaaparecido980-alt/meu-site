@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Política de Privacidade e Cookies da Gustavo Digital. Saiba como tratamos seus dados pessoais em conformidade com a LGPD.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://gustavodigital.online/privacidade.html">
+<link rel="icon" type="image/png" href="logo.png">
+<title>Política de Privacidade e Cookies | Gustavo Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0D0D0F; --ink2: #18181C; --gold: #F5A623; --gold2: #FFB84D;
+  --white: #FAFAF8; --muted: #6B6B72; --muted2: #9B9BA2;
+  --border2: rgba(255,255,255,0.06);
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { overflow-x: hidden; }
+body { background: var(--ink); color: var(--white); font-family: var(--sans); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+nav {
+  position: sticky; top: 0; z-index: 900;
+  padding: 0 2rem; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(13,13,15,.95); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border2);
+}
+nav img { height: 34px; }
+nav a.back {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .85rem; color: var(--muted2); text-decoration: none;
+  transition: color .2s;
+}
+nav a.back:hover { color: var(--gold); }
+
+.hero-priv {
+  background: linear-gradient(135deg, var(--ink2) 0%, var(--ink) 100%);
+  border-bottom: 1px solid var(--border2);
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+}
+.hero-priv .badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(245,166,35,.08); border: 1px solid rgba(245,166,35,.2);
+  color: var(--gold); font-size: .72rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: .3rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;
+}
+.hero-priv h1 {
+  font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700; color: var(--white); margin-bottom: .8rem;
+}
+.hero-priv p { color: var(--muted2); font-size: .9rem; max-width: 560px; margin: 0 auto; }
+.update-badge {
+  display: inline-block; margin-top: 1rem;
+  background: var(--ink2); border: 1px solid var(--border2);
+  border-radius: 50px; padding: .3rem 1rem;
+  font-size: .75rem; color: var(--muted);
+}
+
+.content {
+  max-width: 820px; margin: 0 auto; padding: 4rem 2rem;
+}
+
+/* Table of contents */
+.toc {
+  background: var(--ink2); border: 1px solid var(--border2);
+  border-radius: 16px; padding: 1.8rem; margin-bottom: 3rem;
+}
+.toc h3 {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 700;
+  color: var(--white); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: .6rem;
+}
+.toc ol { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: .4rem .5rem; }
+.toc ol li a {
+  font-size: .82rem; color: var(--muted2); text-decoration: none;
+  display: flex; align-items: center; gap: .4rem; transition: color .2s;
+}
+.toc ol li a:hover { color: var(--gold); }
+.toc ol li a::before { content: attr(data-num); color: var(--gold); font-weight: 700; font-size: .75rem; min-width: 18px; }
+
+.section-block {
+  margin-bottom: 2.5rem; padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border2);
+}
+.section-block:last-child { border-bottom: none; }
+
+.section-block h2 {
+  font-family: var(--serif); font-size: 1.4rem; font-weight: 700;
+  color: var(--white); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: .8rem;
+}
+.section-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(245,166,35,.1); border: 1px solid rgba(245,166,35,.2);
+  font-size: .75rem; font-weight: 700; color: var(--gold); flex-shrink: 0;
+}
+.section-block p { font-size: .9rem; color: var(--muted2); line-height: 1.8; margin-bottom: .8rem; }
+.section-block p:last-child { margin-bottom: 0; }
+.section-block ul, .section-block ol { margin-left: 0; list-style: none; }
+.section-block li {
+  display: flex; gap: .8rem; align-items: flex-start;
+  font-size: .875rem; color: var(--muted2); line-height: 1.7;
+  padding: .5rem 0; border-bottom: 1px solid rgba(255,255,255,.04);
+}
+.section-block li:last-child { border-bottom: none; }
+.section-block li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: .1rem; }
+
+/* Highlight box */
+.highlight-box {
+  background: rgba(245,166,35,.05); border: 1px solid rgba(245,166,35,.2);
+  border-radius: 12px; padding: 1.2rem 1.5rem; margin: 1rem 0;
+}
+.highlight-box p { color: rgba(250,250,248,.8) !important; margin: 0 !important; font-size: .875rem !important; }
+.highlight-box strong { color: var(--gold); }
+
+/* Rights table */
+.rights-table {
+  width: 100%; border-collapse: collapse; margin: 1rem 0;
+  font-size: .85rem;
+}
+.rights-table th {
+  background: rgba(245,166,35,.08); color: var(--gold);
+  font-weight: 700; font-size: .72rem; letter-spacing: .08em;
+  text-transform: uppercase; padding: .8rem 1rem; text-align: left;
+  border-bottom: 1px solid rgba(245,166,35,.2);
+}
+.rights-table td {
+  padding: .8rem 1rem; color: var(--muted2); line-height: 1.6;
+  border-bottom: 1px solid var(--border2);
+}
+.rights-table tr:last-child td { border-bottom: none; }
+.rights-table tr:hover td { background: rgba(255,255,255,.02); }
+
+/* Cookie types */
+.cookie-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+.cookie-card {
+  background: var(--ink2); border: 1px solid var(--border2);
+  border-radius: 12px; padding: 1.2rem;
+}
+.cookie-card h4 {
+  font-size: .85rem; font-weight: 700; color: var(--white);
+  margin-bottom: .4rem; display: flex; align-items: center; gap: .5rem;
+}
+.cookie-card p { font-size: .78rem; color: var(--muted2); line-height: 1.6; }
+.badge-essential { background: rgba(34,197,94,.1); color: #22c55e; font-size: .65rem; font-weight: 700; padding: .15rem .5rem; border-radius: 50px; }
+.badge-analytics { background: rgba(245,166,35,.1); color: var(--gold); font-size: .65rem; font-weight: 700; padding: .15rem .5rem; border-radius: 50px; }
+
+/* Contact CTA */
+.contact-cta {
+  background: linear-gradient(135deg, rgba(245,166,35,.06), rgba(245,166,35,.02));
+  border: 1px solid rgba(245,166,35,.2); border-radius: 16px;
+  padding: 2rem; text-align: center; margin-top: 2rem;
+}
+.contact-cta h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: .5rem; }
+.contact-cta p { font-size: .875rem; color: var(--muted2); margin-bottom: 1.2rem; }
+.btn-priv {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--gold); color: var(--ink);
+  padding: .8rem 1.8rem; border-radius: 50px;
+  font-weight: 700; font-size: .875rem; text-decoration: none;
+  transition: opacity .2s;
+}
+.btn-priv:hover { opacity: .85; }
+
+footer {
+  border-top: 1px solid var(--border2);
+  padding: 2rem; text-align: center;
+  font-size: .78rem; color: var(--muted);
+}
+footer a { color: var(--muted2); text-decoration: underline; }
+footer span { color: var(--gold); }
+
+@media (max-width: 600px) {
+  .toc ol { grid-template-columns: 1fr; }
+  .cookie-grid { grid-template-columns: 1fr; }
+  .rights-table { font-size: .78rem; }
+  .rights-table th, .rights-table td { padding: .6rem .7rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/"><img src="logo.png" alt="Gustavo Digital"></a>
+  <a href="/" class="back">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Voltar ao site
+  </a>
+</nav>
+
+<div class="hero-priv">
+  <div class="badge">📋 Documento Legal</div>
+  <h1>Política de Privacidade<br>e Cookies</h1>
+  <p>Saiba como a Gustavo Digital coleta, usa e protege seus dados pessoais, em total conformidade com a LGPD.</p>
+  <div class="update-badge">Última atualização: abril de 2025</div>
+</div>
+
+<div class="content">
+
+  <!-- TOC -->
+  <div class="toc">
+    <h3>📑 Sumário</h3>
+    <ol>
+      <li><a href="#s1" data-num="01">Quem somos</a></li>
+      <li><a href="#s2" data-num="02">Dados coletados</a></li>
+      <li><a href="#s3" data-num="03">Como usamos</a></li>
+      <li><a href="#s4" data-num="04">Base legal (LGPD)</a></li>
+      <li><a href="#s5" data-num="05">Cookies</a></li>
+      <li><a href="#s6" data-num="06">Compartilhamento</a></li>
+      <li><a href="#s7" data-num="07">Armazenamento</a></li>
+      <li><a href="#s8" data-num="08">Seus direitos</a></li>
+      <li><a href="#s9" data-num="09">Segurança</a></li>
+      <li><a href="#s10" data-num="10">Menores de idade</a></li>
+      <li><a href="#s11" data-num="11">Alterações</a></li>
+      <li><a href="#s12" data-num="12">Contato</a></li>
+    </ol>
+  </div>
+
+  <!-- INTRO -->
+  <div class="section-block">
+    <div class="highlight-box">
+      <p>Esta Política de Privacidade descreve como a <strong>Gustavo Digital</strong> (Gustavo Aparecido, prestador de serviços de desenvolvimento web, Curitiba/PR) coleta, usa e protege suas informações. Ao navegar em <strong>gustavodigital.online</strong>, você concorda com os termos desta política.</p>
+    </div>
+  </div>
+
+  <!-- 1. QUEM SOMOS -->
+  <div class="section-block" id="s1">
+    <h2><span class="section-num">01</span>Quem somos — Controlador dos Dados</h2>
+    <p><strong style="color:var(--white)">Razão Social:</strong> Gustavo Aparecido (Gustavo Digital)</p>
+    <p><strong style="color:var(--white)">Atividade:</strong> Desenvolvimento e criação de sites profissionais</p>
+    <p><strong style="color:var(--white)">Localização:</strong> Curitiba, Paraná, Brasil</p>
+    <p><strong style="color:var(--white)">Site:</strong> gustavodigital.online</p>
+    <p><strong style="color:var(--white)">Contato:</strong> WhatsApp (41) 99537-4510 | @_gustavodigital</p>
+  </div>
+
+  <!-- 2. DADOS COLETADOS -->
+  <div class="section-block" id="s2">
+    <h2><span class="section-num">02</span>Quais dados coletamos</h2>
+    <p>Coletamos apenas os dados necessários para prestar nossos serviços e melhorar sua experiência no site.</p>
+    <ul>
+      <li>Nome e sobrenome, fornecidos voluntariamente via WhatsApp ou formulário de contato</li>
+      <li>Número de telefone e WhatsApp, para comunicação sobre orçamentos e projetos</li>
+      <li>Endereço de e-mail, quando fornecido voluntariamente pelo visitante</li>
+      <li>Dados de navegação: endereço IP, tipo de dispositivo, navegador, páginas visitadas e tempo de permanência, coletados automaticamente via Google Analytics</li>
+      <li>Dados de geolocalização aproximada (cidade/região), via Google Analytics</li>
+    </ul>
+    <div class="highlight-box" style="margin-top:1rem">
+      <p>⚠️ <strong>Não coletamos</strong> dados sensíveis como CPF, RG, dados bancários, cartão de crédito ou informações de saúde.</p>
+    </div>
+  </div>
+
+  <!-- 3. COMO USAMOS -->
+  <div class="section-block" id="s3">
+    <h2><span class="section-num">03</span>Como usamos seus dados</h2>
+    <ul>
+      <li>Responder solicitações de orçamento, dúvidas e informações sobre serviços</li>
+      <li>Realizar contato comercial relacionado a projetos de criação de sites</li>
+      <li>Analisar o desempenho do site e entender o comportamento dos visitantes para melhorias</li>
+      <li>Cumprir obrigações legais e regulatórias aplicáveis</li>
+      <li>Proteger os direitos e interesses da Gustavo Digital e de seus clientes</li>
+    </ul>
+    <p style="margin-top:1rem">Seus dados <strong style="color:var(--white)">não são utilizados</strong> para fins de marketing sem seu consentimento explícito, e <strong style="color:var(--white)">nunca são vendidos</strong> a terceiros.</p>
+  </div>
+
+  <!-- 4. BASE LEGAL -->
+  <div class="section-block" id="s4">
+    <h2><span class="section-num">04</span>Base legal — LGPD (Lei 13.709/2018)</h2>
+    <p>Todo tratamento de dados realizado pela Gustavo Digital possui uma base legal clara, conforme exige a Lei Geral de Proteção de Dados:</p>
+    <table class="rights-table">
+      <tr>
+        <th>Tratamento</th>
+        <th>Base Legal (LGPD)</th>
+      </tr>
+      <tr>
+        <td>Responder contatos e orçamentos</td>
+        <td>Execução de contrato — Art. 7º, V</td>
+      </tr>
+      <tr>
+        <td>Análise de tráfego (Google Analytics)</td>
+        <td>Consentimento — Art. 7º, I</td>
+      </tr>
+      <tr>
+        <td>Melhorias no site e serviços</td>
+        <td>Legítimo interesse — Art. 7º, IX</td>
+      </tr>
+      <tr>
+        <td>Cumprimento de obrigações legais</td>
+        <td>Obrigação legal — Art. 7º, II</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 5. COOKIES -->
+  <div class="section-block" id="s5">
+    <h2><span class="section-num" id="cookies">05</span>Cookies e tecnologias de rastreamento</h2>
+    <p>Cookies são pequenos arquivos de texto armazenados no seu dispositivo que nos ajudam a melhorar sua experiência. Utilizamos dois tipos:</p>
+    <div class="cookie-grid">
+      <div class="cookie-card">
+        <h4>🔒 Cookies Essenciais <span class="badge-essential">Obrigatórios</span></h4>
+        <p>Necessários para o funcionamento básico do site. Não podem ser desativados. Não coletam informações pessoais identificáveis.</p>
+      </div>
+      <div class="cookie-card">
+        <h4>📊 Cookies Analíticos <span class="badge-analytics">Opcionais</span></h4>
+        <p>Google Analytics — coletam dados anônimos sobre como os visitantes usam o site, ajudando a melhorar o conteúdo e a experiência.</p>
+      </div>
+    </div>
+    <p style="margin-top:1rem">Você pode <strong style="color:var(--white)">recusar os cookies analíticos</strong> a qualquer momento através do banner de cookies exibido ao acessar o site, ou através das configurações do seu navegador.</p>
+    <div class="highlight-box">
+      <p>🔧 <strong>Como gerenciar cookies no seu navegador:</strong> Chrome: Configurações → Privacidade → Cookies | Firefox: Opções → Privacidade | Safari: Preferências → Privacidade</p>
+    </div>
+  </div>
+
+  <!-- 6. COMPARTILHAMENTO -->
+  <div class="section-block" id="s6">
+    <h2><span class="section-num">06</span>Compartilhamento de dados</h2>
+    <p>A Gustavo Digital não vende, aluga ou comercializa seus dados pessoais. Podemos compartilhar dados apenas com:</p>
+    <ul>
+      <li><strong style="color:var(--white)">Google LLC</strong> — via Google Analytics, para análise de tráfego anônimo. Os dados são tratados conforme a <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--gold)">Política de Privacidade do Google</a></li>
+      <li><strong style="color:var(--white)">Meta Platforms</strong> — caso campanhas de anúncios sejam veiculadas, somente dados agregados e anônimos para otimização de campanhas</li>
+      <li><strong style="color:var(--white)">WhatsApp/Meta</strong> — mensagens enviadas via botão de WhatsApp são tratadas conforme as políticas da plataforma</li>
+      <li><strong style="color:var(--white)">Autoridades competentes</strong> — quando exigido por lei, decisão judicial ou regulação aplicável</li>
+    </ul>
+  </div>
+
+  <!-- 7. ARMAZENAMENTO -->
+  <div class="section-block" id="s7">
+    <h2><span class="section-num">07</span>Armazenamento e retenção de dados</h2>
+    <p>Os dados são armazenados pelos seguintes períodos:</p>
+    <ul>
+      <li>Dados de contato e conversas de orçamento: pelo período de relacionamento comercial e até <strong style="color:var(--white)">5 anos</strong> após o encerramento, conforme exigências fiscais e legais</li>
+      <li>Dados de navegação via Google Analytics: <strong style="color:var(--white)">26 meses</strong>, conforme configuração padrão da ferramenta</li>
+      <li>Logs de acesso ao servidor: <strong style="color:var(--white)">6 meses</strong>, conforme Marco Civil da Internet (Lei 12.965/2014)</li>
+    </ul>
+    <p>O site é hospedado via <strong style="color:var(--white)">GitHub Pages</strong> (Microsoft), com servidores localizados nos Estados Unidos, operando com padrões internacionais de segurança e conformidade.</p>
+  </div>
+
+  <!-- 8. DIREITOS -->
+  <div class="section-block" id="s8">
+    <h2><span class="section-num">08</span>Seus direitos como titular de dados (LGPD)</h2>
+    <p>A LGPD garante a você os seguintes direitos, que podem ser exercidos a qualquer momento:</p>
+    <table class="rights-table">
+      <tr>
+        <th>Direito</th>
+        <th>O que significa</th>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--white)">Acesso</strong></td>
+        <td>Saber quais dados temos sobre você e como são utilizados</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--white)">Correção</strong></td>
+        <td>Solicitar correção de dados incompletos, inexatos ou desatualizados</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--white)">Exclusão</strong></td>
+        <td>Pedir a eliminação dos seus dados tratados com base em consentimento</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--white)">Portabilidade</strong></td>
+        <td>Receber seus dados em formato estruturado e legível por máquina</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--white)">Oposição</strong></td>
+        <td>Opor-se ao tratamento de dados em casos específicos previstos em lei</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--white)">Revogação</strong></td>
+        <td>Retirar o consentimento a qualquer momento, sem prejuízo</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--white)">Informação</strong></td>
+        <td>Conhecer as entidades com quem seus dados são compartilhados</td>
+      </tr>
+    </table>
+    <div class="highlight-box" style="margin-top:1rem">
+      <p>📲 Para exercer qualquer direito, entre em contato via <strong>WhatsApp (41) 99537-4510</strong> ou <strong>Instagram @_gustavodigital</strong>. Responderemos em até <strong>15 dias úteis</strong>.</p>
+    </div>
+  </div>
+
+  <!-- 9. SEGURANÇA -->
+  <div class="section-block" id="s9">
+    <h2><span class="section-num">09</span>Segurança dos dados</h2>
+    <ul>
+      <li>Certificado SSL/TLS ativo — toda comunicação entre seu dispositivo e o site é criptografada (HTTPS)</li>
+      <li>Hospedagem em infraestrutura segura da GitHub/Microsoft, com proteções DDoS e monitoramento contínuo</li>
+      <li>Acesso restrito às informações de contato — somente o titular da Gustavo Digital tem acesso</li>
+      <li>Comunicações via WhatsApp protegidas por criptografia de ponta a ponta</li>
+      <li>Não armazenamos senhas, dados de cartão ou informações financeiras em nenhum sistema</li>
+    </ul>
+    <p>Em caso de incidente de segurança que afete seus dados, você será notificado conforme previsto no Art. 48 da LGPD.</p>
+  </div>
+
+  <!-- 10. MENORES -->
+  <div class="section-block" id="s10">
+    <h2><span class="section-num">10</span>Menores de idade</h2>
+    <p>Este site é destinado exclusivamente a pessoas maiores de 18 anos ou emancipadas. Não coletamos intencionalmente dados de crianças ou adolescentes. Caso identifiquemos que coletamos inadvertidamente dados de menores, tomaremos medidas imediatas para excluí-los.</p>
+    <p>Pais e responsáveis que acreditem que seus filhos forneceram dados pessoais devem entrar em contato imediatamente.</p>
+  </div>
+
+  <!-- 11. ALTERAÇÕES -->
+  <div class="section-block" id="s11">
+    <h2><span class="section-num">11</span>Alterações nesta política</h2>
+    <p>Esta Política de Privacidade pode ser atualizada periodicamente para refletir mudanças em nossas práticas, em requisitos legais ou em melhorias nos serviços.</p>
+    <p>Alterações significativas serão comunicadas mediante banner de aviso no site principal. Recomendamos a consulta periódica a esta página. A data da última atualização está sempre indicada no topo deste documento.</p>
+    <div class="highlight-box">
+      <p>📅 <strong>Versão atual:</strong> 1.0 | <strong>Data:</strong> Abril de 2025 | <strong>Vigência:</strong> Até nova versão publicada</p>
+    </div>
+  </div>
+
+  <!-- 12. CONTATO DPO -->
+  <div class="section-block" id="s12">
+    <h2><span class="section-num">12</span>Contato — Encarregado de Dados (DPO)</h2>
+    <p>Para dúvidas, solicitações ou exercício dos seus direitos relacionados a esta Política de Privacidade:</p>
+    <ul>
+      <li><strong style="color:var(--white)">Responsável:</strong> Gustavo Aparecido</li>
+      <li><strong style="color:var(--white)">WhatsApp:</strong> (41) 99537-4510</li>
+      <li><strong style="color:var(--white)">Instagram:</strong> @_gustavodigital</li>
+      <li><strong style="color:var(--white)">Site:</strong> gustavodigital.online</li>
+      <li><strong style="color:var(--white)">Localização:</strong> Curitiba, PR — Brasil</li>
+    </ul>
+    <p>Autoridade Nacional de Proteção de Dados (ANPD): <a href="https://www.gov.br/anpd" target="_blank" style="color:var(--gold)">www.gov.br/anpd</a></p>
+  </div>
+
+  <!-- CONTACT CTA -->
+  <div class="contact-cta">
+    <h3>Tem alguma dúvida sobre privacidade?</h3>
+    <p>Entre em contato direto comigo — responderei em até 15 dias úteis.</p>
+    <a href="https://api.whatsapp.com/send/?phone=5541995374510&text=Olá+Gustavo!+Tenho+uma+dúvida+sobre+a+política+de+privacidade.&type=phone_number&app_absent=0" class="btn-priv" target="_blank">
+      💬 Falar no WhatsApp
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 <span>Gustavo Digital</span> · Curitiba, PR · <a href="/">Voltar ao site</a></p>
+</footer>
+
+</body>
+</html>
