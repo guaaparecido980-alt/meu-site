@@ -303,7 +303,7 @@ section { padding: 6rem 0; }
 }
 .hero-photo-frame img {
   width: 100%; height: 100%;
-  object-fit: cover; object-position: center center;
+  object-fit: cover; object-position: center 5%;
   display: block;
 }
 .hero-photo-frame::after {
@@ -312,13 +312,13 @@ section { padding: 6rem 0; }
   background: linear-gradient(to top, rgba(13,13,15,.7) 0%, transparent 50%);
 }
 .hero-card-name {
-  position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; z-index: 2;
-  background: rgba(11,11,14,0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.08);
+  position: absolute; bottom: 1.2rem; left: 1.2rem; right: 1.2rem; z-index: 2;
+  background: rgba(11,11,14,0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px;
-  padding: 1rem;
+  padding: .8rem 1rem;
 }
 .hero-card-name h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--white); }
 .hero-card-name p { font-size: .8rem; color: var(--gold); font-weight: 500; }
@@ -386,7 +386,7 @@ section { padding: 6rem 0; }
 }
 .about-img-main img {
   width: 100%; height: 100%;
-  object-fit: cover; object-position: center center;
+  object-fit: cover; object-position: center 5%;
   display: block;
 }
 .about-card-float {
@@ -1007,14 +1007,14 @@ nav { z-index: 900; }
   .hero-inner { grid-template-columns: 1fr; gap: 0; }
   .hero-text { padding: 2rem 1.2rem 0; }
   .hero-photo-frame {
-    aspect-ratio: 4/5;
-    max-height: 400px;
+    aspect-ratio: 3/4;
+    max-height: 380px;
     width: calc(100% - 2.4rem);
-    max-width: 300px;
+    max-width: 320px;
     border-radius: 16px;
     border: 1px solid rgba(245,166,35,.2);
   }
-  .hero-photo-frame img { object-position: center center; object-fit: cover; }
+  .hero-photo-frame img { object-position: center 8%; object-fit: cover; }
   .hero-card-wrap { order: -1; display: flex; justify-content: center; width: 100%; padding: 0 1.2rem; }
   .float-badge { display: none; }
   .hero-card-name { padding: 1rem; }
@@ -1031,7 +1031,7 @@ nav { z-index: 900; }
 
   .about-wrap { grid-template-columns: 1fr; gap: 3rem; }
   .about-img-main { aspect-ratio: 3/4; max-width: 300px; margin: 0 auto; border-radius: 16px; overflow: hidden; }
-  .about-img-main img { object-position: center center; }
+  .about-img-main img { object-position: center 8%; }
   .about-img-col { display: flex; flex-direction: column; align-items: center; }
   .about-card-float { position: static; margin-top: 1rem; display: inline-flex; gap: 1rem; align-items: center; border-radius: var(--radius); }
   .about-card-float strong { font-size: 1.6rem; }
