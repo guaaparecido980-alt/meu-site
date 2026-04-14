@@ -654,7 +654,7 @@ section { padding: 6rem 0; }
 /* ─── PORTFÓLIO ─── */
 .portfolio-section { background: var(--ink); }
 .portfolio-intro { text-align: center; max-width: 680px; margin: 0 auto 4rem; }
-.portfolio-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 2rem; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; }
 .porto-card {
   border-radius: var(--radius-lg); overflow: hidden;
   border: 1px solid var(--border2);
@@ -719,6 +719,9 @@ section { padding: 6rem 0; }
 }
 .porto-cta p { color: var(--muted2); font-size: .95rem; margin-bottom: 1.5rem; }
 .porto-cta p strong { color: var(--white); }
+@media (max-width: 1080px) {
+  .portfolio-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
 @media (max-width: 768px) {
   .portfolio-grid { grid-template-columns: 1fr; }
   .porto-img { aspect-ratio: 9/13; }
@@ -1846,6 +1849,24 @@ fbq('track', 'PageView');
       </div>
 
     </div>
+
+
+      <!-- PROJETO 3: Clínica -->
+      <div class="porto-card reveal" style="transition-delay:.3s">
+        <div class="porto-img">
+          <img src="portfolio-clinica.png" alt="Site Clínica Odontológica Curitiba — criado por Gustavo Digital">
+          <div class="porto-overlay">
+            <span class="porto-tag">Clínica · Saúde</span>
+            <h3>Clínica<br>Odontológica</h3>
+            <p>Site premium para clínica odontológica em Curitiba — posicionamento de autoridade, captação de pacientes e SEO local configurado.</p>
+            <div class="porto-results">
+              <span class="porto-result-item">SEO local</span>
+              <span class="porto-result-item">Captação de pacientes</span>
+              <span class="porto-result-item">Design premium</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <div class="porto-cta reveal">
       <p>Quer um site assim para o seu negócio? <strong>Seu projeto pode ser o próximo aqui.</strong></p>
