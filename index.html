@@ -654,13 +654,14 @@ section { padding: 6rem 0; }
 /* ─── PORTFÓLIO ─── */
 .portfolio-section { background: var(--ink); }
 .portfolio-intro { text-align: center; max-width: 680px; margin: 0 auto 4rem; }
-.portfolio-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; width: 100%; }
 .porto-card {
   border-radius: var(--radius-lg); overflow: hidden;
   border: 1px solid var(--border2);
   background: var(--ink2);
   transition: transform .35s, border-color .35s, box-shadow .35s;
-  position: relative; group: true;
+  position: relative;
+  min-width: 0; width: 100%;
 }
 .porto-card:hover {
   transform: translateY(-8px);
@@ -668,15 +669,17 @@ section { padding: 6rem 0; }
   box-shadow: 0 24px 60px rgba(0,0,0,.5);
 }
 .porto-img {
-  width: 100%; aspect-ratio: 9/14;
+  width: 100%; min-width: 0; aspect-ratio: 9/14;
   overflow: hidden; position: relative;
+  display: block;
 }
 .porto-img img {
-  width: 100%; height: 100%;
+  width: 100%; height: 100%; max-width: 100%;
   object-fit: cover; object-position: top center;
   display: block;
   transition: transform .6s ease;
   filter: brightness(.9);
+  position: absolute; inset: 0;
 }
 .porto-card:hover .porto-img img { transform: scale(1.04); filter: brightness(1); }
 .porto-overlay {
