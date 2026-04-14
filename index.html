@@ -259,13 +259,16 @@ section { padding: 6rem 0; }
 .hero h1 {
   font-family: var(--serif);
   font-size: clamp(2.8rem, 5.5vw, 5rem);
-  font-weight: 900; line-height: 1.05;
+  font-weight: 900; line-height: 1.18;
   letter-spacing: -.03em; color: var(--white);
   margin-bottom: 1.5rem;
+  padding-bottom: 0.1em;
 }
 .hero h1 span {
   font-style: italic; color: var(--gold);
   display: block;
+  line-height: 1.2;
+  padding-bottom: 0.05em;
 }
 .hero-desc { font-size: 1.05rem; color: var(--muted2); line-height: 1.75; max-width: 520px; margin-bottom: 2.5rem; }
 .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
@@ -1121,7 +1124,7 @@ nav { z-index: 900; }
   .hero-card-name { padding: 1rem; }
   .hero-card-name h3 { font-size: 1rem; }
   .hero-card-name p { font-size: .75rem; }
-  .hero h1 { font-size: clamp(2rem, 7.5vw, 3.2rem); }
+  .hero h1 { font-size: clamp(2rem, 7.5vw, 3.2rem); line-height: 1.2; padding-bottom: 0.1em; }
   .scroll-hint { display: none; }
   .hero-trust { gap: 1rem; padding-top: 1.5rem; margin-top: 1.5rem; justify-content: center; flex-wrap: wrap; }
   .trust-sep { display: none; }
@@ -1203,11 +1206,9 @@ fbq('track', 'PageView');
   <ul class="nav-links">
     <li><a href="#home">Início</a></li>
     <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#resultados">Resultados</a></li>
-    <li><a href="#portfolio">Portfólio</a></li>
     <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#resultados">Resultados</a></li>
     <li><a href="#processo">Processo</a></li>
-    <li><a href="#nichos">Clientes</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <a href="https://api.whatsapp.com/send/?phone=5541987095245&text=Olá+Gustavo!+Vim+pelo+site+e+quero+um+orçamento.&type=phone_number&app_absent=0" class="nav-cta" target="_blank" rel="noopener noreferrer">
@@ -1228,7 +1229,7 @@ fbq('track', 'PageView');
   <a href="#processo" onclick="toggleMobile()">Processo</a>
   <a href="#nichos" onclick="toggleMobile()">Clientes</a>
   <a href="#faq" onclick="toggleMobile()">FAQ</a>
-  <a href="https://api.whatsapp.com/send/?phone=5541987095245&text=Olá+Gustavo!+Vim+pelo+site+e+quero+um+orçamento.&type=phone_number&app_absent=0" class="mob-cta" target="_blank" rel="noopener noreferrer" onclick="toggleMobile()">💬 Falar no WhatsApp</a>
+  <a href="https://api.whatsapp.com/send/?phone=5541987095245&text=Olá+Gustavo!+Quero+gerar+clientes+com+meu+site!&type=phone_number&app_absent=0" class="mob-cta" target="_blank" rel="noopener noreferrer" onclick="toggleMobile()">👉 Quero gerar clientes agora</a>
 </div>
 
 <!-- HERO -->
@@ -1246,7 +1247,7 @@ fbq('track', 'PageView');
           </div>
           <div style="display:inline-flex; align-items:center; gap:.4rem; background:rgba(245,166,35,.1); border:1px solid rgba(245,166,35,.3); border-radius:50px; padding:.3rem .9rem; font-size:.72rem; font-weight:700; color:var(--gold); letter-spacing:.04em;">
             <span style="width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 6px #22c55e;flex-shrink:0;"></span>
-            2 vagas disponíveis em abril
+            2 vagas disponíveis este mês
           </div>
         </div>
         <h1>Seu site está te
@@ -1255,7 +1256,7 @@ fbq('track', 'PageView');
         <p class="hero-desc">Não vendo site bonito. Vendo <strong style="color:var(--white)">resultado</strong> — site que gera cliente todos os dias, estrutura de conversão montada e posicionamento digital completo. Tudo pronto para trabalhar por você 24h.</p>
         <div class="hero-actions">
           <a href="https://api.whatsapp.com/send/?phone=5541987095245&text=Olá+Gustavo!+Vim+pelo+site+e+quero+um+orçamento.&type=phone_number&app_absent=0" class="btn-gold" target="_blank" rel="noopener noreferrer">
-            👉 Quero meu site profissional
+            👉 Quero gerar clientes agora
           </a>
           <a href="#servicos" class="btn-ghost">
             Ver serviços e preços
@@ -1997,7 +1998,7 @@ fbq('track', 'PageView');
       </a>
       <p class="cta-note">Resposta em até <strong>2 horas</strong> · Orçamento <strong>gratuito</strong> e sem compromisso</p>
       <p style="font-size:.78rem; color:rgba(245,166,35,.7); margin-top:.6rem; font-weight:600;">
-        ⏳ Agenda de abril com apenas 2 vagas — projetos novos entram em maio se não fechar agora
+        ⏳ Agenda com apenas 2 vagas disponíveis — não garante sua vaga depois que fechar
       </p>
     </div>
   </div>
