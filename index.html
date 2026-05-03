@@ -48,9 +48,9 @@
     "@type": "OfferCatalog",
     "name": "Criação de Sites",
     "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Presença Digital"}, "price": "1997", "priceCurrency": "BRL"},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Site Profissional"}, "price": "3997", "priceCurrency": "BRL"},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Site Premium"}, "price": "7997", "priceCurrency": "BRL"}
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Presença Digital"}, "price": "700", "priceCurrency": "BRL"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Site Profissional"}, "price": "700", "priceCurrency": "BRL"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Site Premium"}, "price": "700", "priceCurrency": "BRL"}
     ]
   },
   "openingHours": "Mo-Fr 08:00-18:00",
@@ -1087,6 +1087,7 @@ nav { z-index: 900; }
   [style*="--srv-grid:1"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
   .manut-box > div { flex-direction: column !important; }
   .manut-box > div > div:last-child { border-left: none !important; border-top: 1px solid rgba(245,166,35,.15) !important; padding-left: 0 !important; padding-top: 1.5rem !important; }
+  [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
 }
 @media (max-width: 480px) {
   [style*="--srv-grid:1"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
@@ -1442,134 +1443,92 @@ fbq('track', 'PageView');
   <div class="container">
 
     <div class="services-intro reveal">
-      <div class="label">A oferta</div>
-      <h2 class="title">Não vendo site.<br>Vendo <em>cliente todo dia.</em></h2>
-      <p class="subtitle">Site que gera cliente todos os dias + estrutura de conversão + posicionamento digital. Tudo junto, tudo configurado. Você não precisa entender de tecnologia — só colher os resultados.</p>
+      <div class="label">Como funciona</div>
+      <h2 class="title">Um investimento único.<br>Resultado <em>todo mês.</em></h2>
+      <p class="subtitle">Você paga uma vez para criar — e mantém o digital crescendo todo mês. Simples, transparente e sem surpresas.</p>
     </div>
 
-    <!-- O QUE ESTÁ INCLUSO EM TODOS -->
-    <div class="reveal" style="background:var(--ink2); border:1px solid rgba(245,166,35,.2); border-radius:var(--radius-lg); padding:2rem; margin-bottom:3rem;">
-      <p style="font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:1.2rem;">✦ Incluso em todos os projetos</p>
-      <div style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; --srv-grid:1;">
-        <div style="text-align:center; padding:1rem; background:var(--ink); border-radius:12px; border:1px solid var(--border2);">
-          <div style="font-size:1.5rem; margin-bottom:.5rem;">🎨</div>
-          <div style="font-size:.78rem; font-weight:600; color:var(--white); margin-bottom:.25rem;">Design Exclusivo</div>
-          <div style="font-size:.7rem; color:var(--muted2);">100% sob medida</div>
-        </div>
-        <div style="text-align:center; padding:1rem; background:var(--ink); border-radius:12px; border:1px solid var(--border2);">
-          <div style="font-size:1.5rem; margin-bottom:.5rem;">🔍</div>
-          <div style="font-size:.78rem; font-weight:600; color:var(--white); margin-bottom:.25rem;">SEO Configurado</div>
-          <div style="font-size:.7rem; color:var(--muted2);">Para aparecer no Google</div>
-        </div>
-        <div style="text-align:center; padding:1rem; background:var(--ink); border-radius:12px; border:1px solid var(--border2);">
-          <div style="font-size:1.5rem; margin-bottom:.5rem;">📊</div>
-          <div style="font-size:.78rem; font-weight:600; color:var(--white); margin-bottom:.25rem;">Pixel & Analytics</div>
-          <div style="font-size:.7rem; color:var(--muted2);">Facebook + Google</div>
-        </div>
-        <div style="text-align:center; padding:1rem; background:var(--ink); border-radius:12px; border:1px solid var(--border2);">
-          <div style="font-size:1.5rem; margin-bottom:.5rem;">✍️</div>
-          <div style="font-size:.78rem; font-weight:600; color:var(--white); margin-bottom:.25rem;">Copywriting</div>
-          <div style="font-size:.7rem; color:var(--muted2);">Textos que vendem</div>
-        </div>
-      </div>
-    </div>
+    <!-- EXPLICAÇÃO DO MODELO EM 2 PASSOS -->
+    <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:3rem;">
 
-    <!-- CARDS DE SERVIÇO -->
-    <div class="services-grid">
-
-      <!-- CARD 1 -->
-      <div class="srv-card reveal">
-        <div class="srv-icon">🎯</div>
-        <h3>Presença Digital</h3>
-        <p>Sua entrada no digital do jeito certo. Uma página que já converte, com estrutura de conversão e posicionamento para começar a gerar contatos desde o primeiro dia.</p>
-        <div class="srv-price">R$ 1.997</div>
-        <div class="srv-price-note">pagamento único · no ar em 3–5 dias</div>
-        <ul class="srv-features">
-          <li>Uma página completa e exclusiva</li>
-          <li>SEO local configurado — Curitiba</li>
-          <li>Pixel do Facebook instalado</li>
-          <li>Google Analytics configurado</li>
-          <li>WhatsApp + formulário integrado</li>
-          <li>30 dias de suporte gratuito</li>
+      <!-- PASSO 1: CRIAÇÃO -->
+      <div style="background:var(--ink2); border:1px solid rgba(245,166,35,.3); border-radius:var(--radius-lg); padding:2.5rem; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--gold2));"></div>
+        <div style="display:inline-flex; align-items:center; gap:.5rem; background:rgba(245,166,35,.1); border:1px solid rgba(245,166,35,.2); border-radius:50px; padding:.3rem 1rem; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem;">
+          Passo 1
+        </div>
+        <div style="font-size:3rem; margin-bottom:1rem;">🚀</div>
+        <h3 style="font-family:var(--serif); font-size:1.6rem; font-weight:700; color:var(--white); margin-bottom:.6rem; line-height:1.2;">Criação do site</h3>
+        <p style="font-size:.9rem; color:var(--muted2); line-height:1.75; margin-bottom:1.5rem;">Pagamento único para criar toda a estrutura digital do seu negócio — site profissional, SEO, Pixel do Facebook e Google configurados.</p>
+        <div style="font-family:var(--serif); font-size:3rem; font-weight:700; color:var(--gold); line-height:1; margin-bottom:.3rem;">R$ 700</div>
+        <div style="font-size:.78rem; color:var(--muted); margin-bottom:1.5rem;">pagamento único · no ar em até 7 dias</div>
+        <ul style="list-style:none; display:grid; gap:.6rem;">
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> Site profissional exclusivo</li>
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> SEO local configurado</li>
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> Pixel do Facebook instalado</li>
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> Google Analytics + Search Console</li>
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> Google Meu Negócio otimizado</li>
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> Copywriting incluso</li>
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> 2 revisões completas</li>
         </ul>
-        <a href="https://api.whatsapp.com/send/?phone=5541987095245&text=Quero+saber+sobre+o+plano+Presença+Digital!&type=phone_number&app_absent=0" class="srv-cta ghost" target="_blank" rel="noopener noreferrer">👉 Quero esse →</a>
       </div>
 
-      <!-- CARD 2 DESTAQUE -->
-      <div class="srv-card featured reveal" style="transition-delay:.1s">
-        <div class="srv-badge">Mais procurado</div>
-        <div class="srv-icon">🏆</div>
-        <h3>Site Profissional</h3>
-        <p>Site completo que gera cliente todos os dias — estrutura de conversão, posicionamento no Google e base pronta para rodar anúncios e escalar.</p>
-        <div class="srv-price">R$ 3.997</div>
-        <div class="srv-price-note">pagamento único · no ar em 5–7 dias</div>
-        <ul class="srv-features">
-          <li>Site completo — até 5 seções</li>
-          <li>SEO avançado para o Google</li>
-          <li>Pixel do Facebook + eventos configurados</li>
-          <li>Google Analytics + Search Console</li>
-          <li>Google Meu Negócio otimizado</li>
-          <li>Copywriting estratégico incluso</li>
-          <li>Hospedagem do 1º ano inclusa</li>
-          <li>30 dias de suporte e ajustes</li>
+      <!-- PASSO 2: MENSALIDADE -->
+      <div style="background:linear-gradient(160deg,rgba(245,166,35,.08),var(--ink2)); border:1px solid rgba(245,166,35,.4); border-radius:var(--radius-lg); padding:2.5rem; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold2),var(--gold));"></div>
+        <div style="position:absolute; top:1.5rem; right:1.5rem; background:var(--gold); color:var(--ink); font-size:.65rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:.25rem .8rem; border-radius:50px;">Obrigatório</div>
+        <div style="display:inline-flex; align-items:center; gap:.5rem; background:rgba(245,166,35,.1); border:1px solid rgba(245,166,35,.2); border-radius:50px; padding:.3rem 1rem; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem;">
+          Passo 2
+        </div>
+        <div style="font-size:3rem; margin-bottom:1rem;">📈</div>
+        <h3 style="font-family:var(--serif); font-size:1.6rem; font-weight:700; color:var(--white); margin-bottom:.6rem; line-height:1.2;">Gestão mensal</h3>
+        <p style="font-size:.9rem; color:var(--muted2); line-height:1.75; margin-bottom:1.5rem;">Site criado, agora mantemos tudo crescendo. Otimizações mensais de SEO, atualizações no site, monitoramento e relatório de resultados.</p>
+        <div style="font-family:var(--serif); font-size:3rem; font-weight:700; color:var(--gold); line-height:1; margin-bottom:.3rem;">R$ 400<span style="font-size:1.2rem; color:var(--muted2); font-family:var(--sans); font-weight:400;">/mês</span></div>
+        <div style="font-size:.78rem; color:var(--muted); margin-bottom:1.5rem;">cobrado mensalmente · cancela quando quiser</div>
+        <ul style="list-style:none; display:grid; gap:.6rem;">
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> Otimização de SEO todo mês</li>
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> Atualizações e melhorias no site</li>
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> Monitoramento do Pixel</li>
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> Relatório mensal de resultados</li>
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> Hospedagem inclusa</li>
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> Suporte direto no WhatsApp</li>
+          <li style="display:flex; gap:.7rem; font-size:.85rem; color:rgba(255,255,255,.65);"><span style="color:var(--gold); font-weight:700; flex-shrink:0;">✓</span> Google Meu Negócio ativo</li>
         </ul>
-        <a href="https://api.whatsapp.com/send/?phone=5541987095245&text=Quero+o+Site+Profissional!&type=phone_number&app_absent=0" class="srv-cta" target="_blank" rel="noopener noreferrer">👉 Quero esse →</a>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="srv-card reveal" style="transition-delay:.2s">
-        <div class="srv-icon">💎</div>
-        <h3>Site Premium</h3>
-        <p>Para quem quer dominar o mercado. Máxima autoridade, experiência premium e estrutura de conversão agressiva para gerar o maior volume de clientes possível.</p>
-        <div class="srv-price">R$ 7.997</div>
-        <div class="srv-price-note">pagamento único · no ar em 10–14 dias</div>
-        <ul class="srv-features">
-          <li>Design de alto padrão com animações</li>
-          <li>SEO agressivo — estratégia completa</li>
-          <li>Pixel + eventos de conversão avançados</li>
-          <li>Google Analytics 4 + Search Console</li>
-          <li>Google Meu Negócio otimizado</li>
-          <li>Copywriting de vendas persuasivo</li>
-          <li>Hospedagem do 1º ano inclusa</li>
-          <li>60 dias de suporte prioritário</li>
-        </ul>
-        <a href="https://api.whatsapp.com/send/?phone=5541987095245&text=Quero+o+Site+Premium!&type=phone_number&app_absent=0" class="srv-cta ghost" target="_blank" rel="noopener noreferrer">👉 Quero esse →</a>
       </div>
 
     </div>
 
-    <!-- GARANTIA -->
-    <div class="srv-guarantee reveal">
-      ✅ <strong>Todos os projetos incluem:</strong> Estrutura de conversão · SEO · Pixel do Facebook · Google Analytics · Posicionamento digital · 2 revisões · <strong>Sem mensalidade obrigatória</strong>
+    <!-- MOBILE: stack em 1 coluna -->
+    <style>
+    @media (max-width: 768px) {
+      .services-model-grid { grid-template-columns: 1fr !important; }
+    }
+    </style>
+
+    <!-- RESUMO TOTAL -->
+    <div class="reveal" style="background:var(--ink2); border:1px solid var(--border2); border-radius:var(--radius-lg); padding:2rem; margin-bottom:2rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.5rem;">
+      <div>
+        <p style="font-size:.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; margin-bottom:.5rem;">Resumo do investimento</p>
+        <p style="font-size:.95rem; color:var(--muted2); line-height:1.75;">
+          <strong style="color:var(--white);">R$ 700</strong> na criação
+          <span style="color:var(--gold); margin:0 .5rem;">+</span>
+          <strong style="color:var(--white);">R$ 400/mês</strong> de gestão
+        </p>
+        <p style="font-size:.82rem; color:var(--muted); margin-top:.4rem;">A mensalidade é obrigatória — ela garante que seu site continua crescendo e gerando clientes todo mês.</p>
+      </div>
+      <a href="https://api.whatsapp.com/send/?phone=5541987095245&text=Olá+Gustavo!+Quero+criar+meu+site+e+já+sei+como+funciona+o+modelo!&type=phone_number&app_absent=0"
+         class="btn-gold" target="_blank" rel="noopener noreferrer"
+         onclick="if(typeof fbq!=='undefined'){fbq('track','Lead',{content_name:'CTA Serviços'});}">
+        👉 Quero começar agora
+      </a>
     </div>
 
-    <!-- MANUTENÇÃO MENSAL -->
-    <div class="manut-box reveal" style="margin-top:3rem; background:linear-gradient(135deg,rgba(245,166,35,.06),rgba(245,166,35,.02)); border:1px solid rgba(245,166,35,.25); border-radius:var(--radius-lg); padding:2.5rem;">
-      <div style="display:flex; flex-wrap:wrap; gap:2rem; align-items:center; justify-content:space-between;">
-        <div style="flex:1; min-width:260px;">
-          <div style="display:inline-flex; align-items:center; gap:.5rem; background:rgba(245,166,35,.1); border:1px solid rgba(245,166,35,.2); border-radius:50px; padding:.3rem 1rem; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem;">
-            ✦ Serviço mensal opcional
-          </div>
-          <h3 style="font-family:var(--serif); font-size:1.5rem; font-weight:700; color:var(--white); margin-bottom:.6rem;">Gestão Digital Mensal</h3>
-          <p style="font-size:.9rem; color:var(--muted2); line-height:1.75; max-width:520px;">Após o site no ar, cuido de tudo para você aparecer no <strong style="color:var(--white)">topo do Google em Curitiba</strong>. Atualizo seu site, otimizo SEO mensalmente, monitoro o Pixel e envio relatório de resultados. Você foca no negócio — eu faço o digital crescer.</p>
-          <div style="display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem;">
-            <span style="background:rgba(245,166,35,.08); border:1px solid rgba(245,166,35,.15); color:var(--gold2); font-size:.75rem; font-weight:600; padding:.25rem .8rem; border-radius:50px;">SEO mensal</span>
-            <span style="background:rgba(245,166,35,.08); border:1px solid rgba(245,166,35,.15); color:var(--gold2); font-size:.75rem; font-weight:600; padding:.25rem .8rem; border-radius:50px;">Atualizações no site</span>
-            <span style="background:rgba(245,166,35,.08); border:1px solid rgba(245,166,35,.15); color:var(--gold2); font-size:.75rem; font-weight:600; padding:.25rem .8rem; border-radius:50px;">Monitoramento Pixel</span>
-            <span style="background:rgba(245,166,35,.08); border:1px solid rgba(245,166,35,.15); color:var(--gold2); font-size:.75rem; font-weight:600; padding:.25rem .8rem; border-radius:50px;">Relatório Google</span>
-            <span style="background:rgba(245,166,35,.08); border:1px solid rgba(245,166,35,.15); color:var(--gold2); font-size:.75rem; font-weight:600; padding:.25rem .8rem; border-radius:50px;">Suporte contínuo</span>
-          </div>
-        </div>
-        <div style="text-align:center; flex-shrink:0; min-width:180px; border-left:1px solid rgba(245,166,35,.15); padding-left:2rem;">
-          <div style="font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:.3rem;">a partir de</div>
-          <div style="font-family:var(--serif); font-size:2.5rem; font-weight:700; color:var(--gold); line-height:1;">R$ 500</div>
-          <div style="font-size:.78rem; color:var(--muted2); margin-bottom:1.2rem; padding-bottom:1.2rem; border-bottom:1px solid rgba(245,166,35,.1);">/ mês</div>
-          <div style="font-size:.72rem; color:var(--muted2); margin-bottom:1rem; line-height:1.5;">Planos até R$ 2.000/mês<br>para top 1 no Google</div>
-          <a href="https://api.whatsapp.com/send/?phone=5541987095245&text=Quero+saber+sobre+a+gestão+digital+mensal!&type=phone_number&app_absent=0" class="btn-gold" target="_blank" rel="noopener noreferrer" style="font-size:.82rem; padding:.8rem 1.4rem; white-space:nowrap; display:inline-flex; min-height:48px;">
-            Saber mais →
-          </a>
-        </div>
-      </div>
+    <!-- POR QUE A MENSALIDADE É OBRIGATÓRIA -->
+    <div class="reveal" style="background:rgba(245,166,35,.04); border:1px solid rgba(245,166,35,.15); border-radius:var(--radius-lg); padding:2rem; text-align:center;">
+      <p style="font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem;">Por que a mensalidade é obrigatória?</p>
+      <p style="font-size:.95rem; color:var(--muted2); line-height:1.8; max-width:680px; margin:0 auto;">
+        Site parado não gera cliente. O Google precisa de otimização constante para ranquear — e seu negócio precisa de atualizações, novos conteúdos e monitoramento para crescer. A mensalidade garante que você não paga R$ 700 e fica com um site esquecido. <strong style="color:var(--white);">Você investe uma vez e colhe resultado todo mês.</strong>
+      </p>
     </div>
 
   </div>
@@ -1954,7 +1913,7 @@ fbq('track', 'PageView');
       <div class="label">Pronto para crescer?</div>
       <h2 class="title">Quer um site que gera<br>cliente <em>todos os dias?</em></h2>
       <p class="subtitle">Site que gera cliente todos os dias + estrutura de conversão + posicionamento digital. Tudo junto, tudo pronto. A vaga pode ser sua agora.</p>
-      <a href="https://api.whatsapp.com/send/?phone=5541987095245&text=Olá+Gustavo!+Quero+meu+site+profissional!&type=phone_number&app_absent=0" class="cta-whats" target="_blank" rel="noopener noreferrer" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead',{content_name:'CTA Final WhatsApp'});}">
+      <a href="https://api.whatsapp.com/send/?phone=5541987095245&text=Olá+Gustavo!+Quero+criar+meu+site+e+já+sei+como+funciona+o+modelo!&type=phone_number&app_absent=0" class="cta-whats" target="_blank" rel="noopener noreferrer" onclick="if(typeof fbq!=='undefined'){fbq('track','Lead',{content_name:'CTA Final WhatsApp'});}">
         👉 Quero meu site profissional agora
       </a>
       <p class="cta-note">Resposta em até <strong>2 horas</strong> · Orçamento <strong>gratuito</strong> e sem compromisso</p>
