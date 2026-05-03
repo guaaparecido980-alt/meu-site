@@ -58,121 +58,6 @@
   "currenciesAccepted": "BRL"
 }
 
-// ── PORTFOLIO CAROUSEL MOBILE ──
-function initPortfolioCarousel() {
-  var track = document.getElementById('portoTrack');
-  var dotsCont = document.getElementById('portoDots');
-  var currentNum = document.getElementById('portoCurrentNum');
-  var prevBtn = document.getElementById('portoPrev');
-  var nextBtn = document.getElementById('portoNext');
-  if(!track) return;
-
-  var slides = track.querySelectorAll('.pc-slide');
-  var dots = dotsCont ? dotsCont.querySelectorAll('.porto-dot') : [];
-  var total = slides.length;
-  if(total === 0) return;
-
-  var current = 0;
-  var startX = 0;
-  var autoTimer = null;
-
-  function move(idx) {
-    if(idx < 0) idx = total - 1;
-    if(idx >= total) idx = 0;
-    current = idx;
-
-    var slideW = slides[0].getBoundingClientRect().width;
-    var gap = 13;
-    var offset = current * (slideW + gap);
-
-    // Aplicar transform direto
-    track.style.transform = 'translate3d(-' + offset + 'px, 0, 0)';
-
-    // Atualizar visual
-    for(var i = 0; i < slides.length; i++) {
-      if(i === current) slides[i].classList.add('is-active');
-      else slides[i].classList.remove('is-active');
-    }
-    for(var j = 0; j < dots.length; j++) {
-      if(j === current) dots[j].classList.add('active');
-      else dots[j].classList.remove('active');
-    }
-    if(currentNum) currentNum.textContent = (current + 1).toString();
-  }
-
-  function nextSlide() { move(current + 1); }
-  function prevSlide() { move(current - 1); }
-
-  function startAuto() {
-    if(autoTimer) clearInterval(autoTimer);
-    autoTimer = setInterval(nextSlide, 3500);
-  }
-  function stopAuto() {
-    if(autoTimer) {
-      clearInterval(autoTimer);
-      autoTimer = null;
-    }
-  }
-
-  // Botões
-  if(prevBtn) {
-    prevBtn.addEventListener('click', function(e){
-      e.preventDefault();
-      stopAuto();
-      prevSlide();
-      startAuto();
-    });
-  }
-  if(nextBtn) {
-    nextBtn.addEventListener('click', function(e){
-      e.preventDefault();
-      stopAuto();
-      nextSlide();
-      startAuto();
-    });
-  }
-
-  // Dots
-  for(var k = 0; k < dots.length; k++) {
-    (function(idx){
-      dots[idx].addEventListener('click', function(e){
-        e.preventDefault();
-        stopAuto();
-        move(idx);
-        startAuto();
-      });
-    })(k);
-  }
-
-  // Touch swipe
-  track.addEventListener('touchstart', function(e){
-    startX = e.touches[0].clientX;
-    stopAuto();
-  }, { passive: true });
-
-  track.addEventListener('touchend', function(e){
-    var endX = e.changedTouches[0].clientX;
-    var diff = startX - endX;
-    if(Math.abs(diff) > 40) {
-      if(diff > 0) nextSlide();
-      else prevSlide();
-    }
-    startAuto();
-  }, { passive: true });
-
-  // Inicializar
-  move(0);
-  startAuto();
-}
-
-// Iniciar quando DOM pronto + delay para garantir CSS aplicado
-if(document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function(){
-    setTimeout(initPortfolioCarousel, 100);
-  });
-} else {
-  setTimeout(initPortfolioCarousel, 100);
-}
 
 </script>
 <script type="application/ld+json">
@@ -187,100 +72,6 @@ if(document.readyState === 'loading') {
   ]
 }
 
-// ── PORTFOLIO CAROUSEL MOBILE ──
-(function(){
-  var track = document.getElementById('portoTrack');
-  var dots = document.querySelectorAll('#portoDots .porto-dot');
-  var slides = track.querySelectorAll('.porto-carousel-slide');
-  var currentNum = document.getElementById('portoCurrentNum');
-  var prevBtn = document.getElementById('portoPrev');
-  var nextBtn = document.getElementById('portoNext');
-  if(!track) return;
-
-  var current = 0;
-  var total = slides.length;
-  var startX = 0;
-  var isDragging = false;
-  var autoTimer;
-
-  function goTo(idx) {
-    if(idx < 0) idx = total - 1;
-    if(idx >= total) idx = 0;
-    current = idx;
-
-    // Calcular offset
-    var slideW = slides[0].offsetWidth + 16; // gap 1rem = 16px
-    var containerW = track.parentElement.offsetWidth;
-    var offset = (current * slideW) - (containerW / 2) + (slideW / 2);
-    offset = Math.max(0, Math.min(offset, (total * slideW) - containerW));
-    track.style.transform = 'translateX(-' + offset + 'px)';
-
-    // Atualizar dots
-    dots.forEach(function(d, i) {
-      d.classList.toggle('active', i === current);
-    });
-
-    // Atualizar slides
-    slides.forEach(function(s, i) {
-      s.classList.toggle('active-slide', i === current);
-    });
-
-    // Atualizar contador
-    if(currentNum) currentNum.textContent = current + 1;
-  }
-
-  // Autoplay
-  function startAuto() {
-    autoTimer = setInterval(function(){ goTo(current + 1); }, 3000);
-  }
-  function stopAuto() { clearInterval(autoTimer); }
-
-  // Botões
-  if(prevBtn) prevBtn.addEventListener('click', function(){ stopAuto(); goTo(current-1); startAuto(); });
-  if(nextBtn) nextBtn.addEventListener('click', function(){ stopAuto(); goTo(current+1); startAuto(); });
-
-  // Dots
-  dots.forEach(function(d, i) {
-    d.addEventListener('click', function(){ stopAuto(); goTo(i); startAuto(); });
-  });
-
-  // Touch/Drag
-  track.addEventListener('touchstart', function(e){
-    startX = e.touches[0].clientX;
-    stopAuto();
-  }, { passive: true });
-
-  track.addEventListener('touchend', function(e){
-    var diff = startX - e.changedTouches[0].clientX;
-    if(Math.abs(diff) > 40) {
-      goTo(diff > 0 ? current + 1 : current - 1);
-    }
-    startAuto();
-  }, { passive: true });
-
-  // Mouse drag
-  track.addEventListener('mousedown', function(e){
-    isDragging = true;
-    startX = e.clientX;
-    track.classList.add('dragging');
-    stopAuto();
-  });
-  document.addEventListener('mouseup', function(e){
-    if(!isDragging) return;
-    isDragging = false;
-    track.classList.remove('dragging');
-    var diff = startX - e.clientX;
-    if(Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
-    startAuto();
-  });
-
-  // Init
-  goTo(0);
-  startAuto();
-
-  // Resize
-  window.addEventListener('resize', function(){ goTo(current); });
-})();
 
 </script>
 <script type="application/ld+json">
@@ -288,106 +79,12 @@ if(document.readyState === 'loading') {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Quanto custa um site profissional em Curitiba?", "acceptedAnswer": {"@type": "Answer", "text": "Na Gustavo Digital, os projetos começam em R$ 1.997 para o plano Presença Digital, R$ 3.997 para Site Profissional e R$ 7.997 para Site Premium. Todos incluem SEO, copywriting, Pixel do Facebook, Google Analytics e 30 dias de suporte."}},
+    {"@type": "Question", "name": "Quanto custa um site profissional em Curitiba?", "acceptedAnswer": {"@type": "Answer", "text": "A criação do site custa R$ 700 (pagamento único) + R$ 400 por mês de gestão obrigatória. A mensalidade inclui SEO, atualizações, hospedagem, monitoramento do Pixel e relatório mensal."}},
     {"@type": "Question", "name": "Quanto tempo demora para o site ficar pronto?", "acceptedAnswer": {"@type": "Answer", "text": "Os projetos ficam prontos entre 3 e 14 dias úteis dependendo do plano escolhido. O plano Presença Digital fica pronto em 3-5 dias, o Site Profissional em 5-7 dias e o Site Premium em 10-14 dias."}},
     {"@type": "Question", "name": "O site vai aparecer no Google?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Todos os projetos incluem SEO on-page configurado desde o dia 1, com foco em palavras-chave locais de Curitiba. Oferecemos também gestão mensal de SEO para garantir as primeiras posições no Google."}}
   ]
 }
 
-// ── PORTFOLIO CAROUSEL MOBILE ──
-(function(){
-  var track = document.getElementById('portoTrack');
-  var dots = document.querySelectorAll('#portoDots .porto-dot');
-  var slides = track.querySelectorAll('.porto-carousel-slide');
-  var currentNum = document.getElementById('portoCurrentNum');
-  var prevBtn = document.getElementById('portoPrev');
-  var nextBtn = document.getElementById('portoNext');
-  if(!track) return;
-
-  var current = 0;
-  var total = slides.length;
-  var startX = 0;
-  var isDragging = false;
-  var autoTimer;
-
-  function goTo(idx) {
-    if(idx < 0) idx = total - 1;
-    if(idx >= total) idx = 0;
-    current = idx;
-
-    // Calcular offset
-    var slideW = slides[0].offsetWidth + 16; // gap 1rem = 16px
-    var containerW = track.parentElement.offsetWidth;
-    var offset = (current * slideW) - (containerW / 2) + (slideW / 2);
-    offset = Math.max(0, Math.min(offset, (total * slideW) - containerW));
-    track.style.transform = 'translateX(-' + offset + 'px)';
-
-    // Atualizar dots
-    dots.forEach(function(d, i) {
-      d.classList.toggle('active', i === current);
-    });
-
-    // Atualizar slides
-    slides.forEach(function(s, i) {
-      s.classList.toggle('active-slide', i === current);
-    });
-
-    // Atualizar contador
-    if(currentNum) currentNum.textContent = current + 1;
-  }
-
-  // Autoplay
-  function startAuto() {
-    autoTimer = setInterval(function(){ goTo(current + 1); }, 3000);
-  }
-  function stopAuto() { clearInterval(autoTimer); }
-
-  // Botões
-  if(prevBtn) prevBtn.addEventListener('click', function(){ stopAuto(); goTo(current-1); startAuto(); });
-  if(nextBtn) nextBtn.addEventListener('click', function(){ stopAuto(); goTo(current+1); startAuto(); });
-
-  // Dots
-  dots.forEach(function(d, i) {
-    d.addEventListener('click', function(){ stopAuto(); goTo(i); startAuto(); });
-  });
-
-  // Touch/Drag
-  track.addEventListener('touchstart', function(e){
-    startX = e.touches[0].clientX;
-    stopAuto();
-  }, { passive: true });
-
-  track.addEventListener('touchend', function(e){
-    var diff = startX - e.changedTouches[0].clientX;
-    if(Math.abs(diff) > 40) {
-      goTo(diff > 0 ? current + 1 : current - 1);
-    }
-    startAuto();
-  }, { passive: true });
-
-  // Mouse drag
-  track.addEventListener('mousedown', function(e){
-    isDragging = true;
-    startX = e.clientX;
-    track.classList.add('dragging');
-    stopAuto();
-  });
-  document.addEventListener('mouseup', function(e){
-    if(!isDragging) return;
-    isDragging = false;
-    track.classList.remove('dragging');
-    var diff = startX - e.clientX;
-    if(Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
-    startAuto();
-  });
-
-  // Init
-  goTo(0);
-  startAuto();
-
-  // Resize
-  window.addEventListener('resize', function(){ goTo(current); });
-})();
 
 </script>
 
@@ -2367,7 +2064,7 @@ fbq('track', 'PageView');
               <span class="porto-result-item">Mobile perfeito</span>
               <span class="porto-result-item">CTAs diretos</span>
             </div>
-            <a href="https://guaaparecido980-alt.github.io/borracharia-chimarrao/" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
+            <a href="https://borrachariachimarrao.com.br" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
           </div>
         </div>
       </div>
@@ -2385,7 +2082,7 @@ fbq('track', 'PageView');
               <span class="porto-result-item">SEO local</span>
               <span class="porto-result-item">Design moderno</span>
             </div>
-            <a href="https://maximadesentupidora.com.br" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
+            <a href="https://maximadesentupidoradias.com" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
           </div>
         </div>
       </div>
@@ -2421,7 +2118,7 @@ fbq('track', 'PageView');
               <span class="porto-result-item">Design premium</span>
               <span class="porto-result-item">Autoridade</span>
             </div>
-            <a href="https://stankadvocacia.com.br" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
+            <a href="https://guaaparecido980-alt.github.io/advogado/" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
           </div>
         </div>
       </div>
@@ -2439,7 +2136,7 @@ fbq('track', 'PageView');
               <span class="porto-result-item">Alto padrão</span>
               <span class="porto-result-item">Design exclusivo</span>
             </div>
-            <a href="https://guaaparecido980-alt.github.io/wander-aguiar/" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
+            <a href="https://guaaparecido980-alt.github.io/arquiteto/" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
           </div>
         </div>
       </div>
@@ -2497,7 +2194,7 @@ fbq('track', 'PageView');
           <div class="pc-info">
             <span class="pc-tag">Borracharia · 24h</span>
             <h3 class="pc-title">Borracharia Chimarrão</h3>
-            <a href="https://guaaparecido980-alt.github.io/borracharia-chimarrao/" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
+            <a href="https://borrachariachimarrao.com.br" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
           </div>
         </div>
 
@@ -2506,7 +2203,7 @@ fbq('track', 'PageView');
           <div class="pc-info">
             <span class="pc-tag">Desentupidora · 24h</span>
             <h3 class="pc-title">Máxima Desentupidora</h3>
-            <a href="https://maximadesentupidora.com.br" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
+            <a href="https://maximadesentupidoradias.com" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
           </div>
         </div>
 
@@ -2524,7 +2221,7 @@ fbq('track', 'PageView');
           <div class="pc-info">
             <span class="pc-tag">Advocacia · Curitiba</span>
             <h3 class="pc-title">Stank Advogados</h3>
-            <a href="https://stankadvocacia.com.br" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
+            <a href="https://guaaparecido980-alt.github.io/advogado/" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
           </div>
         </div>
 
@@ -2533,7 +2230,7 @@ fbq('track', 'PageView');
           <div class="pc-info">
             <span class="pc-tag">Design de Interiores</span>
             <h3 class="pc-title">Wander Aguiar</h3>
-            <a href="https://guaaparecido980-alt.github.io/wander-aguiar/" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
+            <a href="https://guaaparecido980-alt.github.io/arquiteto/" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
           </div>
         </div>
 
@@ -2986,6 +2683,122 @@ window.addEventListener('scroll', function(){
   window.addEventListener('resize', function(){ goTo(current); });
 })();
 
+
+// ── PORTFOLIO CAROUSEL MOBILE ──
+function initPortfolioCarousel() {
+  var track = document.getElementById('portoTrack');
+  var dotsCont = document.getElementById('portoDots');
+  var currentNum = document.getElementById('portoCurrentNum');
+  var prevBtn = document.getElementById('portoPrev');
+  var nextBtn = document.getElementById('portoNext');
+  if(!track) return;
+
+  var slides = track.querySelectorAll('.pc-slide');
+  var dots = dotsCont ? dotsCont.querySelectorAll('.porto-dot') : [];
+  var total = slides.length;
+  if(total === 0) return;
+
+  var current = 0;
+  var startX = 0;
+  var autoTimer = null;
+
+  function move(idx) {
+    if(idx < 0) idx = total - 1;
+    if(idx >= total) idx = 0;
+    current = idx;
+
+    var slideW = slides[0].getBoundingClientRect().width;
+    var gap = 13;
+    var offset = current * (slideW + gap);
+
+    // Aplicar transform direto
+    track.style.transform = 'translate3d(-' + offset + 'px, 0, 0)';
+
+    // Atualizar visual
+    for(var i = 0; i < slides.length; i++) {
+      if(i === current) slides[i].classList.add('is-active');
+      else slides[i].classList.remove('is-active');
+    }
+    for(var j = 0; j < dots.length; j++) {
+      if(j === current) dots[j].classList.add('active');
+      else dots[j].classList.remove('active');
+    }
+    if(currentNum) currentNum.textContent = (current + 1).toString();
+  }
+
+  function nextSlide() { move(current + 1); }
+  function prevSlide() { move(current - 1); }
+
+  function startAuto() {
+    if(autoTimer) clearInterval(autoTimer);
+    autoTimer = setInterval(nextSlide, 3500);
+  }
+  function stopAuto() {
+    if(autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  // Botões
+  if(prevBtn) {
+    prevBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      stopAuto();
+      prevSlide();
+      startAuto();
+    });
+  }
+  if(nextBtn) {
+    nextBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      stopAuto();
+      nextSlide();
+      startAuto();
+    });
+  }
+
+  // Dots
+  for(var k = 0; k < dots.length; k++) {
+    (function(idx){
+      dots[idx].addEventListener('click', function(e){
+        e.preventDefault();
+        stopAuto();
+        move(idx);
+        startAuto();
+      });
+    })(k);
+  }
+
+  // Touch swipe
+  track.addEventListener('touchstart', function(e){
+    startX = e.touches[0].clientX;
+    stopAuto();
+  }, { passive: true });
+
+  track.addEventListener('touchend', function(e){
+    var endX = e.changedTouches[0].clientX;
+    var diff = startX - endX;
+    if(Math.abs(diff) > 40) {
+      if(diff > 0) nextSlide();
+      else prevSlide();
+    }
+    startAuto();
+  }, { passive: true });
+
+  // Inicializar
+  move(0);
+  startAuto();
+}
+
+// Iniciar quando DOM pronto + delay para garantir CSS aplicado
+if(document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(initPortfolioCarousel, 100);
+  });
+} else {
+  setTimeout(initPortfolioCarousel, 100);
+}
 </script>
 </body>
 </html>
