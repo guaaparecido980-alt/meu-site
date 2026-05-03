@@ -1196,10 +1196,8 @@ nav { z-index: 900; }
     display: flex;
     gap: 13px;
     width: max-content;
-    transition: transform 0.5s ease;
     cursor: grab;
     align-items: flex-start;
-    transform: translate3d(0, 0, 0);
   }
   .porto-carousel-track.is-dragging { transition: none; cursor: grabbing; }
 
@@ -2687,118 +2685,110 @@ window.addEventListener('scroll', function(){
 // ── PORTFOLIO CAROUSEL MOBILE ──
 function initPortfolioCarousel() {
   var track = document.getElementById('portoTrack');
-  var dotsCont = document.getElementById('portoDots');
-  var currentNum = document.getElementById('portoCurrentNum');
+  if(!track) return;
+  
+  var slides = track.querySelectorAll('.pc-slide');
+  var dots = document.querySelectorAll('#portoDots .porto-dot');
   var prevBtn = document.getElementById('portoPrev');
   var nextBtn = document.getElementById('portoNext');
-  if(!track) return;
-
-  var slides = track.querySelectorAll('.pc-slide');
-  var dots = dotsCont ? dotsCont.querySelectorAll('.porto-dot') : [];
-  var total = slides.length;
-  if(total === 0) return;
-
+  var num = document.getElementById('portoCurrentNum');
+  if(slides.length === 0) return;
+  
   var current = 0;
+  var total = slides.length;
+  var auto = null;
   var startX = 0;
-  var autoTimer = null;
-
+  
   function move(idx) {
     if(idx < 0) idx = total - 1;
     if(idx >= total) idx = 0;
     current = idx;
-
-    var slideW = slides[0].getBoundingClientRect().width;
-    var gap = 13;
-    var offset = current * (slideW + gap);
-
-    // Aplicar transform direto
-    track.style.transform = 'translate3d(-' + offset + 'px, 0, 0)';
-
-    // Atualizar visual
+    
+    var w = slides[0].getBoundingClientRect().width + 13;
+    var offset = current * w;
+    
+    // Cancelar todas as animations para evitar conflitos
+    track.getAnimations().forEach(function(a){ a.cancel(); });
+    
+    // Aplicar transform via cssText com !important para forçar
+    track.style.cssText = 
+      'display: flex !important;' +
+      'gap: 13px !important;' +
+      'width: max-content !important;' +
+      'transition: transform 0.5s ease-out !important;' +
+      'transform: translate3d(-' + offset + 'px, 0, 0) !important;' +
+      'will-change: transform;' +
+      'cursor: grab;' +
+      'align-items: flex-start;';
+    
     for(var i = 0; i < slides.length; i++) {
-      if(i === current) slides[i].classList.add('is-active');
-      else slides[i].classList.remove('is-active');
+      slides[i].classList.toggle('is-active', i === current);
     }
     for(var j = 0; j < dots.length; j++) {
-      if(j === current) dots[j].classList.add('active');
-      else dots[j].classList.remove('active');
+      dots[j].classList.toggle('active', j === current);
     }
-    if(currentNum) currentNum.textContent = (current + 1).toString();
+    if(num) num.textContent = (current + 1).toString();
   }
-
-  function nextSlide() { move(current + 1); }
-  function prevSlide() { move(current - 1); }
-
+  
   function startAuto() {
-    if(autoTimer) clearInterval(autoTimer);
-    autoTimer = setInterval(nextSlide, 3500);
+    if(auto) clearInterval(auto);
+    auto = setInterval(function(){ move(current + 1); }, 4000);
   }
   function stopAuto() {
-    if(autoTimer) {
-      clearInterval(autoTimer);
-      autoTimer = null;
-    }
+    if(auto) { clearInterval(auto); auto = null; }
   }
-
-  // Botões
-  if(prevBtn) {
-    prevBtn.addEventListener('click', function(e){
-      e.preventDefault();
-      stopAuto();
-      prevSlide();
-      startAuto();
-    });
-  }
-  if(nextBtn) {
-    nextBtn.addEventListener('click', function(e){
-      e.preventDefault();
-      stopAuto();
-      nextSlide();
-      startAuto();
-    });
-  }
-
-  // Dots
+  
+  if(prevBtn) prevBtn.onclick = function(e){ 
+    e.preventDefault(); 
+    stopAuto(); move(current - 1); startAuto();
+  };
+  if(nextBtn) nextBtn.onclick = function(e){ 
+    e.preventDefault(); 
+    stopAuto(); move(current + 1); startAuto();
+  };
   for(var k = 0; k < dots.length; k++) {
     (function(idx){
-      dots[idx].addEventListener('click', function(e){
-        e.preventDefault();
-        stopAuto();
-        move(idx);
-        startAuto();
-      });
+      dots[idx].onclick = function(e){ 
+        e.preventDefault(); 
+        stopAuto(); move(idx); startAuto();
+      };
     })(k);
   }
-
-  // Touch swipe
-  track.addEventListener('touchstart', function(e){
-    startX = e.touches[0].clientX;
+  
+  track.ontouchstart = function(e){ 
+    startX = e.touches[0].clientX; 
     stopAuto();
-  }, { passive: true });
-
-  track.addEventListener('touchend', function(e){
-    var endX = e.changedTouches[0].clientX;
-    var diff = startX - endX;
-    if(Math.abs(diff) > 40) {
-      if(diff > 0) nextSlide();
-      else prevSlide();
-    }
+  };
+  track.ontouchend = function(e){
+    var diff = startX - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > 40) move(diff > 0 ? current+1 : current-1);
     startAuto();
-  }, { passive: true });
-
-  // Inicializar
+  };
+  
   move(0);
   startAuto();
 }
 
-// Iniciar quando DOM pronto + delay para garantir CSS aplicado
 if(document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', function(){
-    setTimeout(initPortfolioCarousel, 100);
+    setTimeout(initPortfolioCarousel, 200);
   });
 } else {
-  setTimeout(initPortfolioCarousel, 100);
+  setTimeout(initPortfolioCarousel, 200);
 }
+</script>
+<script>
+// Fallback final - garantir que carrossel inicializa
+(function(){
+  function tryInit(){
+    if(typeof initPortfolioCarousel === 'function') {
+      initPortfolioCarousel();
+      console.log('Carrossel iniciado via fallback');
+    }
+  }
+  if(document.readyState === 'complete') tryInit();
+  else window.addEventListener('load', tryInit);
+})();
 </script>
 </body>
 </html>
