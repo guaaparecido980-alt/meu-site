@@ -1461,6 +1461,7 @@ nav { z-index: 900; }
   /* Track deslizante */
   .porto-carousel-track {
     display: flex; gap: .8rem;
+    width: max-content;
     transition: transform .42s cubic-bezier(.25,.46,.45,.94);
     will-change: transform;
     cursor: grab;
@@ -1964,118 +1965,7 @@ fbq('track', 'PageView');
       .services-model-grid { grid-template-columns: 1fr !important; }
     }
     
-/* ─── PORTFOLIO CARROSSEL MOBILE ─── */
-@media (max-width: 768px) {
-  .portfolio-section .container > .portfolio-grid {
-    display: none !important;
-  }
 
-  .porto-carousel-wrap {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    padding-bottom: 2rem;
-  }
-
-  .porto-carousel-track {
-    display: flex;
-    gap: 1rem;
-    transition: transform .45s cubic-bezier(.25,.46,.45,.94);
-    will-change: transform;
-    cursor: grab;
-    user-select: none;
-  }
-
-  .porto-carousel-track.dragging {
-    transition: none;
-    cursor: grabbing;
-  }
-
-  .porto-carousel-slide {
-    flex: 0 0 78vw;
-    max-width: 78vw;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,.06);
-    background: var(--ink2);
-    position: relative;
-    transition: transform .3s, border-color .3s;
-  }
-
-  .porto-carousel-slide.active-slide {
-    border-color: rgba(245,166,35,.3);
-    transform: scale(1.02);
-  }
-
-  .porto-carousel-slide .porto-img {
-    position: relative;
-    width: 100%;
-    padding-bottom: 130%;
-    overflow: hidden;
-  }
-
-  .porto-carousel-slide .porto-img img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: top center;
-  }
-
-  /* Indicadores */
-  .porto-carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: .5rem;
-    margin-top: 1rem;
-  }
-
-  .porto-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: rgba(255,255,255,.2);
-    transition: all .3s;
-    cursor: pointer;
-  }
-
-  .porto-dot.active {
-    background: var(--gold);
-    width: 20px;
-    border-radius: 3px;
-  }
-
-  /* Setas nav */
-  .porto-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  .porto-nav-btn {
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    background: rgba(245,166,35,.1);
-    border: 1px solid rgba(245,166,35,.25);
-    color: var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; font-size: 1rem;
-    transition: background .2s;
-  }
-
-  .porto-nav-btn:active { background: rgba(245,166,35,.25); }
-
-  .porto-nav-counter {
-    font-size: .8rem;
-    color: var(--muted2);
-    font-weight: 600;
-  }
-  .porto-nav-counter span { color: var(--gold); }
-}
-
-@media (min-width: 769px) {
-  .porto-carousel-wrap { display: none !important; }
-}
 
 </style>
 
