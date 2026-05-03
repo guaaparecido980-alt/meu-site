@@ -60,97 +60,82 @@
 
 // ── PORTFOLIO CAROUSEL MOBILE ──
 (function(){
+  var wrap = document.getElementById('portoCarousel');
   var track = document.getElementById('portoTrack');
-  var dots = document.querySelectorAll('#portoDots .porto-dot');
-  var slides = track.querySelectorAll('.porto-carousel-slide');
+  var dotsCont = document.getElementById('portoDots');
   var currentNum = document.getElementById('portoCurrentNum');
   var prevBtn = document.getElementById('portoPrev');
   var nextBtn = document.getElementById('portoNext');
-  if(!track) return;
+  if(!track || !wrap) return;
 
-  var current = 0;
+  var slides = Array.from(track.querySelectorAll('.pc-slide'));
+  var dots = Array.from(dotsCont.querySelectorAll('.porto-dot'));
   var total = slides.length;
+  var current = 0;
   var startX = 0;
   var isDragging = false;
   var autoTimer;
+  var GAP = 13; // gap em px (0.8rem ~ 13px)
+
+  function getSlideW() {
+    return slides[0] ? slides[0].offsetWidth + GAP : 0;
+  }
 
   function goTo(idx) {
     if(idx < 0) idx = total - 1;
     if(idx >= total) idx = 0;
     current = idx;
 
-    // Calcular offset
-    var slideW = slides[0].offsetWidth + 16; // gap 1rem = 16px
-    var containerW = track.parentElement.offsetWidth;
-    var offset = (current * slideW) - (containerW / 2) + (slideW / 2);
-    offset = Math.max(0, Math.min(offset, (total * slideW) - containerW));
+    var slideW = getSlideW();
+    var containerW = wrap.offsetWidth;
+    // Centralizar o slide ativo
+    var offset = (current * slideW) - (containerW / 2) + ((slideW - GAP) / 2);
+    offset = Math.max(0, offset);
+    var maxOffset = (total * slideW) - containerW;
+    if(maxOffset > 0) offset = Math.min(offset, maxOffset);
+
     track.style.transform = 'translateX(-' + offset + 'px)';
 
-    // Atualizar dots
-    dots.forEach(function(d, i) {
-      d.classList.toggle('active', i === current);
-    });
-
-    // Atualizar slides
-    slides.forEach(function(s, i) {
-      s.classList.toggle('active-slide', i === current);
-    });
-
-    // Atualizar contador
+    slides.forEach(function(s, i) { s.classList.toggle('is-active', i === current); });
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
     if(currentNum) currentNum.textContent = current + 1;
   }
 
-  // Autoplay
-  function startAuto() {
-    autoTimer = setInterval(function(){ goTo(current + 1); }, 3000);
-  }
+  function startAuto() { autoTimer = setInterval(function(){ goTo(current + 1); }, 3000); }
   function stopAuto() { clearInterval(autoTimer); }
 
   // Botões
-  if(prevBtn) prevBtn.addEventListener('click', function(){ stopAuto(); goTo(current-1); startAuto(); });
-  if(nextBtn) nextBtn.addEventListener('click', function(){ stopAuto(); goTo(current+1); startAuto(); });
+  if(prevBtn) prevBtn.addEventListener('click', function(){ stopAuto(); goTo(current - 1); startAuto(); });
+  if(nextBtn) nextBtn.addEventListener('click', function(){ stopAuto(); goTo(current + 1); startAuto(); });
 
   // Dots
   dots.forEach(function(d, i) {
     d.addEventListener('click', function(){ stopAuto(); goTo(i); startAuto(); });
   });
 
-  // Touch/Drag
-  track.addEventListener('touchstart', function(e){
-    startX = e.touches[0].clientX;
-    stopAuto();
-  }, { passive: true });
-
+  // Touch
+  track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; stopAuto(); }, { passive: true });
   track.addEventListener('touchend', function(e){
     var diff = startX - e.changedTouches[0].clientX;
-    if(Math.abs(diff) > 40) {
-      goTo(diff > 0 ? current + 1 : current - 1);
-    }
+    if(Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
     startAuto();
   }, { passive: true });
 
   // Mouse drag
-  track.addEventListener('mousedown', function(e){
-    isDragging = true;
-    startX = e.clientX;
-    track.classList.add('dragging');
-    stopAuto();
-  });
+  track.addEventListener('mousedown', function(e){ isDragging = true; startX = e.clientX; track.classList.add('is-dragging'); stopAuto(); });
   document.addEventListener('mouseup', function(e){
     if(!isDragging) return;
     isDragging = false;
-    track.classList.remove('dragging');
+    track.classList.remove('is-dragging');
     var diff = startX - e.clientX;
     if(Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
     startAuto();
   });
 
-  // Init
+  window.addEventListener('resize', function(){ goTo(current); });
+
   goTo(0);
   startAuto();
-
-  // Resize
-  window.addEventListener('resize', function(){ goTo(current); });
 })();
 
 </script>
@@ -1467,110 +1452,87 @@ nav { z-index: 900; }
 
 /* ─── PORTFOLIO CARROSSEL MOBILE ─── */
 @media (max-width: 768px) {
-  .portfolio-section .container > .portfolio-grid {
-    display: none !important;
-  }
+  /* Esconder grid desktop */
+  .portfolio-section .container > .portfolio-grid { display: none !important; }
 
-  .porto-carousel-wrap {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    padding-bottom: 2rem;
-  }
+  /* Wrapper */
+  .porto-carousel-wrap { position: relative; width: 100%; overflow: hidden; padding-bottom: 1.5rem; }
 
+  /* Track deslizante */
   .porto-carousel-track {
-    display: flex;
-    gap: 1rem;
-    transition: transform .45s cubic-bezier(.25,.46,.45,.94);
+    display: flex; gap: .8rem;
+    transition: transform .42s cubic-bezier(.25,.46,.45,.94);
     will-change: transform;
     cursor: grab;
-    user-select: none;
+    align-items: flex-start;
   }
+  .porto-carousel-track.is-dragging { transition: none; cursor: grabbing; }
 
-  .porto-carousel-track.dragging {
-    transition: none;
-    cursor: grabbing;
-  }
-
-  .porto-carousel-slide {
-    flex: 0 0 78vw;
-    max-width: 78vw;
-    border-radius: 18px;
-    overflow: hidden;
+  /* Slide individual */
+  .pc-slide {
+    flex: 0 0 78vw; max-width: 78vw; min-width: 0;
+    border-radius: 16px; overflow: hidden;
     border: 1px solid rgba(255,255,255,.06);
     background: var(--ink2);
-    position: relative;
-    transition: transform .3s, border-color .3s;
+    transition: border-color .3s, transform .3s;
+    display: flex; flex-direction: column;
   }
+  .pc-slide.is-active { border-color: rgba(245,166,35,.4); }
 
-  .porto-carousel-slide.active-slide {
-    border-color: rgba(245,166,35,.3);
-    transform: scale(1.02);
-  }
-
-  .porto-carousel-slide .porto-img {
-    position: relative;
+  /* Imagem — altura fixa via aspect-ratio */
+  .pc-img {
     width: 100%;
-    padding-bottom: 130%;
+    aspect-ratio: 3 / 4;
     overflow: hidden;
+    flex-shrink: 0;
   }
-
-  .porto-carousel-slide .porto-img img {
-    position: absolute;
-    top: 0; left: 0;
+  .pc-img img {
     width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: top center;
+    object-fit: cover; object-position: top center;
+    display: block;
   }
 
-  /* Indicadores */
-  .porto-carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: .5rem;
-    margin-top: 1rem;
+  /* Info abaixo da imagem */
+  .pc-info {
+    padding: 1rem 1rem 1.2rem;
+    background: var(--ink2);
+    flex: 1;
+  }
+  .pc-tag {
+    display: inline-block;
+    background: var(--gold); color: var(--ink);
+    font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: .2rem .7rem;
+    border-radius: 50px; margin-bottom: .6rem;
+  }
+  .pc-title {
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 700;
+    color: var(--white); line-height: 1.2; margin-bottom: .6rem;
+  }
+  .pc-link {
+    font-size: .82rem; font-weight: 600; color: var(--gold);
+    text-decoration: none; display: inline-flex; align-items: center; gap: .3rem;
   }
 
+  /* Dots */
+  .porto-carousel-dots { display: flex; justify-content: center; gap: .4rem; margin-top: .8rem; }
   .porto-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: rgba(255,255,255,.2);
-    transition: all .3s;
-    cursor: pointer;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(255,255,255,.18); cursor: pointer;
+    border: none; padding: 0; transition: all .3s;
   }
+  .porto-dot.active { background: var(--gold); width: 20px; border-radius: 3px; }
 
-  .porto-dot.active {
-    background: var(--gold);
-    width: 20px;
-    border-radius: 3px;
-  }
-
-  /* Setas nav */
-  .porto-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
+  /* Nav */
+  .porto-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: .6rem; }
   .porto-nav-btn {
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    background: rgba(245,166,35,.1);
-    border: 1px solid rgba(245,166,35,.25);
-    color: var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; font-size: 1rem;
-    transition: background .2s;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(245,166,35,.1); border: 1px solid rgba(245,166,35,.25);
+    color: var(--gold); display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: .9rem; transition: background .2s;
   }
-
-  .porto-nav-btn:active { background: rgba(245,166,35,.25); }
-
-  .porto-nav-counter {
-    font-size: .8rem;
-    color: var(--muted2);
-    font-weight: 600;
-  }
+  .porto-nav-btn:active { background: rgba(245,166,35,.2); }
+  .porto-nav-counter { font-size: .78rem; color: var(--muted2); font-weight: 600; }
   .porto-nav-counter span { color: var(--gold); }
 }
 
@@ -2567,179 +2529,101 @@ fbq('track', 'PageView');
       </div>
       <div class="porto-carousel-track" id="portoTrack">
 
-      <div class="porto-carousel-slide" data-index="0">
-        
-        <div class="porto-img">
-          <img src="portfolio-wagner.webp" alt="Site Wagner Alves Visagista Curitiba — criado por Gustavo Digital">
-          <div class="porto-overlay">
-            <span class="porto-tag">Visagismo · Consultoria</span>
-            <h3>Wagner Alves<br>Visagista</h3>
-            <p>Site de alta conversão para o visagista executivo número 1 de Curitiba — posicionamento premium, depoimentos em vídeo e agendamento integrado.</p>
-            <div class="porto-results">
-              <span class="porto-result-item">+3x leads</span>
-              <span class="porto-result-item">Top Google</span>
-              <span class="porto-result-item">Design exclusivo</span>
-            </div>
-            <a href="https://owagneralvessvisagista.com" class="porto-link" target="_blank" rel="noopener noreferrer">
-              Ver site ao vivo →
-            </a>
-          
+        <div class="pc-slide">
+          <div class="pc-img"><img src="portfolio-wagner.webp" alt="Wagner Alves Visagista" loading="lazy"></div>
+          <div class="pc-info">
+            <span class="pc-tag">Visagismo · Consultoria</span>
+            <h3 class="pc-title">Wagner Alves Visagista</h3>
+            <a href="https://owagneralvessvisagista.com" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
+          </div>
         </div>
-      </div>
 
-      <div class="porto-carousel-slide" data-index="1">
-        
-        <div class="porto-img">
-          <img src="portfolio-barbearia.webp" alt="Site Barbearia Clube Curitiba — criado por Gustavo Digital">
-          <div class="porto-overlay">
-            <span class="porto-tag">Barbearia · Premium</span>
-            <h3>Barbearia<br>Clube Curitiba</h3>
-            <p>Site institucional completo para barbearia premium em Curitiba — apresentação da equipe, serviços com preços, agendamento online e SEO local.</p>
-            <div class="porto-results">
-              <span class="porto-result-item">Agendamento online</span>
-              <span class="porto-result-item">SEO local</span>
-              <span class="porto-result-item">Mobile perfeito</span>
-            </div>
-            <a href="https://guaaparecido980-alt.github.io/barbearia-clube/" class="porto-link" target="_blank" rel="noopener noreferrer">
-              Ver site ao vivo →
-            </a>
-          
+        <div class="pc-slide">
+          <div class="pc-img"><img src="portfolio-barbearia.webp" alt="Barbearia Clube" loading="lazy"></div>
+          <div class="pc-info">
+            <span class="pc-tag">Barbearia · Premium</span>
+            <h3 class="pc-title">Barbearia Clube Curitiba</h3>
+            <a href="https://guaaparecido980-alt.github.io/barbearia-clube/" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
+          </div>
         </div>
-      </div>
 
-      <div class="porto-carousel-slide" data-index="2">
-        
-        <div class="porto-img">
-          <img src="portfolio-clinica.webp" alt="Site Clínica Odontológica Curitiba — criado por Gustavo Digital">
-          <div class="porto-overlay">
-            <span class="porto-tag">Clínica · Saúde</span>
-            <h3>Clínica<br>Odontológica</h3>
-            <p>Site premium para clínica odontológica em Curitiba — posicionamento de autoridade, captação de pacientes e SEO local configurado.</p>
-            <div class="porto-results">
-              <span class="porto-result-item">SEO local</span>
-              <span class="porto-result-item">Captação de pacientes</span>
-              <span class="porto-result-item">Design premium</span>
-            </div>
-            <a href="https://guaaparecido980-alt.github.io/Clinica-Dentista/" class="porto-link" target="_blank" rel="noopener noreferrer">
-              Ver site ao vivo →
-            </a>
-          
+        <div class="pc-slide">
+          <div class="pc-img"><img src="portfolio-clinica.webp" alt="Clínica Odontológica" loading="lazy"></div>
+          <div class="pc-info">
+            <span class="pc-tag">Clínica · Saúde</span>
+            <h3 class="pc-title">Clínica Odontológica</h3>
+            <a href="https://guaaparecido980-alt.github.io/Clinica-Dentista/" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
+          </div>
         </div>
-      </div>
 
-      <div class="porto-carousel-slide" data-index="3">
-        
-        <div class="porto-img">
-          <img src="portfolio-ajl.webp" alt="Site AJL Encanamentos Curitiba — criado por Gustavo Digital">
-          <div class="porto-overlay">
-            <span class="porto-tag">Encanamentos · Curitiba</span>
-            <h3>AJL<br>Encanamentos</h3>
-            <p>Site institucional para empresa de hidráulica com 40+ anos de mercado — autoridade, diferenciais e captação de orçamentos.</p>
-            <div class="porto-results">
-              <span class="porto-result-item">SEO local</span>
-              <span class="porto-result-item">Geração de leads</span>
-              <span class="porto-result-item">Design premium</span>
-            </div>
-            <a href="https://ajlencanamentos.com.br" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
-          
+        <div class="pc-slide">
+          <div class="pc-img"><img src="portfolio-ajl.webp" alt="AJL Encanamentos" loading="lazy"></div>
+          <div class="pc-info">
+            <span class="pc-tag">Encanamentos · Curitiba</span>
+            <h3 class="pc-title">AJL Encanamentos</h3>
+            <a href="https://ajlencanamentos.com.br" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
+          </div>
         </div>
-      </div>
 
-      <div class="porto-carousel-slide" data-index="4">
-        
-        <div class="porto-img">
-          <img src="portfolio-chimarrao.webp" alt="Site Borracharia Chimarrão BR-376 — criado por Gustavo Digital">
-          <div class="porto-overlay">
-            <span class="porto-tag">Borracharia · 24h</span>
-            <h3>Borracharia<br>Chimarrão</h3>
-            <p>Site de conversão imediata para borracharia 24h na BR-376 — focado em urgência, localização e chamada direta para o WhatsApp.</p>
-            <div class="porto-results">
-              <span class="porto-result-item">Alta conversão</span>
-              <span class="porto-result-item">Mobile perfeito</span>
-              <span class="porto-result-item">CTAs diretos</span>
-            </div>
-            <a href="https://guaaparecido980-alt.github.io/borracharia-chimarrao/" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
-          
+        <div class="pc-slide">
+          <div class="pc-img"><img src="portfolio-chimarrao.webp" alt="Borracharia Chimarrão" loading="lazy"></div>
+          <div class="pc-info">
+            <span class="pc-tag">Borracharia · 24h</span>
+            <h3 class="pc-title">Borracharia Chimarrão</h3>
+            <a href="https://guaaparecido980-alt.github.io/borracharia-chimarrao/" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
+          </div>
         </div>
-      </div>
 
-      <div class="porto-carousel-slide" data-index="5">
-        
-        <div class="porto-img">
-          <img src="portfolio-maxima.webp" alt="Site Máxima Desentupidora Curitiba — criado por Gustavo Digital">
-          <div class="porto-overlay">
-            <span class="porto-tag">Desentupidora · 24h</span>
-            <h3>Máxima<br>Desentupidora</h3>
-            <p>Site para desentupidora e encanadores 24h em Curitiba — urgência, área de atendimento e captação de chamados via WhatsApp.</p>
-            <div class="porto-results">
-              <span class="porto-result-item">Atendimento 24h</span>
-              <span class="porto-result-item">SEO local</span>
-              <span class="porto-result-item">Design moderno</span>
-            </div>
-            <a href="https://maximadesentupidora.com.br" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
-          
+        <div class="pc-slide">
+          <div class="pc-img"><img src="portfolio-maxima.webp" alt="Máxima Desentupidora" loading="lazy"></div>
+          <div class="pc-info">
+            <span class="pc-tag">Desentupidora · 24h</span>
+            <h3 class="pc-title">Máxima Desentupidora</h3>
+            <a href="https://maximadesentupidora.com.br" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
+          </div>
         </div>
-      </div>
 
-      <div class="porto-carousel-slide" data-index="6">
-        
-        <div class="porto-img">
-          <img src="portfolio-lhm.webp" alt="Site LHM Engenharia Steel Frame Curitiba — criado por Gustavo Digital">
-          <div class="porto-overlay">
-            <span class="porto-tag">Engenharia · Alto padrão</span>
-            <h3>LHM<br>Engenharia</h3>
-            <p>Site premium para construtora de alto padrão em steel frame — posicionamento de autoridade, cases documentados e metodologia exclusiva.</p>
-            <div class="porto-results">
-              <span class="porto-result-item">Alto padrão</span>
-              <span class="porto-result-item">Cases reais</span>
-              <span class="porto-result-item">Autoridade</span>
-            </div>
-            <a href="https://lhmsteelframe.com.br" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
-          
+        <div class="pc-slide">
+          <div class="pc-img"><img src="portfolio-lhm.webp" alt="LHM Engenharia" loading="lazy"></div>
+          <div class="pc-info">
+            <span class="pc-tag">Engenharia · Alto padrão</span>
+            <h3 class="pc-title">LHM Engenharia</h3>
+            <a href="https://lhmsteelframe.com.br" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
+          </div>
         </div>
-      </div>
 
-      <div class="porto-carousel-slide" data-index="7">
-        
-        <div class="porto-img">
-          <img src="portfolio-stank.webp" alt="Site Stank Sociedade de Advogados Curitiba — criado por Gustavo Digital">
-          <div class="porto-overlay">
-            <span class="porto-tag">Advocacia · Curitiba</span>
-            <h3>Stank<br>Advogados</h3>
-            <p>Site institucional premium para sociedade de advogados — posicionamento técnico, conformidade OAB e presença digital de autoridade.</p>
-            <div class="porto-results">
-              <span class="porto-result-item">Conformidade OAB</span>
-              <span class="porto-result-item">Design premium</span>
-              <span class="porto-result-item">Autoridade</span>
-            </div>
-            <a href="https://stankadvocacia.com.br" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
-          
+        <div class="pc-slide">
+          <div class="pc-img"><img src="portfolio-stank.webp" alt="Stank Advogados" loading="lazy"></div>
+          <div class="pc-info">
+            <span class="pc-tag">Advocacia · Curitiba</span>
+            <h3 class="pc-title">Stank Advogados</h3>
+            <a href="https://stankadvocacia.com.br" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
+          </div>
         </div>
-      </div>
 
-      <div class="porto-carousel-slide" data-index="8">
-        
-        <div class="porto-img">
-          <img src="portfolio-wander.webp" alt="Site Wander Aguiar Designer de Interiores Curitiba — criado por Gustavo Digital">
-          <div class="porto-overlay">
-            <span class="porto-tag">Design de Interiores</span>
-            <h3>Wander<br>Aguiar</h3>
-            <p>Site exclusivo para designer de interiores e arquitetura — portfólio visual premium, projetos em destaque e captação de clientes de alto padrão.</p>
-            <div class="porto-results">
-              <span class="porto-result-item">Portfólio visual</span>
-              <span class="porto-result-item">Alto padrão</span>
-              <span class="porto-result-item">Design exclusivo</span>
-            </div>
-            <a href="https://guaaparecido980-alt.github.io/wander-aguiar/" class="porto-link" target="_blank" rel="noopener noreferrer">Ver site ao vivo →</a>
-          
+        <div class="pc-slide">
+          <div class="pc-img"><img src="portfolio-wander.webp" alt="Wander Aguiar" loading="lazy"></div>
+          <div class="pc-info">
+            <span class="pc-tag">Design de Interiores</span>
+            <h3 class="pc-title">Wander Aguiar</h3>
+            <a href="https://guaaparecido980-alt.github.io/wander-aguiar/" class="pc-link" target="_blank" rel="noopener noreferrer">Ver site →</a>
+          </div>
         </div>
-      </div>
 
       </div>
       <div class="porto-carousel-dots" id="portoDots">
-        <div class="porto-dot active" data-dot="0"></div><div class="porto-dot " data-dot="1"></div><div class="porto-dot " data-dot="2"></div><div class="porto-dot " data-dot="3"></div><div class="porto-dot " data-dot="4"></div><div class="porto-dot " data-dot="5"></div><div class="porto-dot " data-dot="6"></div><div class="porto-dot " data-dot="7"></div><div class="porto-dot " data-dot="8"></div>
+        <div class="porto-dot active"></div>
+        <div class="porto-dot"></div>
+        <div class="porto-dot"></div>
+        <div class="porto-dot"></div>
+        <div class="porto-dot"></div>
+        <div class="porto-dot"></div>
+        <div class="porto-dot"></div>
+        <div class="porto-dot"></div>
+        <div class="porto-dot"></div>
       </div>
     </div>
+
 
     <div class="porto-cta reveal">
       <p>Quer um site assim para o seu negócio? <strong>Seu projeto pode ser o próximo aqui.</strong></p>
