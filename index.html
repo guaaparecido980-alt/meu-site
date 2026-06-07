@@ -284,6 +284,15 @@ footer{border-top:1px solid var(--line2);padding:4rem 0 2.5rem}
 .foot-bottom .fl a{font-size:.78rem;color:var(--muted);margin-left:1.4rem;text-decoration:underline;text-underline-offset:3px}
 
 .whats{position:fixed;right:1.5rem;bottom:1.5rem;z-index:850;width:56px;height:56px;border-radius:50%;background:#22c55e;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(34,197,94,.4)}
+#cookie{position:fixed;left:0;right:0;bottom:0;z-index:9500;background:rgba(16,16,19,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:1rem clamp(1.2rem,5vw,4rem);display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;justify-content:center;transform:translateY(120%);transition:transform .5s var(--ease)}
+#cookie.show{transform:translateY(0)}
+#cookie p{font-size:.82rem;color:var(--muted2);max-width:640px;line-height:1.5}
+#cookie a{color:var(--gold);text-decoration:underline}
+.ck-btns{display:flex;gap:.6rem;flex-shrink:0}
+.ck-accept{background:var(--gold);color:var(--ink);border:none;border-radius:50px;padding:.6rem 1.5rem;font-weight:700;font-size:.82rem;cursor:pointer;font-family:var(--sans)}
+.ck-decline{background:transparent;color:var(--muted2);border:1px solid var(--line);border-radius:50px;padding:.6rem 1.2rem;font-size:.82rem;cursor:pointer;font-family:var(--sans)}
+.ck-decline:hover{color:var(--white)}
+@media (max-width:600px){#cookie{padding:1rem}.ck-btns{width:100%}.ck-accept{flex:1}}
 .reveal{opacity:1}
 
 @media (max-width:980px){
@@ -600,6 +609,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="whats" href="https://api.whatsapp.com/send/?phone=5541987095245&text=Olá+Gustavo!+Quero+agendar+um+diagnóstico.&type=phone_number&app_absent=0" target="_blank" rel="noopener" aria-label="WhatsApp" data-cursor>
   <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
+
+<!-- COOKIE BANNER -->
+<div id="cookie">
+  <p>Usamos cookies pra melhorar sua experiência e medir tráfego e anúncios (Google e Meta), conforme a <a href="privacidade.html#cookies">Política de Cookies</a>.</p>
+  <div class="ck-btns">
+    <button class="ck-decline" onclick="ckSet(0)" data-cursor>Recusar</button>
+    <button class="ck-accept" onclick="ckSet(1)" data-cursor>Aceitar</button>
+  </div>
+</div>
+<script>
+function ckSet(v){try{localStorage.setItem('gd_cookie',v?'1':'0');}catch(e){}var c=document.getElementById('cookie');if(c)c.classList.remove('show');}
+(function(){var c=document.getElementById('cookie');if(!c)return;var ok=false;try{ok=!!localStorage.getItem('gd_cookie');}catch(e){}if(!ok)setTimeout(function(){c.classList.add('show');},1400);})();
+</script>
 
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
