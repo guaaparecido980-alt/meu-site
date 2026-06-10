@@ -227,7 +227,10 @@ nav.scrolled{background:rgba(9,9,11,.72);backdrop-filter:blur(16px);-webkit-back
 .work-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:3rem}
 .work-count{font-family:var(--mono);color:var(--muted);font-size:.82rem}
 .work-count b{color:var(--gold)}
-.reel{overflow:hidden;width:100%}
+.reel{overflow-x:auto;overflow-y:hidden;width:100%;cursor:grab;scrollbar-width:none;-ms-overflow-style:none}
+.reel::-webkit-scrollbar{display:none}
+.reel.dragging{cursor:grabbing}
+.reel.dragging .reel-media img{transition:none}
 .reel-track{display:flex;gap:1.4rem;width:max-content;will-change:transform}
 .reel-card{width:clamp(260px,30vw,400px);flex-shrink:0}
 .reel-media{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line2);aspect-ratio:3/4;background:var(--ink2)}
@@ -1037,10 +1040,16 @@ fbq('init','1663375918339077');fbq('track','PageView');
       }});
     });
 
-    var track=document.getElementById('reelTrack'),reel=document.getElementById('reel');
-    if(track&&!TOUCH){
-      gsap.to(track,{x:function(){return -(track.scrollWidth-reel.clientWidth+40);},ease:'none',scrollTrigger:{trigger:'#trabalho',start:'top 55%',end:'+=1400',scrub:1}});
-    }else if(reel){reel.style.overflowX='auto';reel.style.webkitOverflowScrolling='touch';}
+    var reel=document.getElementById('reel');
+    if(reel&&!TOUCH){
+      var dn=false,sx=0,sl=0;
+      reel.addEventListener('pointerdown',function(e){dn=true;sx=e.clientX;sl=reel.scrollLeft;reel.classList.add('dragging');});
+      reel.addEventListener('pointermove',function(e){if(!dn)return;reel.scrollLeft=sl-(e.clientX-sx);});
+      function relUp(){dn=false;reel.classList.remove('dragging');}
+      window.addEventListener('pointerup',relUp);window.addEventListener('pointercancel',relUp);
+      reel.addEventListener('dragstart',function(e){e.preventDefault();});
+      reel.addEventListener('wheel',function(e){if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){reel.scrollLeft+=e.deltaY;e.preventDefault();}},{passive:false});
+    }
 
     window.addEventListener('load',function(){ScrollTrigger.refresh();});
     setTimeout(function(){ScrollTrigger.refresh();},900);
