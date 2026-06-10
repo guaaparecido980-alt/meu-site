@@ -1032,15 +1032,10 @@ fbq('init','1663375918339077');fbq('track','PageView');
       gsap.to(s.words,{color:'#F6F4EF',stagger:.06,ease:'none',scrollTrigger:{trigger:el,start:'top 85%',end:'bottom 60%',scrub:1}});
     });
 
+    // números FIXOS (sem contagem animada — evita qualquer "piscar"/bug ao rolar)
     document.querySelectorAll('.pstat b[data-to]').forEach(function(el){
       var to=parseFloat(el.getAttribute('data-to')),dec=parseInt(el.getAttribute('data-dec')||'0'),pre=el.getAttribute('data-pre')||'',suf=el.getAttribute('data-suf')||'';
-      var done=false;
-      // começa do 0 antes de entrar na tela, pra não "piscar" o valor real
-      el.textContent=pre+(dec?'0,0':'0')+suf;
-      ScrollTrigger.create({trigger:el,start:'top 92%',once:true,onEnter:function(){
-        if(done)return;done=true;
-        var s=0,dur=1500,t0=null;function st(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1);var e=1-Math.pow(1-p,3);var v=s+(to-s)*e;el.textContent=pre+(dec?v.toFixed(dec).replace('.',','):Math.floor(v))+suf;if(p<1)requestAnimationFrame(st);else el.textContent=pre+(dec?to.toFixed(dec).replace('.',','):Math.round(to))+suf;}requestAnimationFrame(st);
-      }});
+      el.textContent=pre+(dec?to.toFixed(dec).replace('.',','):Math.round(to))+suf;
     });
 
     var reel=document.getElementById('reel');
